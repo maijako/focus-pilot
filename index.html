@@ -13,22 +13,23 @@
 </head>
 
 <body id="root">
+    <header class="fixed-top" >
+        <nav class="navbar  shadow-sm navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/default.png" alt="" height="30" class="d-inline-block align-text-top">
+
+                </a>
+                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Right Panel</button>
+            </div>
+        </nav>
+    </header>
 
     <div id="main">
-        <header >
-            <nav class="navbar shadow navbar-light bg-light">
-                <div class="container-fluid">
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/images/default.png" alt="" height="30" class="d-inline-block align-text-top">
-
-                    </a>
-                    <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Right Panel</button>
-                </div>
-            </nav>
-        </header>
+       
         <!-- Right div to contain notifications/ news/ etc... -->
-        <section class="offcanvas offcanvas-end shadow"  tabindex="-1" id="offcanvasRight"
+        <section class="offcanvas offcanvas-end shadow" style="margin-top: 57px;"  tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">News</h5>
@@ -43,7 +44,7 @@
 
         <div id="main-container">
 
-            <section  id="timer-todo-section">
+            <section class="shadow-lg"  id="timer-todo-section">
             
 
 
