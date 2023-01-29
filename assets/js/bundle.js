@@ -1,0 +1,1 @@
+console.error("\nC:\\Users\\dodzi\\source\\repos\\Front-End Developer Bootcamp\\Project Work 1\\focus-pilot\\assets\\js\\script.js:56\n    <div class=\"music-player flex-column\">\r\n    ^\nParseError: Unexpected token");
