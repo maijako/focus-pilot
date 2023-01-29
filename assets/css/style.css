@@ -1,0 +1,64 @@
+ #main {
+    margin-top:57px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
+    display: grid;
+}
+
+#offcanvasRight {
+    background-color: #f8f9fa;
+}
+
+
+
+ #left-over {
+    background-image: url(https://images.unsplash.com/photo-1617709612173-d820eb8b862f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1563&q=80);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+
+   
+ }
+
+ #main-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 500px auto;
+    grid-row: 200px;
+    grid-template-areas: 
+        "left right";
+ }
+
+
+
+ #timer-todo-section {
+    height: 100%;
+    /* border: 2px solid red; */
+    /* border-width: 0px 2px 0px 0px;
+    border-color: grey;
+    border-style: solid; */
+    background-color: #f8f9fa;
+    position: relative;
+    grid-area: left;
+    box-shadow: 0 6rem 0rem rgba(0,0,5,0)!important;
+ }
+  
+
+ #left-over {
+    height: 100%;
+    /* border: 2px solid green; */
+    /* background-color: white; */
+    position: relative;
+    grid-area: right;
+ }
+
+  
+
