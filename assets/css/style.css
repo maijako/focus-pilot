@@ -5,6 +5,7 @@
     top: 0;
     bottom: 0;
     overflow: hidden;
+    display: grid;
 }
 
 
@@ -17,8 +18,38 @@
     left: 0;
     top: 0;
     position: absolute;
+
+   
+ }
+
+ #main-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 500px auto;
+    grid-row: 200px;
+    grid-template-areas: 
+        "left right";
+ }
+
+
+
+ #timer-todo-section {
+    height: 100%;
+    border: 2px solid red;
+    background-color: white;
+    position: relative;
+    grid-area: left;
+    box-shadow: 0 6rem 0rem rgba(0,0,5,0)!important;
  }
   
+
+ #left-over {
+    height: 100%;
+    /* border: 2px solid green; */
+    /* background-color: white; */
+    position: relative;
+    grid-area: right;
+ }
 
   
 

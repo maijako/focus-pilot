@@ -13,39 +13,49 @@
 </head>
 
 <body id="root">
-    
+
     <div id="main">
-        <header>
+        <header >
             <nav class="navbar shadow navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand mx-auto" href="#">
-                        <img src="assets/images/default.png" alt="" height="40" class="d-inline-block align-text-top">
-    
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/images/default.png" alt="" height="30" class="d-inline-block align-text-top">
+
                     </a>
+                    <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Right Panel</button>
                 </div>
             </nav>
         </header>
-        <!-- <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Toggle right offcanvas</button>  -->
+        <!-- Right div to contain notifications/ news/ etc... -->
+        <section class="offcanvas offcanvas-end shadow"  tabindex="-1" id="offcanvasRight"
+            aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">News</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                ...
+            </div>
+        </section>
 
-       <section id="left-section">
+
+        <div id="main-container">
+
+            <section  id="timer-todo-section">
             
-            <div class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-                <div class="offcanvas-header">
-                  <h5 id="offcanvasRightLabel">Offcanvas right</h5>
-                  <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                  ...
-                </div>
-              </div>
 
-        </section>
-        <section id="background-section">
 
-        </section>
-        <section id="right-section">
+            </section>
+            <section id="left-over">
+                
+    
+    
+            </section>
+        </div>
+       
 
-        </section>
 
     </div>
 
