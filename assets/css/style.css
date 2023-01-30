@@ -60,7 +60,42 @@
     grid-area: right;
  }
 
+ /* Adds the common background properties for weather display */
 .weather-display {
-   display: flex;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 
+/* Adds the clear sky background image */
+.clear-sky {
+   background-image: url("https://img.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1094.jpg?size=626&ext=jpg&ga=GA1.1.1223525305.1675029394");
+}
+
+/* Adds the night sky background image */
+.night-sky {
+
+   color: white;
+   background-image: url("https://img.freepik.com/premium-photo/night-with-moon-light_10221-405.jpg?size=626&ext=jpg&ga=GA1.1.1223525305.1675029394&semt=ais");
+
+}
+
+/* Adds the background image for thunderstorm */
+.thunderstorm {
+
+   color: white;
+   background-image: url("https://images.unsplash.com/photo-1536061125439-5ef97c6f95aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDQ0OTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzUxMDQ4MDc&ixlib=rb-4.0.3&q=80&w=400");
+
+}
+
+/* Adds a rainy weather background image */
+.rainy {
+   background-image: url("https://img.freepik.com/free-photo/natural-water-rain-drops-glass-window-abstract-texture-background_640221-159.jpg?w=1060&t=st=1675107177~exp=1675107777~hmac=21e696c774569847e204e6f7c3a3be65e9bbdf92abf2b0c7060533bf3ee735a8");
+}
+
+/* Adds a background image when it snows */
+.snow {
+
+   background-image: url("https://img.freepik.com/premium-vector/christmas-snow-falling-snowflakes-blue-background-snowfall-vector-illustration_302982-1814.jpg?size=626&ext=jpg&ga=GA1.2.1223525305.1675029394&semt=sph");
+
+}
