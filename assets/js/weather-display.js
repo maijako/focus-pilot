@@ -127,6 +127,7 @@ function success(userLocation) {
         } else if(weatherName === "Rain") {
 
             mainWeatherDash.addClass('rainy');
+            // mainWeatherDash.removeClass("text-white")
 
         } else if(weatherName === "Snow") {
 
@@ -135,6 +136,7 @@ function success(userLocation) {
         }else {
 
             mainWeatherDash.addClass('clear-sky');
+            mainWeatherDash.removeClass("text-white")
         }
 
         
