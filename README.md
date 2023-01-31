@@ -1,2 +1,3 @@
-# focus-pilot
-A repository to hold the code for a focus work timer app (working title) with customizable features that aid productivity while keeping the user organized
+# Focus Pilot
+[Focus Pilot](https://maijako.github.io/focus-pilot/) is a work timer app that has customizable features to enhance productivity while keeping the user organised.
+
