@@ -1,101 +1,331 @@
- #main {
-    margin-top:57px;
-    position: fixed;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: grid;
+#main {
+   /* margin-top:57px; */
+   position: fixed;
+   left: 0;
+   right: 0;
+   top: 0;
+   bottom: 0;
+   overflow: hidden;
+   display: grid;
+}
+
+.fa-regular, .fa-solid {
+   font-size: 30px;
+   color: black;
+   opacity: 0.6;
+}
+
+/* .top-100 {
+   top: 100px !important
+} */
+
+/* .top-20 {
+   top: 40px !important
+} */
+
+iframe {
+   width: 300px;
+   height: 150px;
+   position: fixed;
+   right: 0;
+   bottom: 0;
+   transform: translate(0%, 50%);
+   margin: 15px;
 }
 
 #offcanvasRight {
-    background-color: #f8f9fa;
+   background-color: #f8f9fa;
 }
 
 
 
- #left-over {
-    background-image: url(https://images.unsplash.com/photo-1617709612173-d820eb8b862f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1563&q=80);
-    background-position: center;
-    background-size: cover;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    position: absolute;
-
-   
- }
-
- #main-container {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 500px auto;
-    grid-row: 200px;
-    grid-template-areas: 
-        "left right";
- }
-
-
-
- #timer-todo-section {
-    height: 100%;
-    /* border: 2px solid red; */
-    /* border-width: 0px 2px 0px 0px;
-    border-color: grey;
-    border-style: solid; */
-    background-color: #f8f9fa;
-    position: relative;
-    grid-area: left;
-    box-shadow: 0 6rem 0rem rgba(0,0,5,0)!important;
- }
-  
-
- #left-over {
-    height: 100%;
-    /* border: 2px solid green; */
-    /* background-color: white; */
-    position: relative;
-    grid-area: right;
- }
-
- /* Adds the common background properties for weather display */
-.weather-display {
+#main-container {
+   background-image: url(https://images.unsplash.com/photo-1617709612173-d820eb8b862f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1563&q=80);
    background-position: center;
-   background-repeat: no-repeat;
    background-size: cover;
+   width: 100%;
+   height: 100%;
+   left: 0;
+   top: 0;
+   position: absolute;
+
+  
+}
+
+#main-container {
+   height: 100%;
+   display: grid;
+   /* grid-template-columns: 500px auto;
+   grid-row: 200px;
+   grid-template-areas: 
+       "left right"; */
+}
+
+
+
+/* #timer-todo-section {
+   height: 100%;
+   border: 2px solid red;
+   border-width: 0px 2px 0px 0px;
+   border-color: grey;
+   border-style: solid;
+   background-color: #f8f9fa;
+   position: relative;
+   grid-area: left;
+   box-shadow: 0 6rem 0rem rgba(0,0,5,0)!important;
+}
+  */
+
+#left-over {
+   height: 100%;
+   /* border: 2px solid green; */
+   /* background-color: white; */
+   position: relative;
+   grid-area: right;
+}
+
+/* Adds the common background properties for weather display */
+.weather-display {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 /* Adds the clear sky background image */
 .clear-sky {
-   background-image: url("https://img.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1094.jpg?size=626&ext=jpg&ga=GA1.1.1223525305.1675029394");
+  background-image: url("https://img.freepik.com/free-photo/sunshine-clouds-sky-during-morning-background-blue-white-pastel-heaven-soft-focus-lens-flare-sunlight-abstract-blurred-cyan-gradient-peaceful-nature-open-view-out-windows-beautiful-summer-spring_1253-1094.jpg?size=626&ext=jpg&ga=GA1.1.1223525305.1675029394");
 }
 
 /* Adds the night sky background image */
 .night-sky {
 
-   color: white;
-   background-image: url("https://img.freepik.com/premium-photo/night-with-moon-light_10221-405.jpg?size=626&ext=jpg&ga=GA1.1.1223525305.1675029394&semt=ais");
+  color: white;
+  background-image: url("https://img.freepik.com/premium-photo/night-with-moon-light_10221-405.jpg?size=626&ext=jpg&ga=GA1.1.1223525305.1675029394&semt=ais");
 
 }
 
 /* Adds the background image for thunderstorm */
 .thunderstorm {
 
-   color: white;
-   background-image: url("https://images.unsplash.com/photo-1536061125439-5ef97c6f95aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDQ0OTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzUxMDQ4MDc&ixlib=rb-4.0.3&q=80&w=400");
+  color: white;
+  background-image: url("https://images.unsplash.com/photo-1536061125439-5ef97c6f95aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=Mnw0MDQ0OTh8MHwxfHJhbmRvbXx8fHx8fHx8fDE2NzUxMDQ4MDc&ixlib=rb-4.0.3&q=80&w=400");
 
 }
 
 /* Adds a rainy weather background image */
 .rainy {
-   background-image: url("https://img.freepik.com/free-photo/natural-water-rain-drops-glass-window-abstract-texture-background_640221-159.jpg?w=1060&t=st=1675107177~exp=1675107777~hmac=21e696c774569847e204e6f7c3a3be65e9bbdf92abf2b0c7060533bf3ee735a8");
+  background-image: url("https://img.freepik.com/free-photo/natural-water-rain-drops-glass-window-abstract-texture-background_640221-159.jpg?w=1060&t=st=1675107177~exp=1675107777~hmac=21e696c774569847e204e6f7c3a3be65e9bbdf92abf2b0c7060533bf3ee735a8");
 }
 
 /* Adds a background image when it snows */
 .snow {
 
-   background-image: url("https://img.freepik.com/premium-vector/christmas-snow-falling-snowflakes-blue-background-snowfall-vector-illustration_302982-1814.jpg?size=626&ext=jpg&ga=GA1.2.1223525305.1675029394&semt=sph");
+  background-image: url("https://img.freepik.com/premium-vector/christmas-snow-falling-snowflakes-blue-background-snowfall-vector-illustration_302982-1814.jpg?size=626&ext=jpg&ga=GA1.2.1223525305.1675029394&semt=sph");
 
+}
+
+
+
+
+/* --------------- */
+
+
+/* #mainWeatherDash {
+   display: none
+} */
+
+#currentDateTime {
+   /* top: 45px !important; */
+   font-size: 13px;
+   font-weight: 500;
+   background-color: rgba(255, 255, 255, 0.537);
+   padding: 5px;
+   border-radius: 6px;
+   margin: 10px 10px 10px 10px;
+}
+
+#fullScreenButton {
+   background-color: rgba(255, 255, 255, 0.537) !important;
+   font-size: 20px !important;
+}
+
+#mainWeatherDash {
+   border-radius: 15px;
+   top: 60px !important;
+   border: 1px solid black;
+   /* background-color: #5bc1e9;
+   background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #5bc1e9 23px), repeating-linear-gradient(#87CEEB55, #87CEEB); */
+   display: grid;
+}
+
+
+
+#navbarSupportedContent {
+   flex-grow: unset;
+}
+
+#locationInfo {
+   position: relative;
+   grid-area: locationInfo;
+   font-family: 'Montserrat', sans-serif;
+}
+
+#mainWeatherForecast {
+   position: relative;
+   grid-area: mainWeatherForecast;
+}
+
+
+
+#temperature {
+   position: relative;
+   grid-area: "mainInfo";
+   font-size: 30px;
+   font-weight: 500;
+   padding: 0px 0px 0px 0px;
+   margin: 0px 0px 0px 0px;
+}
+
+
+ #mainDescription,
+#secondaryDescription,
+#weatherDateTime {
+   font-size: 12px;
+}
+
+#additionalInfo {
+   font-size: 12px;
+}
+
+
+
+
+
+.forecastWeatherDate {
+   font-size: 0.9rem;
+   font-weight: lighter;
+}
+.humidityContainer, .windContainer {
+   font-size: 10px;
+}
+
+#search-button {
+   font-family: 'Montserrat', sans-serif;
+}
+
+.forecastWeatherSplitLine {
+   background-color: grey;
+   opacity: 30%;
+}
+
+p.forecastTemp {
+   font-size: 19px !important;
+   font-weight: normal;
+}
+
+
+#locationName {
+   font-size: 15px;
+   font-weight: 500;
+   margin-bottom: 0px !important;
+   font-family: 'Montserrat', sans-serif;
+}
+
+
+#mainWeatherImage {
+   width: 50px;
+   align-items: center;
+   margin-left: 5px;
+   /* margin-bottom: 20px; */
+}
+
+.image-container {
+   display: flex;
+   align-items: center;
+ }
+
+ .image-container  img {
+   align-self: center;
+ }
+
+
+
+
+#temperatureUnit {
+   font-size: 16px;
+}
+
+
+
+/* Extra small devices (phones, 300px and down) */
+@media only screen and (max-width: 300px)  {
+ 
+   #mainWeatherDash {
+       display: grid;
+       grid-template-columns: auto;
+       grid-template-rows: "auto";
+       grid-template-areas:
+           "mainWeatherForecast"
+           "locationInfo"
+   }
+}
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) and (min-width : 301px) {
+
+
+   #mainWeatherDash {
+       display: grid;
+       grid-template-columns: auto;
+       grid-template-rows: "auto";
+       grid-template-areas:
+           "mainWeatherForecast"
+           "locationInfo"
+   }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  
+
+   #mainWeatherDash {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: "auto";
+      grid-template-areas:
+          "mainWeatherForecast"
+          "locationInfo"
+  }
+}
+
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+
+   #mainWeatherDash {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: "auto";
+      grid-template-areas:
+          "mainWeatherForecast"
+          "locationInfo"
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
+   #mainWeatherDash {
+      display: grid;
+      grid-template-columns: auto;
+      grid-template-rows: "auto";
+      grid-template-areas:
+          "mainWeatherForecast"
+          "locationInfo"
+  }
+
+  
 }

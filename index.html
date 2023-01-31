@@ -5,7 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2854167f15.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
     <link rel="icon" href="./assets/images/logo.png">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -13,7 +18,7 @@
 </head>
 
 <body id="root">
-    <header class="fixed-top" >
+    <!-- <header class="fixed-top">
         <nav class="navbar  shadow-sm navbar-light bg-light">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -24,12 +29,27 @@
                     data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Right Panel</button>
             </div>
         </nav>
-    </header>
+    </header> -->
 
     <div id="main">
-       
+
+
+
         <!-- Right div to contain notifications/ news/ etc... -->
-        <section class="offcanvas offcanvas-end shadow" style="margin-top: 57px;"  tabindex="-1" id="offcanvasRight"
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
+            id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Set Timer</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>...</p>
+            </div>
+        </div>
+
+        <section class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasRight"
             aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
                 <h5 id="offcanvasRightLabel">News</h5>
@@ -42,39 +62,127 @@
         </section>
 
 
-        <div id="main-container">
+        <div id="main-container" class="position-relative">
+            <a class="navbar-brand position-absolute top-0 start-50 translate-middle-x" href="#">
+                <img src="assets/images/default.png" alt="" height="40" class="d-inline-block align-text-top">
 
+            </a>
+
+
+            <!-- <p id="currentDateTime" class="pl-0 d-inline position-absolute top-0 start-50 translate-middle-x"></p> -->
+
+
+
+            <div id="weatherContainer" class="d-none shadow-lg" >
+                <div id="mainWeatherDash" class=" p-2 text-center text-white  position-absolute  start-50 translate-middle-x">
+                    <div>
+                        <p id="currentDateTime" class="pl-0"></p>
+                    </div>
+                    <div class="d-flex h-100 mr-2 mx-auto" id="mainWeatherForecast">
+                        <div id="" class="justify-content-center align-self-center image-container ml-sm-3">
+    
+                            <p class="d-inline" id="temperature"></p><span id="temperatureUnit"
+                                class="d-inline mr-3">°C</span>
+                            <img id="mainWeatherImage" class="d-inline" >
+                        </div>
+                    </div>
+                    <div id="locationInfo" class="">
+                        <p id="locationName" class=""></p>
+                        <div id="descriptionDash" class="font-weight-bold mb-2">
+                            <p id="mainDescription" class="px-0 col-6 d-inline"></p>
+                            <p id="secondaryDescription" class="px-0 col-6 d-inline"></p>
+                        </div>
+    
+                        <hr style="margin-top: 8px; margin-bottom: 10px; color: black;">
+                        <div id="additionalInfo" class="d-inline">
+                            <p class="py-1 px-2 mt-0 mb-0 d-inline">Feels
+                                like: <span id="feelLikeValue"></span></p>
+    
+                            <p class="py-1 px-2 mt-0 mb-0 d-inline">Wind:
+                                <span id="windValue"></span>
+                            </p>
+    
+                            <p class="py-1 px-2 mt-0 mb-0 d-inline">Humidity:
+                                <span id="humidityValue"></span>
+                            </p>
+                        </div>
+    
+    
+                    </div>
+                </div>
+            </div>
+          
+
+            <!-- <button class="btn btn-sm btn-outline-primary position-absolute top-0 start-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Enable body scrolling</button> -->
+
+            <button class="btn position-absolute top-0 start-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling"><i
+                    class="fa-regular fa-circle-right"></i></button>
+
+            <button class="btn position-absolute top-0 end-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"><i
+                    class="fa-regular fa-circle-left"></i></button>
+
+            <button class="btn position-absolute bottom-0 start-0 p-1 m-2" id="fullScreenButton" type="button">
+                <i id="setFullScreen" class="fa-solid fa-expand"></i>
+
+            </button>
+
+            <!-- <button class=" btn position-absolute bottom-0 start-0" id="exitFullScreenButton" type="button">
+               
+                <i  class="fa-solid fa-compress"></i>
+            </button> -->
+
+
+
+
+
+            <!-- <div class="" id="date-weather-display"></div> -->
+            <!-- 
             <section class="shadow-lg"  id="timer-todo-section">
             
 
 
-            </section>
-            <section id="left-over">
+            </section> -->
+            <!-- <section id="left-over">
                 
-                <div id="date-weather-display"></div>
+                
     
-            </section>
+            </section> -->
+
+            <div class="shadow
+            " id="embed-iframe"></div>
         </div>
-       
+
 
 
     </div>
 
 
 
+
+
+
+
     <!-- <script src="./assets/js/script.js"></script> -->
-    
+
 
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <!-- jQuery -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 
     <script src="assets/js/weather-display.js"></script>
+    <script src="assets/js/spotify.js"></script>
+    <script src="assets/js/script.js"></script>
+
     <!-- <script src="assets/js/background-image.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
+    <script src="https://open.spotify.com/embed-podcast/iframe-api/v1" async>
+    </script>
 </body>
 
 </html>
