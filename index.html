@@ -110,10 +110,16 @@
                     <div class="col-12 mt-4">
                         <h6 class="mx-auto mb-0" id="offcanvasScrollingLabel">To-do</h6>
                         <small class="my-0">Create and assign task to your time block. Uncompleted task will be available for for the next time block</span>
+                            <!-- form fields to render to do list -->
+                            <div class="todos">
+                                <form id="todo-form" method="POST">
+                                  <input type="text" placeholder="Add a task" name="todo-text" id="todo-text" />
+                                </form>
+                                <p>Task count: <span id="todo-count">0</span></p>
+                                <ul id="todo-list"></ul>
+                                </div>
+                            <!-- form fields end here -->
                     </div>
-                    
-                    
-
                 </div>
             </div>
         </div>
