@@ -15,13 +15,6 @@
    opacity: 0.6;
 }
 
-/* .top-100 {
-   top: 100px !important
-} */
-
-/* .top-20 {
-   top: 40px !important
-} */
 
 iframe {
    width: 300px;
@@ -33,8 +26,8 @@ iframe {
    margin: 15px;
 }
 
-#offcanvasRight {
-   background-color: #f8f9fa;
+.offcanvas {
+   background-color: rgba(255, 255, 255, 0.5) !important;
 }
 
 
@@ -50,6 +43,10 @@ iframe {
    position: absolute;
 
   
+}
+
+.inputLabel {
+   font-size: 14px;
 }
 
 #main-container {
@@ -152,12 +149,15 @@ iframe {
 #mainWeatherDash {
    border-radius: 15px;
    top: 60px !important;
-   border: 1px solid black;
    /* background-color: #5bc1e9;
    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #5bc1e9 23px), repeating-linear-gradient(#87CEEB55, #87CEEB); */
    display: grid;
 }
 
+small{
+   font-size: 12px !important;
+   color: rgb(67, 62, 62);
+}
 
 
 #navbarSupportedContent {
@@ -268,7 +268,11 @@ p.forecastTemp {
            "mainWeatherForecast"
            "locationInfo"
    }
+
+  
+   
 }
+
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -283,6 +287,8 @@ p.forecastTemp {
            "mainWeatherForecast"
            "locationInfo"
    }
+
+   
 }
 
 
@@ -298,6 +304,8 @@ p.forecastTemp {
           "mainWeatherForecast"
           "locationInfo"
   }
+
+  
 }
 
 
