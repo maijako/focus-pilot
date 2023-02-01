@@ -1,3 +1,11 @@
+$("document").on(function () {
+  
+});
+
+$("document").ready(function () {
+  console.log("console left button")
+  $("#leftPanelButton").trigger("click");
+});
 
 
 /* Get the documentElement (<html>) to display the page in fullscreen */

@@ -152,7 +152,7 @@ iframe {
 #mainWeatherDash {
    border-radius: 15px;
    top: 60px !important;
-   /* border: 1px solid black; */
+   border: 1px solid black;
    /* background-color: #5bc1e9;
    background-image: repeating-radial-gradient(circle at 0 0, transparent 0, #5bc1e9 23px), repeating-linear-gradient(#87CEEB55, #87CEEB); */
    display: grid;
