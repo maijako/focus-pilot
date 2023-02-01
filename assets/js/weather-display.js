@@ -1,4 +1,5 @@
-var APIKey = "e80fb51109675d7a9bc4ed534b97b3ae";
+//let APIKey = "7346f2f976dfac403985b13d4b581099";
+let weatherAPIKey = "e80fb51109675d7a9bc4ed534b97b3ae";
 var displayEl = $('#date-weather-display');
 var today = moment();
 
@@ -65,7 +66,7 @@ function success(userLocation) {
     var latitude = userLocation.coords.latitude;
     var longitude = userLocation.coords.longitude;
 
-    var queryURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&appid="+APIKey;
+    let queryURL = "https://api.openweathermap.org/data/2.5/weather?lat="+latitude+"&lon="+longitude+"&appid="+weatherAPIKey;
 
     // API call is made to get the weather details of the current location
     $.ajax({

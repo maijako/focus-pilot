@@ -1,12 +1,9 @@
-var APIKey = "_shkc_WoF1uFPCk9-boMYxLfQby8frq2QBtIvl5W5oc";
-// queryURL = "https://api.unsplash.com/topics/?client_id="+APIKey;
-//var queryURL = "https://api.unsplash.com/photos/random/?query=thunderstorm&client_id="+APIKey;
-// queryURL = "https://api.unsplash.com/collections/?client_id="+APIKey;
-//queryURL = "https://api.unsplash.com/collections/1298463/related/?client_id="+APIKey;
+let imageAPIKey = "_shkc_WoF1uFPCk9-boMYxLfQby8frq2QBtIvl5W5oc";
 
-var queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_page=25&client_id="+APIKey;
+let queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_page=24&client_id="+imageAPIKey;
 
-var imageGroupEl = $('#timer-todo-section');
+var mainContainerEl = $('#main-container');
+var imageList = [];
 
 $.ajax({
 
@@ -19,23 +16,39 @@ $.ajax({
     let resultList = response.results;
 
     $.each(resultList, function (i, val) { 
-         let photoList = val.preview_photos;
-         $.each(photoList, function (i, photo) { 
-            //  console.log(photo.urls.thumb);
+        let excludeIDList = ["10048862", "9744402"];
+        
+        let imageObject = {
+            imageID : val.id,
+            image : val.cover_photo.urls.regular,
+            createdAt : val.cover_photo.created_at,
+            updatedAt : val.cover_photo.updated_at,
+            userName : val.cover_photo.user.name,
+            userLocation : val.cover_photo.user.location
+        };
 
-            let imageEl = $('<img>');
-            imageEl.attr('src', photo.urls.thumb);
-            imageGroupEl.append(imageEl);
-         });
+        if(!excludeIDList.includes(imageObject.imageID)){
+            imageList.push(imageObject);
+        }
     });
 
-
-
-    // $.each(response, function (i, val) { 
-    //     let imageEl = $('<img>');
-    //     imageEl.attr('src', val.urls.thumb);
-    //     imageGroupEl.append(imageEl);
-         
-    // });
-
 });
+
+var i=0;
+
+setInterval(() => {
+
+    let imgObj = imageList[i];
+    mainContainerEl.css('background-image', 'url('+imgObj.image+')');
+    console.log("Index value: "+i+" ----------------------");
+    console.log("ID: "+imgObj.imageID);
+    console.log("User Name: "+imgObj.userName);
+    console.log("Created: "+imgObj.createdAt);
+
+    i++;
+    console.log("Image List Length: "+imageList.length);
+    if(imageList.length === i){
+        i=0;
+    }
+
+}, 5000);
