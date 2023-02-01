@@ -1,6 +1,6 @@
-var APIKey = "_shkc_WoF1uFPCk9-boMYxLfQby8frq2QBtIvl5W5oc";
+let imageAPIKey = "_shkc_WoF1uFPCk9-boMYxLfQby8frq2QBtIvl5W5oc";
 
-var queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_page=24&client_id="+APIKey;
+let queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_page=24&client_id="+imageAPIKey;
 
 var mainContainerEl = $('#main-container');
 var imageList = [];
