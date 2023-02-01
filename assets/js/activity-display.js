@@ -1,15 +1,3 @@
-//Reference HTML
-<div class="todos">
-<form id="todo-form" method="POST">
-  <label for="todo-text">Add a Todo:</label>
-  <input type="text" placeholder="What needs to be done?" name="todo-text" id="todo-text" />
-</form>
-<p>Todo Count: <span id="todo-count">0</span></p>
-<ul id="todo-list"></ul>
-</div>
-//_______________________________________________________
-
-
 //Code for the appendable 'to do' list
 var todoInput = $("#todo-text");
 var todoForm = $("#todo-form");
