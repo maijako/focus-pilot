@@ -255,6 +255,36 @@ p.forecastTemp {
    font-size: 16px;
 }
 
+#countdownTimer {
+   font-size: 9em;
+   color: rgba(75, 69, 69, 0.742);
+   font-family: 'Open Sans', sans-serif !important;
+}
+
+#countdownTimerContainer {
+   width: auto;
+   background-color: rgba(255, 255, 255, 0.7) !important;
+   padding: 20px;
+   border-radius: 20px;
+   transition: transform .2s;
+}
+
+#additionalTimerInfo {
+   background-color: rgba(255, 255, 255, 0.7) !important;
+   border-radius: 20px;
+   padding: 10px;
+   font-size: 14px;
+   font-weight: 500;
+   margin-bottom: 0px !important;
+   font-family: 'Montserrat', sans-serif;
+}
+
+#countdownTimerContainer :hover{
+   transform: scale(1.025);
+   cursor: pointer;
+   transition: transform .2s;
+}
+
 
 
 /* Extra small devices (phones, 300px and down) */
