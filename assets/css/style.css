@@ -32,7 +32,7 @@ iframe {
 
 
 
-#main-container {
+#main-background {
    background-image: url(https://images.unsplash.com/photo-1617709612173-d820eb8b862f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1563&q=80);
    background-position: center;
    background-size: cover;
@@ -41,21 +41,15 @@ iframe {
    left: 0;
    top: 0;
    position: absolute;
-
-  
 }
+
+
+
+
+
 
 .inputLabel {
    font-size: 14px;
-}
-
-#main-container {
-   height: 100%;
-   display: grid;
-   /* grid-template-columns: 500px auto;
-   grid-row: 200px;
-   grid-template-areas: 
-       "left right"; */
 }
 
 
@@ -284,6 +278,7 @@ p.forecastTemp {
    cursor: pointer;
    transition: transform .2s;
 }
+
 
 
 
