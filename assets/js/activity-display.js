@@ -1,27 +1,86 @@
-//Starter code for pomodoro timer 
-var userWorkTime = $("#pomodoroTimer").val();
-
-
-
-var timeDisplay = $("#countdownTimer");
-startTime = moment(userWorkTime+':00', 'mm:ss');
-
-var pomodoroInterval;
-//Code to set countdown timer
+//code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
-  console.log(startTime.format('mm:ss'));
-console.log(startTime)
+  var workMinutes = parseInt($("#pomodoroTimer").val());
+  var shortBreak = parseInt($("#shortBreak").val());
+  var longBreak = parseInt($("#longBreak").val());
+  var timeDisplay = $("#countdownTimer");
+  var nextText = $("#whatsNext");
+  var workDuration = moment.duration(workMinutes, 'minutes');
+  var shortBreakDuration = moment.duration(shortBreak, 'minutes');
+  var longBreakDuration = moment.duration(longBreak, 'minutes');
+  var interval = 1000;
+  var pomodoroInterval;
+//a condition to display time in HH:MM:SS format if user enters a value over 60 minutes
+  if (workMinutes >= 60) {
+    hourPomodoro();
+  }
+//timer interval function for the work block
 
-
-  pomodoroInterval = setInterval(() => {
-    startTime.subtract(1, 'seconds');
-    timeDisplay.text(startTime.format('mm:ss'));
-    if (startTime.format('mm:ss') === '00:00') {
+  pomodoroInterval = setInterval(function(){
+    workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
+      if (workDuration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
+        shortBreakStart();
+      } else {
+        var minutes = workDuration.minutes();
+        var seconds = workDuration.seconds();
+        timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+        nextText.text("Short Break ("+shortBreak+" min)");
+      }
+  }, interval);
+
+  function hourPomodoro(){
+      duration = moment.duration(workMinutes, 'minutes').asHours();
+      duration = moment.duration(workDuration, 'hours');
+      var hours = workDuration.hours();
+      var minutes = workDuration.minutes();
+      var seconds = workDuration.seconds();
+      timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+      nextText.text("Short Break ("+shortBreak+" min)");
     }
-  }, 1000);
+
+  function shortBreakStart(){
+    shortBreakInterval = setInterval(function(){
+      shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
+        if (shortBreakDuration.asMilliseconds() < 0) {
+          clearInterval(shortBreakInterval);
+          // FUNCTION TO START RUNNING MAIN POMODORO TIMER AGAIN IF IT HAS RUN LESS THAN 4 TIMES
+          longBreakStart();//placeholder function call for testing purposes
+        } else {
+          var minutes = shortBreakDuration.minutes();
+          var seconds = shortBreakDuration.seconds();
+          timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+          nextText.text("Work block ("+workMinutes+" min)");
+        }
+    }, interval);
+  }
+
+  function longBreakStart(){
+    longBreakInterval = setInterval(function(){
+      longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
+        if (longBreakDuration.asMilliseconds() < 0) {
+          clearInterval(longBreakInterval);
+          // FUNCTION TO START RUNNING MAIN POMODORO TIMER AGAIN FROM THE BEGINNING
+        } else {
+          var minutes = longBreakDuration.minutes();
+          var seconds = longBreakDuration.seconds();
+          timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+          nextText.text("Work block ("+workMinutes+" min)");
+        }
+    }, interval);
+  }
 });
+
+
+
+
+
+
+
+
+
+
 
 
 
