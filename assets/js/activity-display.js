@@ -8,15 +8,21 @@ $("#startPomodoroTimer").on("click", function(evt){
   var interval = 1000;
   var pomodoroInterval;
 
+  if (workMinutes >= 60) {
+    duration = moment.duration(workMinutes, 'minutes').asHours();
+    duration = moment.duration(duration, 'hours');
+  }
+
   pomodoroInterval = setInterval(function(){
     duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
       if (duration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
         // timeDisplay.innerHTML = "Time's up!";
       } else {
+        var hours = duration.hours();
         var minutes = duration.minutes();
         var seconds = duration.seconds();
-        timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+        timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
       }
   }, interval);
 });
