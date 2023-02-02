@@ -1,20 +1,23 @@
 //Starter code for pomodoro timer
-var workMinutes = parseInt($("#pomodoroTimer").val())
-var duration = moment.duration(workMinutes * 1000, 'milliseconds');
-var timeDisplay = $("#countdownTimer");
-var interval = 1000;
-var sec = 60;
-var pomodoroInterval;
-//checking that workMinutes value is a number
-console.log(typeof workMinutes);
 
-//Code to set countdown timer
+
+//code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
+  var workMinutes = parseInt($("#pomodoroTimer").val())
+  var timeDisplay = $("#countdownTimer");
+  var duration = moment.duration(workMinutes, 'minutes');
+  var interval = 1000;
+  var pomodoroInterval;
   pomodoroInterval = setInterval(function(){
     duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
-    //show how many hours, minutes and seconds are left
-    timeDisplay.text(moment(duration.asMilliseconds()).format('mm:ss'));
+    
+    if (duration.asMilliseconds() < 0) {
+      clearInterval(pomodoroInterval);
+      // timeDisplay.innerHTML = "Time's up!";
+    } else {
+      timeDisplay.text(duration.minutes() + ':' + duration.seconds());
+    }
   }, interval);
 });
 
