@@ -1,27 +1,44 @@
-//Starter code for pomodoro timer 
-var userWorkTime = $("#pomodoroTimer").val();
-
-
-
+//Starter code for pomodoro timer
+var workMinutes = parseInt($("#pomodoroTimer").val())
+var duration = moment.duration(workMinutes * 1000, 'milliseconds');
 var timeDisplay = $("#countdownTimer");
-startTime = moment(userWorkTime+':00', 'mm:ss');
-
+var interval = 1000;
+var sec = 60;
 var pomodoroInterval;
+//checking that workMinutes value is a number
+console.log(typeof workMinutes);
+
 //Code to set countdown timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
-  console.log(startTime.format('mm:ss'));
-console.log(startTime)
-
-
-  pomodoroInterval = setInterval(() => {
-    startTime.subtract(1, 'seconds');
-    timeDisplay.text(startTime.format('mm:ss'));
-    if (startTime.format('mm:ss') === '00:00') {
-        clearInterval(pomodoroInterval);
-    }
-  }, 1000);
+  pomodoroInterval = setInterval(function(){
+    duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+    //show how many hours, minutes and seconds are left
+    timeDisplay.text(moment(duration.asMilliseconds()).format('mm:ss'));
+  }, interval);
 });
+
+
+
+// var pomodoroInterval;
+// $("#startPomodoroTimer").on("click", function(evt){
+//   evt.preventDefault();
+//   console.log(startTime.format('mm:ss'));
+// console.log(startTime)
+
+
+//   pomodoroInterval = setInterval(() => {
+//     startTime.subtract(1, 'seconds');
+//     timeDisplay.text(startTime.format('mm:ss'));
+//     if (startTime.format('mm:ss') === '00:00') {
+//         clearInterval(pomodoroInterval);
+//     }
+//   }, 1000);
+// });
+
+
+
+
 
 
 
