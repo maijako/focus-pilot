@@ -129,7 +129,7 @@
                     aria-label="Close"></button>
             </div> -->
             <div class="offcanvas-body p-0">
-                <div class="pt-0" id="tabs" >
+                <div class="pt-0" id="tabs">
                     <ul>
                         <li><a class="fs-5" href="#tabs-1"> <img src="assets/images/light-bulb.png" alt="Ideas"
                                     height="25" class="d-inline-block align-text-top"> Suggestions</a></li>
@@ -138,102 +138,187 @@
 
                     </ul>
                     <div id="tabs-1">
-                        <h6 class="right-panel-heading text-center">Some suggestions for you.</h6>
+                        <h6 class="right-panel-heading text-center">Some things you can do during your break.</h6>
                         <div id="suggestions">
-                            <!-- INJECT SUGGESTIONS CARDS HERE -->
-                            ....
+
+                            <div id="suggestion-cards" class="row row-cols-1 row-cols-md-2 g-3">
+                                <!-- INJECT SUGGESTIONS CARDS HERE USING JAVASCRIPT/JQUERY-->
+                                <a class="suggestions-link" href="#">
+                                    <div class="col">
+                                        <div class="card">
+                                            <img src="https://cdn.sivanaspirit.com/wp-content/uploads/2017/06/04084852/un-29.jpg"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Try some yoga!</h5>
+                                                <p class="card-text">This is a longer card with supporting text below as
+                                                    a natural lead-in to additional content. This content is a little
+                                                    bit longer.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="suggestions-link" href="#">
+                                    <div class="col">
+                                        <div class="card">
+                                            <img src="https://th.bing.com/th/id/R.6206a8b5723e1295e343195e29ed6de9?rik=kLCm3p9FTDJUAg&pid=ImgRaw&r=0"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Meditation</h5>
+                                                <p class="card-text">This is a longer card with supporting text below as
+                                                    a natural lead-in to additional content. This content is a little
+                                                    bit longer.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a class="suggestions-link" href="#">
+                                    <div class="col">
+                                        <div class="card">
+                                            <img src="https://res.cloudinary.com/vax2/image/upload/c_scale,w_448,h_248,dpr_2/f_auto,q_auto/v1653588423/Work-From-Home-Office-Image-For-Blog-1.jpg?_i=AA"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">Tidy up your work space</h5>
+                                                <p class="card-text">This is a longer card with supporting text below as
+                                                    a natural lead-in to additional content.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+
+
+
+                            </div>
                         </div>
                     </div>
                     <div id="tabs-2">
                         <h6 class="right-panel-heading text-center">Here's the latest news from the last hour...</h6>
 
-                        <div id="latest-news" >
-                            <!-- INJECT NEWS CARDS HERE -->
-                            <div class="row">
-                                <a href="#" class="news-link" style="text-decoration: none;">
-                                    <div class="card shadow-sm mb-3">
-                                        <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img src="assets/images/news.png" class="img-fluid rounded-start p-4"
-                                                    alt="...">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Lorem ipsum dolor ...</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below
-                                                        as a natural lead-in to additional content. This content is a
-                                                        little bit longer.</p>
-                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                                            ago</small></p>
-                                                </div>
-                                            </div>
+                        <div id="latest-news">
+                            <!-- INJECT NEWS CARDS HERE USING JAVASCRIPT/JQUERY  -->
+                            <div class="row row-cols-1 row-cols-md-2 g-3">
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">The quick brown fox jumps over the lazy dog.</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Entertainment</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
                                         </div>
                                     </div>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Science</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
+                                    </div>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Finance</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
+                                    </div>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Entertainment</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
+                                    </div>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Science</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
+                                    </div>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Finance</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
+                                    </div>
+
                                 </a>
 
 
-                                <a href="#" class="news-link" style="text-decoration: none;">
-                                    <div class="card shadow-sm mb-3">
-                                        <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img src="assets/images/news.png" class="img-fluid rounded-start p-4"
-                                                    alt="...">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Lorem ipsum dolor ...</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below
-                                                        as a natural lead-in to additional content. This content is a
-                                                        little bit longer.</p>
-                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                                            ago</small></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
 
-                                <a href="#" class="news-link" style="text-decoration: none;">
-                                    <div class="card shadow-sm mb-3">
-                                        <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img src="assets/images/news.png" class="img-fluid rounded-start p-4"
-                                                    alt="...">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Lorem ipsum dolor ...</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below
-                                                        as a natural lead-in to additional content. This content is a
-                                                        little bit longer.</p>
-                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                                            ago</small></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-
-                                <a href="#" class="news-link" style="text-decoration: none;">
-                                    <div class="card shadow-sm mb-3">
-                                        <div class="row g-0">
-                                            <div class="col-md-4">
-                                                <img src="assets/images/news.png" class="img-fluid rounded-start p-4"
-                                                    alt="...">
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Lorem ipsum dolor ...</h5>
-                                                    <p class="card-text">This is a wider card with supporting text below
-                                                        as a natural lead-in to additional content. This content is a
-                                                        little bit longer.</p>
-                                                    <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                                            ago</small></p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
                             </div>
                         </div>
                     </div>
