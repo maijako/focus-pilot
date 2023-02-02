@@ -1,4 +1,3 @@
-
 //code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
@@ -6,6 +5,7 @@ $("#startPomodoroTimer").on("click", function(evt){
   var shortBreak = parseInt($("#shortBreak").val());
   var longBreak = parseInt($("#longBreak").val());
   var timeDisplay = $("#countdownTimer");
+  var nextText = $("#whatsNext");
   var workDuration = moment.duration(workMinutes, 'minutes');
   var shortBreakDuration = moment.duration(shortBreak, 'minutes');
   var longBreakDuration = moment.duration(longBreak, 'minutes');
@@ -26,6 +26,7 @@ $("#startPomodoroTimer").on("click", function(evt){
         var minutes = workDuration.minutes();
         var seconds = workDuration.seconds();
         timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+        nextText.text("Short Break ("+shortBreak+" min)");
       }
   }, interval);
 
@@ -36,7 +37,8 @@ $("#startPomodoroTimer").on("click", function(evt){
       var minutes = workDuration.minutes();
       var seconds = workDuration.seconds();
       timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
-  }
+      nextText.text("Short Break ("+shortBreak+" min)");
+    }
 
   function shortBreakStart(){
     shortBreakInterval = setInterval(function(){
@@ -49,6 +51,7 @@ $("#startPomodoroTimer").on("click", function(evt){
           var minutes = shortBreakDuration.minutes();
           var seconds = shortBreakDuration.seconds();
           timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+          nextText.text("Work block ("+workMinutes+" min)");
         }
     }, interval);
   }
@@ -63,6 +66,7 @@ $("#startPomodoroTimer").on("click", function(evt){
           var minutes = longBreakDuration.minutes();
           var seconds = longBreakDuration.seconds();
           timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+          nextText.text("Work block ("+workMinutes+" min)");
         }
     }, interval);
   }
