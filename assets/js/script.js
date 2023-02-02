@@ -21,6 +21,8 @@ $("#timerForm").submit(function (event) {
   event.preventDefault();
 })
 
+$("#tabs").tabs();
+
 
 //Resize window event listener
 $(window).resize(function () {
