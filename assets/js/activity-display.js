@@ -1,5 +1,3 @@
-//Starter code for pomodoro timer
-
 
 //code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
@@ -9,15 +7,17 @@ $("#startPomodoroTimer").on("click", function(evt){
   var duration = moment.duration(workMinutes, 'minutes');
   var interval = 1000;
   var pomodoroInterval;
+
   pomodoroInterval = setInterval(function(){
     duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
-    
-    if (duration.asMilliseconds() < 0) {
-      clearInterval(pomodoroInterval);
-      // timeDisplay.innerHTML = "Time's up!";
-    } else {
-      timeDisplay.text(duration.minutes() + ':' + duration.seconds());
-    }
+      if (duration.asMilliseconds() < 0) {
+        clearInterval(pomodoroInterval);
+        // timeDisplay.innerHTML = "Time's up!";
+      } else {
+        var minutes = duration.minutes();
+        var seconds = duration.seconds();
+        timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+      }
   }, interval);
 });
 
