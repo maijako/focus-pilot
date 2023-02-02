@@ -9,8 +9,7 @@ $("#startPomodoroTimer").on("click", function(evt){
   var pomodoroInterval;
 
   if (workMinutes >= 60) {
-    duration = moment.duration(workMinutes, 'minutes').asHours();
-    duration = moment.duration(duration, 'hours');
+    hourPomodoro();
   }
 
   pomodoroInterval = setInterval(function(){
@@ -19,13 +18,25 @@ $("#startPomodoroTimer").on("click", function(evt){
         clearInterval(pomodoroInterval);
         // timeDisplay.innerHTML = "Time's up!";
       } else {
-        var hours = duration.hours();
+        
         var minutes = duration.minutes();
         var seconds = duration.seconds();
-        timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+        timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
       }
   }, interval);
+
+  function hourPomodoro(){
+      duration = moment.duration(workMinutes, 'minutes').asHours();
+      duration = moment.duration(duration, 'hours');
+      var hours = duration.hours();
+      var minutes = duration.minutes();
+      var seconds = duration.seconds();
+      timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+  }
+
 });
+
+
 
 
 
