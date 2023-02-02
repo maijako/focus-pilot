@@ -32,7 +32,7 @@ iframe {
 
 
 
-#main-container {
+#main-background {
    background-image: url(https://images.unsplash.com/photo-1617709612173-d820eb8b862f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1563&q=80);
    background-position: center;
    background-size: cover;
@@ -41,21 +41,15 @@ iframe {
    left: 0;
    top: 0;
    position: absolute;
-
-  
 }
+
+
+
+
+
 
 .inputLabel {
    font-size: 14px;
-}
-
-#main-container {
-   height: 100%;
-   display: grid;
-   /* grid-template-columns: 500px auto;
-   grid-row: 200px;
-   grid-template-areas: 
-       "left right"; */
 }
 
 
@@ -254,6 +248,37 @@ p.forecastTemp {
 #temperatureUnit {
    font-size: 16px;
 }
+
+#countdownTimer {
+   font-size: 9em;
+   color: rgba(75, 69, 69, 0.742);
+   font-family: 'Open Sans', sans-serif !important;
+}
+
+#countdownTimerContainer {
+   width: auto;
+   background-color: rgba(255, 255, 255, 0.7) !important;
+   padding: 20px;
+   border-radius: 20px;
+   transition: transform .2s;
+}
+
+#additionalTimerInfo {
+   background-color: rgba(255, 255, 255, 0.7) !important;
+   border-radius: 20px;
+   padding: 10px;
+   font-size: 14px;
+   font-weight: 500;
+   margin-bottom: 0px !important;
+   font-family: 'Montserrat', sans-serif;
+}
+
+#countdownTimerContainer :hover{
+   transform: scale(1.025);
+   cursor: pointer;
+   transition: transform .2s;
+}
+
 
 
 
