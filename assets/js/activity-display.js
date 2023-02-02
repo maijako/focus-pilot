@@ -1,3 +1,18 @@
+//Starter code for pomodoro timer 
+var userWorkTime = $("#pomodoroTimer").val();
+
+$("#startPomodoroTimer").on("click", function(evt){
+  evt.preventDefault();
+  setInterval(() => {
+//logic for displaying the timer in the middle
+//DOM remove weather display and display the timer
+  }, userWorkTime*60000);
+})
+
+
+//_________________________________________________________________
+//COMMENTED OUT CODE BELOW AS PLACEHOLDER FOR TO-DO LIST GENERATION
+//_________________________________________________________________
 // //Code for the appendable 'to do' list
 // var todoInput = $("#todo-text");
 // var todoForm = $("#todo-form");
@@ -72,15 +87,4 @@
 
 //1s = 1000
 //60000 = 1 min
-
-var userWorkTime = $("#pomodoroTimer").val();
-
-
-$("#startPomodoroTimer").on("click", function(evt){
-  evt.preventDefault();
-  setInterval(() => {
-//logic for displaying the timer in the middle
-  }, userWorkTime*60000);
-  
-})
 
