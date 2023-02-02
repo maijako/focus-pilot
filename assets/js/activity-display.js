@@ -2,59 +2,47 @@
 //code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
-  var workMinutes = parseInt($("#pomodoroTimer").val())
+  var workMinutes = parseInt($("#pomodoroTimer").val());
+  var shortBreak = parseInt($("#shortBreak").val());
+  var longBreak = parseInt($("#longBreak").val());
   var timeDisplay = $("#countdownTimer");
-  var duration = moment.duration(workMinutes, 'minutes');
+  var workDuration = moment.duration(workMinutes, 'minutes');
+  var shortBreakDuration = moment.duration(shortBreak, 'minutes');
+  var longBreakDuration = moment.duration(longBreak, 'minutes');
   var interval = 1000;
   var pomodoroInterval;
-
+//a condition to display time in HH:MM:SS format if user enters a value over 60 minutes
   if (workMinutes >= 60) {
     hourPomodoro();
   }
-
+//timer interval function
   pomodoroInterval = setInterval(function(){
-    duration = moment.duration(duration.asMilliseconds() - interval, 'milliseconds');
+    workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
       if (duration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
         // timeDisplay.innerHTML = "Time's up!";
       } else {
-        
-        var minutes = duration.minutes();
-        var seconds = duration.seconds();
+        var minutes = workDuration.minutes();
+        var seconds = workDuration.seconds();
         timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
       }
   }, interval);
 
   function hourPomodoro(){
       duration = moment.duration(workMinutes, 'minutes').asHours();
-      duration = moment.duration(duration, 'hours');
-      var hours = duration.hours();
-      var minutes = duration.minutes();
-      var seconds = duration.seconds();
+      duration = moment.duration(workDuration, 'hours');
+      var hours = workDuration.hours();
+      var minutes = workDuration.minutes();
+      var seconds = workDuration.seconds();
       timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
   }
-
 });
 
 
 
 
 
-// var pomodoroInterval;
-// $("#startPomodoroTimer").on("click", function(evt){
-//   evt.preventDefault();
-//   console.log(startTime.format('mm:ss'));
-// console.log(startTime)
 
-
-//   pomodoroInterval = setInterval(() => {
-//     startTime.subtract(1, 'seconds');
-//     timeDisplay.text(startTime.format('mm:ss'));
-//     if (startTime.format('mm:ss') === '00:00') {
-//         clearInterval(pomodoroInterval);
-//     }
-//   }, 1000);
-// });
 
 
 
