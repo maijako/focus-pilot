@@ -15,12 +15,13 @@ $("#startPomodoroTimer").on("click", function(evt){
   if (workMinutes >= 60) {
     hourPomodoro();
   }
-//timer interval function
+//timer interval function for the work block
+
   pomodoroInterval = setInterval(function(){
     workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
-      if (duration.asMilliseconds() < 0) {
+      if (workDuration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
-        // timeDisplay.innerHTML = "Time's up!";
+        shortBreakStart();
       } else {
         var minutes = workDuration.minutes();
         var seconds = workDuration.seconds();
@@ -35,6 +36,35 @@ $("#startPomodoroTimer").on("click", function(evt){
       var minutes = workDuration.minutes();
       var seconds = workDuration.seconds();
       timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+  }
+
+  function shortBreakStart(){
+    shortBreakInterval = setInterval(function(){
+      shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
+        if (shortBreakDuration.asMilliseconds() < 0) {
+          clearInterval(shortBreakInterval);
+          // FUNCTION TO START RUNNING MAIN POMODORO TIMER AGAIN IF IT HAS RUN LESS THAN 4 TIMES
+          longBreakStart();//placeholder function call for testing purposes
+        } else {
+          var minutes = shortBreakDuration.minutes();
+          var seconds = shortBreakDuration.seconds();
+          timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+        }
+    }, interval);
+  }
+
+  function longBreakStart(){
+    longBreakInterval = setInterval(function(){
+      longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
+        if (longBreakDuration.asMilliseconds() < 0) {
+          clearInterval(longBreakInterval);
+          // FUNCTION TO START RUNNING MAIN POMODORO TIMER AGAIN FROM THE BEGINNING
+        } else {
+          var minutes = longBreakDuration.minutes();
+          var seconds = longBreakDuration.seconds();
+          timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
+        }
+    }, interval);
   }
 });
 
