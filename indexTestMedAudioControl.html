@@ -10,6 +10,19 @@
         .hide {
             display: none;
         }
+
+        .modal-content{
+            /* background-color: lightskyblue; */
+            background: url("https://cdn.wallpapersafari.com/19/60/XlyTWp.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+        }
+
+        #exampleModalLabel {
+            color: darkblue;
+        }
     </style>
     <title>Document</title>
 </head>
@@ -22,13 +35,13 @@
   
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
             <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Nice Choice! Please Select the Type of Meditation.</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div id="audioContainer" class="modal-body">
+            <div id="audioContainer" class="modal-body d-flex flex-column align-items-center justify-content-evenly">
 
                 <button data-audio-meditation = "firstAudio">
                     Breathing Meditation
