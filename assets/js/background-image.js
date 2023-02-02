@@ -46,13 +46,13 @@ setInterval(() => {
         //Fade in to bring back the background Image
         mainBackgroundEl.fadeIn("slow");
     });
-    console.log("Index value: " + i + " ----------------------");
-    console.log("ID: " + imgObj.imageID);
-    console.log("User Name: " + imgObj.userName);
-    console.log("Created: " + imgObj.createdAt);
+    // console.log("Index value: " + i + " ----------------------");
+    // console.log("ID: " + imgObj.imageID);
+    // console.log("User Name: " + imgObj.userName);
+    // console.log("Created: " + imgObj.createdAt);
 
     i++;
-    console.log("Image List Length: " + imageList.length);
+    // console.log("Image List Length: " + imageList.length);
     if (imageList.length === i) {
         i = 0;
     }

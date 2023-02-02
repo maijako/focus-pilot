@@ -1,12 +1,16 @@
 //Starter code for pomodoro timer 
 var userWorkTime = $("#pomodoroTimer").val();
 
+var timeDisplay = $("#countdownTimer");
+startTime = moment('25:00', 'mm:ss');
+
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
   setInterval(() => {
-//logic for displaying the timer in the middle
-//DOM remove weather display and display the timer
-  }, userWorkTime*60000);
+    console.log(startTime.format('mm:ss'));
+    startTime.subtract(1, 'seconds');
+    timeDisplay.text(startTime.format('mm:ss'));
+  }, 1000);
 })
 
 
