@@ -2,6 +2,21 @@ $("document").on(function () {
 
 });
 
+$("#startPomodoroTimer").on("click", function(){
+  console.log("clicked")
+ 
+
+  if ($(this).text() === "Stop") {
+    $(this).text("Start")
+    $(this).addClass("btn-dark");
+  }
+  else{
+    $(this).text("Stop")
+    $(this).removeClass("btn-dark");
+    $(this).addClass("btn-danger");
+  }
+});
+
 $("document").ready(function () {
   $("#leftPanelButton").trigger("click");
 });
