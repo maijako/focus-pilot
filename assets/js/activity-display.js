@@ -12,9 +12,9 @@ $("#startPomodoroTimer").on("click", function(evt){
   var interval = 1000;
   var pomodoroInterval;
 //a condition to display time in HH:MM:SS format if user enters a value over 60 minutes
-  if (workMinutes >= 60) {
-    hourPomodoro();
-  }
+  // if (workMinutes >= 60) {
+  //   hourPomodoro();
+  // }
 //timer interval function for the work block
 
   pomodoroInterval = setInterval(function(){
@@ -29,16 +29,6 @@ $("#startPomodoroTimer").on("click", function(evt){
         nextText.text("Short Break ("+shortBreak+" min)");
       }
   }, interval);
-
-  function hourPomodoro(){
-      duration = moment.duration(workMinutes, 'minutes').asHours();
-      duration = moment.duration(workDuration, 'hours');
-      var hours = workDuration.hours();
-      var minutes = workDuration.minutes();
-      var seconds = workDuration.seconds();
-      timeDisplay.text((hours < 10 ? '0' + hours : hours) + ':' + (minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
-      nextText.text("Short Break ("+shortBreak+" min)");
-    }
 
   function shortBreakStart(){
     shortBreakInterval = setInterval(function(){
