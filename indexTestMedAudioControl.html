@@ -37,7 +37,7 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
-            <div class="modal-header">
+            <div id="modalHead" class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Nice Choice! Please Select the Type of Meditation.</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -46,47 +46,62 @@
                 <button data-audio-meditation = "firstAudio">
                     Breathing Meditation
                 </button>
-                <audio id="firstAudio" class="hide" controls autoplay onended="endedAudio('first')">
-                    <source src="assets/audio/01_Breathing_Meditation.mp3" type="audio/mpeg">
+                <audio id="firstAudio">
+                    <source src = "assets/audio/01_Breathing_Meditation.mp3" type = "audio/ogg" >
+                    <source src = "assets/audio/01_Breathing_Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
 
                 <button data-audio-meditation = "secondAudio">
                     Breath Sound Body Meditation
                 </button>
-                <audio id="secondAudio" class="hide" controls autoplay onended="endedAudio('second')">
-                    <source src="assets/audio/02_Breath_Sound_Body_Meditation.mp3" type="audio/mpeg">
+                <audio id="secondAudio" onended="endedAudio('second')">
+                    <source src = "assets/audio/02_Breath_Sound_Body_Meditation.mp3" type = "audio/ogg" >
+                    <source src = "assets/audio/02_Breath_Sound_Body_Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
 
                 <button data-audio-meditation = "thirdAudio">
                     Working with difficulties Meditation
                 </button>
-                <audio id="thirdAudio" class="hide" controls autoplay onended="endedAudio('third')">
-                    <source src="assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type="audio/mpeg">
+                <audio id="thirdAudio" onended="endedAudio('third')">
+                    <source src = "assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type = "audio/ogg" >
+                    <source src = "assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
 
                 <button data-audio-meditation = "fourthAudio">
                    Body Scan Meditation
                 </button>
-                <audio id="fourthAudio" class="hide" controls autoplay onended="endedAudio('fourth')">
-                    <source src="assets/audio/Body-Scan-Meditation.mp3" type="audio/mpeg">
+                <audio id="fourthAudio" onended="endedAudio('fourth')">
+                    <source src = "assets/audio/Body-Scan-Meditation.mp3" type = "audio/ogg" >
+                    <source src = "assets/audio/Body-Scan-Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
                 </audio>
 
                 <button data-audio-meditation = "fifthAudio">
                     Body Sound Meditation
                  </button>
-                 <audio id="fifthAudio" class="hide" controls autoplay onended="endedAudio('fifth')">
-                     <source src="assets/audio/Body-Sound-Meditation.mp3" type="audio/mpeg">
-                     Your browser does not support the audio element.
+                 <audio id="fifthAudio" onended="endedAudio('fifth')">
+                    <source src = "assets/audio/Body-Sound-Meditation.mp3" type = "audio/ogg" >
+                    <source src = "assets/audio/Body-Sound-Meditation.mp3" type="audio/mpeg">
+                    Your browser does not support the audio element.
                  </audio>
 
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+
+                <div id="footerButtonGroup" class="hide">
+                    <button onclick = "playaudio()" type = "button" class="btn btn-primary"> Play the Audio </button>
+                    <button onclick = "pauseaudio()" type = "button" class="btn btn-primary"> Pause the Audio </button>
+                    <button onclick = "stopaudio()" type = "button" class="btn btn-primary"> Stop the Audio </button>
+                    <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button>
+
+                    <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
+                </div>
+                
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close Window</button>
+                
             </div>
         </div>
         </div>
@@ -101,14 +116,14 @@
     <script>
 
        $('#audioContainer').on('click', 'button', function(event) {
-        // console.log("gets triggered!");
-        // console.log($(event.target).attr('data-audio-meditation'));
+        
         let targetElement = $(event.target);
-        //selectedAudio.text('');
-        //targetElement.addClass('hide');
+
         $('#'+targetElement.attr('data-audio-meditation')).removeClass('hide');
+        $('#footerButtonGroup').removeClass('hide');
         
         $('#audioContainer').children('button').addClass('hide');
+        $('#modalHead').addClass('hide');
        });
 
        function endedAudio(numAudio) {
@@ -136,10 +151,38 @@
 
         }
         $('#audioContainer').children('button').removeClass('hide');
+        $('#modalHead').removeClass('hide');
+        $('#footerButtonGroup').addClass('hide');
        }
   
+       $('#backButton').on('click', function(event) {
+        if(!$('#firstAudio').hasClass('hide')){
+            $('#firstAudio').pause();
+            $('#firstAudio').addClass('hide');
+            console.log($('#firstAudio'));
+           // $('#firstAudio').pause();
+        }
 
+        $('#audioContainer').children('button').removeClass('hide');
+        $('#modalHead').removeClass('hide');
+        $('#footerButtonGroup').addClass('hide');
+       });
 
+       var a = document.getElementById("firstAudio");
+       function playaudio() {
+        a.play();
+		}
+		function pauseaudio() {
+			a.pause();
+		}
+		function stopaudio() {
+			a.pause();
+			a.currentTime = 0;
+		}
+        function checktime() {
+            console.log(a.currentTime);
+            console.log(a.duration);
+        }
     </script>
 </body>
 </html>
