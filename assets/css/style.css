@@ -99,7 +99,11 @@ iframe {
    position: absolute;
 }
 
-
+#news-categories > p:hover {
+   transform: scale(1.025);
+   cursor: pointer;
+   transition: transform .2s;
+}
 
 
 
