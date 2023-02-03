@@ -1,6 +1,10 @@
+//A variable to set count to how many times pomodoro and break functions run
+var count = 0;
+
 //code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
+  //variables added inside the on click function, because otherwise user values display as NaN in the timer
   var workMinutes = parseInt($("#pomodoroTimer").val());
   var shortBreak = parseInt($("#shortBreak").val());
   var longBreak = parseInt($("#longBreak").val());
@@ -19,6 +23,8 @@ $("#startPomodoroTimer").on("click", function(evt){
     nextText.text(text);
   }
 
+  //function to start pomodoros
+  function startPomodoroInterval(){
   pomodoroInterval = setInterval(function(){
     workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
     if (workDuration.asMilliseconds() < 0) {
@@ -28,6 +34,7 @@ $("#startPomodoroTimer").on("click", function(evt){
       displayTime(workDuration, "Short Break ("+shortBreak+" min)");
     }
   }, interval);
+  }
 
   function shortBreakStart(){
     shortBreakInterval = setInterval(function(){
