@@ -381,7 +381,30 @@ p.forecastTemp {
    transition: transform .2s;
 }
 
+/* ******************************************** */
+/* Styling for meditation modal */
+.hide {
+   display: none;
+}
 
+.modal-content{
+   /* background-color: lightskyblue; */
+   background: url("https://cdn.wallpapersafari.com/19/60/XlyTWp.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: cover;
+
+}
+ 
+/* #exampleModal {
+   z-index: -1;
+} */
+#exampleModalLabel {
+   color: darkblue;
+}
+
+/* End of styling for meditation modal */
+/* ********************************************* */
 
 
 /* Extra small devices (phones, 300px and down) */
