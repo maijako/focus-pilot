@@ -74,10 +74,6 @@
    animation: pulse 1s linear infinite;
 }
 
-.news-image {
-   /* padding-right: 0px; */
-}
-
 .news-card-body {
    padding-bottom: 5px !important;
 }
