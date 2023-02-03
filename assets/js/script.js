@@ -1,3 +1,5 @@
+var today = moment();
+
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 
 $("document").on(function () {
@@ -23,6 +25,13 @@ $("#offcanvasScrolling").on("shown.bs.offcanvas", function(){
 $("#offcanvasRight").on("hidden.bs.offcanvas", function(){
   $("#leftPanelButton").show();
   $("#fullScreenButton").show();
+})
+
+//Event handler for when right panel canvas is shown
+$("#offcanvasRight").on("shown.bs.offcanvas", function(){
+  $("#latest-news").empty();
+  getNewsAPI("breaking-news") 
+  $("#news-header").text("Here's the latest Breaking News")
 })
 
 
@@ -153,6 +162,7 @@ $("#news-categories").children().on("click", function () {
   
   $("#latest-news").empty();
   getNewsAPI($(this).attr("data-news-category")) 
+  $("#news-header").text("Here's the latest in "+ $(this).text() + ".")
 })
 
 
@@ -168,23 +178,11 @@ function getNewsAPI(topic) {
       articles = data.articles;
 
       for (i = 0; i < articles.length; i++) {
-        // articles[i].title
-        // console.log("Title: " + articles[i]['title']);
-        // articles[i].description
-        // console.log("Description: " + articles[i]['description']);
-        // You can replace {property} below with any of the article properties returned by the API.
-        // articles[i].{property}
-        // console.log(articles[i]['{property}']);
 
-        // Delete this line to display all the articles returned by the request. Currently only the first article is displayed.
-        // break;
-
-        createNewsCards(articles[i]['image'], articles[i]['title'], articles[i]['title'], articles[i]['description'], articles[i]['url'], "newsTime")
+        createNewsCards(articles[i]['image'], articles[i]['title'], articles[i]['title'], articles[i]['description'], articles[i]['url'], moment(articles[i]['publishedAt']).format("ddd, LL, LT"))
       }
     });
 }
-
-// createNewsCards("https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg", "Alt Text", "News Title", "News Description", "category", "6:45pm")
 
 function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription, newsURL, newsTime) {
   let cardAnchor = $("<a>", {
@@ -213,10 +211,6 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
     class: "card-text news-card-text"
   })
 
-  let cardCategoryBadge = $("<p>", {
-    class: "news-category badge rounded-pill bg-secondary py-1 my-1"
-  })
-
   let cardFooter = $("<div>", {
     class: "card-footer"
   })
@@ -235,7 +229,6 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
 
   cardTitle.appendTo(cardBody)
   cardText.appendTo(cardBody)
-  // cardCategoryBadge.appendTo(cardBody)
 
   cardBody.appendTo(mainCard)
 
@@ -245,7 +238,6 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
 
   mainCard.appendTo(cardAnchor)
 
-  // cardAnchor.attr("href",newsURL)
   cardAnchor.appendTo($("#latest-news"))
 
 }

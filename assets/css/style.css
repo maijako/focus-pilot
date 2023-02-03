@@ -94,6 +94,15 @@
    -webkit-line-clamp: 3;
 }
 
+.news-card-text {
+   line-height: 1.5em;
+   max-height: 4.5em; 
+   overflow: hidden;
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 3;
+}
+
 .card-body {
    /* padding-left: 0px !important; */
 }
