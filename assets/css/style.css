@@ -62,6 +62,13 @@
    }
 }
 
+
+/* FIXES ISSUES WITH MEDITATION MODAL */
+.modal-backdrop {
+   width: 0 !important;
+}
+/*END OF FIXES ISSUES WITH MEDITATION MODAL */
+
 .countdownTimerPaused {
    color:rgba(203, 33, 33, 0.74) !important;
    animation: pulse 1s linear infinite;
