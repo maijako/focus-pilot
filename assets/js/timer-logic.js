@@ -5,18 +5,42 @@ var count = 0;
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
   
-  //variables added inside the on click function, because otherwise user values display as NaN in the timer
-  var workMinutes = parseInt($("#pomodoroTimer").val());
-  var shortBreak = parseInt($("#shortBreak").val());
-  var longBreak = parseInt($("#longBreak").val());
+//variables added inside the on click function, because otherwise user values display as NaN in the timer
   var timeDisplay = $("#countdownTimer");
   var nextText = $("#whatsNext");
+  var workMinutes = $("#pomodoroTimer").val();
+  var shortBreak = $("#shortBreak").val();
+  var longBreak = $("#longBreak").val();
+  
+// Check if the user values are null, and if so, set them to the default value
+  if (workMinutes === '') {
+    workMinutes = 25;
+  } else {
+    workMinutes = parseInt(workMinutes);
+  }
+
+  if (shortBreak === '') {
+    shortBreak = 5;
+  } else {
+    shortBreak = parseInt(shortBreak);
+  }
+
+  if (longBreak === '') {
+    longBreak = 15;
+  } else {
+    longBreak = parseInt(longBreak);
+  }
+
+
+//moment.duration methods for the timer
   var workDuration = moment.duration(workMinutes, 'minutes');
   var shortBreakDuration = moment.duration(shortBreak, 'minutes');
   var longBreakDuration = moment.duration(longBreak, 'minutes');
   var interval = 1000;
   var pomodoroInterval;
 
+
+//function to display Time in the main block
   function displayTime(duration, text) {
     var minutes = duration.minutes();
     var seconds = duration.seconds();
@@ -24,9 +48,9 @@ $("#startPomodoroTimer").on("click", function(evt){
     nextText.text(text);
   }
   
-  //function to start pomodoros
+//function to start pomodoros
   function startPomodoroInterval(){
-  //re-setting workDuration so it starts from the original user input value again
+//re-setting workDuration so it starts from the original user input value again
   workDuration = moment.duration(workMinutes, 'minutes');
   pomodoroInterval = setInterval(function(){
     workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
