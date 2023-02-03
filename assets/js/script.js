@@ -1,16 +1,41 @@
+
+
+
 $("document").on(function () {
 
 });
 
-$("#startPomodoroTimer").on("click", function(){
-  console.log("clicked")
- 
+
+$("#startPomodoroTimer").on("click", function () {
+
+  console.log("clicked!")
 
   if ($(this).text() === "Stop") {
-    $(this).text("Start")
-    $(this).addClass("btn-dark");
+
+    Swal.fire({
+      icon: 'error',
+      title: 'Cancel the timer?',
+      text: 'This will reset your entire block.',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+
+        //PLACE CANCEL TIMER FUNCTION HERE!
+
+
+        $(this).text("Start")
+        $(this).addClass("btn-dark");
+        // Swal.fire('Cancelled', '', 'success')
+      } else if (result.isDenied) {
+        // Swal.fire('Changes are not saved', '', 'info')
+      }
+    })
   }
-  else{
+  else if ($(this).text() === "Start") {
     $(this).text("Stop")
     $(this).removeClass("btn-dark");
     $(this).addClass("btn-danger");
@@ -21,13 +46,13 @@ $("document").ready(function () {
   $("#leftPanelButton").trigger("click");
 });
 
-$("#leftPanelButton").on("click", function(evt){
+$("#leftPanelButton").on("click", function (evt) {
   $("#leftPanelButton").hide();
   $("#fullScreenButton").hide();
 })
 
 
-$("#leftPanelCloseButton").on("click", function(evt){
+$("#leftPanelCloseButton").on("click", function (evt) {
   $("#leftPanelButton").show();
   $("#fullScreenButton").show();
 })
