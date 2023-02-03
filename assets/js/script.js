@@ -17,6 +17,12 @@ $("#offcanvasScrolling").on("shown.bs.offcanvas", function(){
   fadeElements()
 })
 
+//Event handler for when right panel canvas is hidden
+$("#offcanvasRight").on("hidden.bs.offcanvas", function(){
+  $("#leftPanelButton").show();
+  $("#fullScreenButton").show();
+})
+
 
 $("#startPomodoroTimer").on("click", function () {
   if ($(this).text() === "Stop") {
@@ -84,6 +90,8 @@ $("#leftPanelCloseButton").on("click", function (evt) {
   $("#fullScreenButton").show();
 })
 
+
+
 $("#timerForm").submit(function (event) {
   event.preventDefault();
 })
@@ -114,19 +122,6 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
-
-/* Close fullscreen */
-function closeFullscreen() {
-  if (elem.exitFullscreen) {
-    elem.exitFullscreen();
-  } else if (elem.webkitExitFullscreen) { /* Safari */
-    elem.webkitExitFullscreen();
-  } else if (elem.msExitFullscreen) { /* IE11 */
-    elem.msExitFullscreen();
-  }
-}
-
-
 
 $("#fullScreenButton").click(function () {
   openFullscreen()
