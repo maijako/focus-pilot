@@ -5,15 +5,17 @@ $("document").on(function () {
 
 });
 
+$("#countdownTimer").on("click", function () {
+  $("#countdownTimer").toggleClass("countdownTimerPaused")
+
+})
+
 
 $("#startPomodoroTimer").on("click", function () {
-
-  console.log("clicked!")
-
   if ($(this).text() === "Stop") {
 
     Swal.fire({
-      icon: 'error',
+      icon: 'warning',
       title: 'Cancel the timer?',
       text: 'This will reset your entire block.',
       showDenyButton: true,
@@ -21,21 +23,27 @@ $("#startPomodoroTimer").on("click", function () {
       confirmButtonText: 'Yes',
       denyButtonText: `No`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
 
         //PLACE CANCEL TIMER FUNCTION HERE!
+        
 
+        //Hide weather information.
+        $("#weatherContainer").show(1000, "swing");
 
         $(this).text("Start")
         $(this).addClass("btn-dark");
-        // Swal.fire('Cancelled', '', 'success')
       } else if (result.isDenied) {
-        // Swal.fire('Changes are not saved', '', 'info')
       }
     })
   }
   else if ($(this).text() === "Start") {
+
+    $("#leftPanelCloseButton").trigger("click");
+
+    //Hide weather information.
+    $("#weatherContainer").hide(1000, "swing");
+
     $(this).text("Stop")
     $(this).removeClass("btn-dark");
     $(this).addClass("btn-danger");

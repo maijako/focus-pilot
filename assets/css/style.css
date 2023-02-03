@@ -44,6 +44,24 @@
    transition: transform .2s;
 }
 
+@keyframes pulse {
+   0% {
+    transform: scale(1, 1);
+   }
+
+   50% {
+    transform: scale(1.05, 1.05);
+   }
+
+   100% {
+   transform: scale(1, 1);
+   }
+}
+
+.countdownTimerPaused {
+   color:rgba(203, 33, 33, 0.74) !important;
+   animation: pulse 1s linear infinite;
+}
 
 .news-image {
    /* padding-right: 0px; */
