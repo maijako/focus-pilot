@@ -4,6 +4,7 @@ let queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_pa
 
 var mainBackgroundEl = $('#main-background');
 var imageList = [];
+let halfHourInterval = 60000*30;
 
 $.ajax({
 
@@ -58,4 +59,4 @@ setInterval(() => {
     }
 
 
-}, 5000);
+}, halfHourInterval);
