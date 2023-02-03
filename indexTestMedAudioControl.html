@@ -100,7 +100,7 @@
                     <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
                 </div>
                 
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close Window</button>
+                <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close Window</button>
                 
             </div>
         </div>
@@ -115,7 +115,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script>
 
-        var currentAudio;
+        let currentAudio;
+        let timerEl = $('<p>');
+        let timerInterval;
+        $('#footerButtonGroup').append(timerEl);
 
         $('#audioContainer').on('click', 'button', function(event) {
         
@@ -128,6 +131,15 @@
             $('#modalHead').addClass('hide');
 
             currentAudio = document.getElementById(targetElement.attr('data-audio-meditation'));
+            timerEl.text(currentAudio.duration);
+
+            timerInterval = setInterval(() => {
+                let totalTime = currentAudio.duration.toFixed(0);
+                let nowTime = currentAudio.currentTime.toFixed(0);
+                let timeLeft = totalTime - nowTime;
+                timerEl.text(timeLeft);
+            }, 1000);
+
         });
 
         function playaudio() {
@@ -152,6 +164,7 @@
             $('#audioContainer').children('button').removeClass('hide');
             $('#modalHead').removeClass('hide');
             $('#footerButtonGroup').addClass('hide');
+            clearInterval(timerInterval);
         }
   
         $('#backButton').on('click', function(event) {
@@ -160,9 +173,15 @@
             $('#audioContainer').children('button').removeClass('hide');
             $('#modalHead').removeClass('hide');
             $('#footerButtonGroup').addClass('hide');
-
+            clearInterval(timerInterval);
         });
 
+        $('#closeButton').on('click', function(){
+            if(currentAudio!=undefined && timerInterval!=undefined) {
+                stopaudio();
+                clearInterval(timerInterval);
+            }   
+        })
     </script>
 </body>
 </html>
