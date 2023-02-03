@@ -4,6 +4,79 @@ $("document").on(function () {
 
 });
 
+$("#countdownTimer").on("click", function () {
+  $("#countdownTimer").toggleClass("countdownTimerPaused")
+
+})
+
+//Event handler for when left panel canvas is hidden
+$("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
+  showElements()
+})
+
+//Event handler for when left panel canvas is shown
+$("#offcanvasScrolling").on("shown.bs.offcanvas", function(){
+  fadeElements()
+})
+
+//Event handler for when right panel canvas is hidden
+$("#offcanvasRight").on("hidden.bs.offcanvas", function(){
+  $("#leftPanelButton").show();
+  $("#fullScreenButton").show();
+})
+
+
+$("#startPomodoroTimer").on("click", function () {
+  if ($(this).text() === "Stop") {
+
+    Swal.fire({
+      icon: 'warning',
+      title: 'Cancel the timer?',
+      text: 'This will reset your entire session.',
+      showDenyButton: true,
+      showCancelButton: false,
+      confirmButtonText: 'Yes',
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        //PLACE CANCEL TIMER FUNCTION HERE!
+
+
+        //Show weather information.
+        $("#weatherContainer").show("slow", "swing");
+
+        //Hide Timer container
+        $("#countdownTimerContainer").fadeTo("slow", 0, function () {
+
+        });
+        $(this).text("Start")
+        $(this).addClass("btn-dark");
+
+      } else if (result.isDenied) {
+      }
+    })
+  }
+  else if ($(this).text() === "Start") {
+
+    $("#leftPanelCloseButton").trigger("click");
+
+    //Hide weather information.
+    $("#weatherContainer").hide(1000, "swing", function () {
+      //Show Timer container
+      $("#countdownTimerContainer").fadeTo("slow", 1, function () {
+
+      });
+    });
+
+
+
+    $(this).text("Stop")
+    $(this).removeClass("btn-dark");
+    $(this).addClass("btn-danger");
+  }
+});
+
 $("document").ready(function () {
   $("#leftPanelButton").trigger("click");
 });
@@ -19,6 +92,8 @@ $("#leftPanelCloseButton").on("click", function (evt) {
   $("#fullScreenButton").show();
 })
 
+
+
 $("#timerForm").submit(function (event) {
   event.preventDefault();
 })
@@ -28,7 +103,12 @@ $("#tabs").tabs();
 
 //Resize window event listener
 $(window).resize(function () {
-  hideShowElements()
+  if ($("#offcanvasScrolling").hasClass("show")) {
+    fadeElements()
+  }
+  else{
+    showElements()
+  }
 })
 
 /* Get the documentElement (<html>) to display the page in fullscreen */
@@ -45,52 +125,33 @@ function openFullscreen() {
   }
 }
 
-/* Close fullscreen */
-function closeFullscreen() {
-  if (elem.exitFullscreen) {
-    elem.exitFullscreen();
-  } else if (elem.webkitExitFullscreen) { /* Safari */
-    elem.webkitExitFullscreen();
-  } else if (elem.msExitFullscreen) { /* IE11 */
-    elem.msExitFullscreen();
-  }
-}
-
-
 $("#fullScreenButton").click(function () {
   openFullscreen()
 })
 
 
-//Apply and Remove container type classes to element sections.
-function hideShowElements() {
-  if ($(window).width() < 1145) {
-    $("#weatherContainer").fadeOut(500)
 
-  }
-  else {
-    $("#weatherContainer").fadeIn(500)
-  }
+//Show Elements.
+function showElements() {
+    $("#weatherContainer").fadeTo("slow",1.0)
 
-  if ($(window).width() < 900) {
-    $(".navbar-brand").fadeOut(500)
+    $(".navbar-brand").fadeTo("slow",1.0)
 
-  }
-  else {
-    $(".navbar-brand").fadeIn(500)
-  }
+    $("iframe").fadeTo("slow",1.0)
+}
 
-  if ($(window).width() < 700) {
-    $("iframe").fadeOut(500)
-  }
-  else {
-    $("iframe").fadeIn(500)
-  }
+//Fade Elements
+function fadeElements() {
+    $("#weatherContainer").fadeTo("slow",0.4)
+
+    $(".navbar-brand").fadeTo("slow",0.4)
+
+    $("iframe").fadeTo("slow",0.4)
 }
 
 $("#news-categories").children().on("click", function () {
-  console.log($(this).attr("data-news-category"))
-
+  
+  $("#latest-news").empty();
   getNewsAPI($(this).attr("data-news-category")) 
 })
 
@@ -118,21 +179,22 @@ function getNewsAPI(topic) {
         // Delete this line to display all the articles returned by the request. Currently only the first article is displayed.
         // break;
 
-        createNewsCards(articles[i]['url'], articles[i]['title'], articles[i]['title'], articles[i]['description'], "newsCategory", "newsTime")
+        createNewsCards(articles[i]['image'], articles[i]['title'], articles[i]['title'], articles[i]['description'], articles[i]['url'], "newsTime")
       }
     });
 }
 
 // createNewsCards("https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg", "Alt Text", "News Title", "News Description", "category", "6:45pm")
 
-function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription, newsCategory, newsTime) {
+function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription, newsURL, newsTime) {
   let cardAnchor = $("<a>", {
     class: "news-link col",
-    href: "#"
+    target:"_blank",
+    href: newsURL
   })
 
   let mainCard = $("<div>", {
-    class: "card p-0"
+    class: "card p-0 news-card"
   })
 
   let cardImg = $("<img>", {
@@ -167,14 +229,13 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
   cardImg.attr("alt", newsImageALT)
   cardTitle.text(newsTitle);
   cardText.text(newsDescription);
-  cardCategoryBadge.text(newsCategory);
   cardFooterText.text(newsTime);
 
   cardImg.appendTo(mainCard)
 
   cardTitle.appendTo(cardBody)
   cardText.appendTo(cardBody)
-  cardCategoryBadge.appendTo(cardBody)
+  // cardCategoryBadge.appendTo(cardBody)
 
   cardBody.appendTo(mainCard)
 
@@ -184,7 +245,7 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
 
   mainCard.appendTo(cardAnchor)
 
-
+  // cardAnchor.attr("href",newsURL)
   cardAnchor.appendTo($("#latest-news"))
 
 }

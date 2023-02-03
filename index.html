@@ -19,23 +19,7 @@
 </head>
 
 <body id="root">
-    <!-- <header class="fixed-top">
-        <nav class="navbar  shadow-sm navbar-light bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/images/default.png" alt="" height="30" class="d-inline-block align-text-top">
-
-                </a>
-                <button class="btn btn-sm btn-outline-primary" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Right Panel</button>
-            </div>
-        </nav>
-    </header> -->
-
     <div id="main">
-
-
-
         <!-- Right div to contain notifications/ news/ etc... -->
 
         <div class="offcanvas offcanvas-start" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1"
@@ -53,24 +37,20 @@
                             <h6>Time (minutes)</h6>
                             <div class="row">
                                 <div class="col-4">
-                                    <label class="mb-1 form-label inputLabel">Pomodoro</label>
+                                    <label class="mb-1 form-label inputLabel d-inline">Pomodoro</label>
                                     <input id="pomodoroTimer" type="number" placeholder="25"
                                         class="form-control col-12">
                                 </div>
                                 <div class="col-4">
                                     <label class="mb-1 form-label inputLabel">Short Break</label>
                                     <input id="shortBreak" type="number" placeholder="5" class="form-control col-12">
-
                                 </div>
                                 <div class="col-4">
                                     <label class="mb-1 form-label inputLabel">Long Break</label>
                                     <input id="longBreak" type="number" placeholder="15" class="form-control col-12">
-
                                 </div>
                             </div>
-
                         </div>
-
                         <div class="col-12 mt-3">
                             <h6>Autostart</h6>
                             <div class="row">
@@ -86,37 +66,25 @@
                                         <input class="form-check-input" type="checkbox" id="autoStartPomodoroInput">
 
                                     </div>
-
-
                                 </div>
-
                                 <div class="col-4">
                                     <div class="form-check form-switch">
                                         <label class="form-check-label" for="autoStartMusicInput">Music</label>
                                         <input class="form-check-input" type="checkbox" id="autoStartMusicInput">
-
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </div>
 
                         <div class="mt-3 d-grid gap-2">
                             <button type="submit" id="startPomodoroTimer" class="btn btn-dark">Start</button>
                         </div>
                     </form>
-
-
                     <div class="col-12 mt-4">
                         <h6 class="mx-auto mb-0" id="offcanvasScrollingLabel">To-do</h6>
                         <small class="my-0">Create and assign task to your time block. Uncompleted task will be
                             available for for the next time block</span>
                     </div>
-
-
-
                 </div>
             </div>
         </div>
@@ -131,9 +99,9 @@
             <div class="offcanvas-body p-0">
                 <div class="pt-0" id="tabs">
                     <ul>
-                        <li><a class="fs-5" href="#tabs-1"> <img src="assets/images/light-bulb.png" alt="Ideas"
+                        <li><a class="fs-6" href="#tabs-1"> <img src="assets/images/light-bulb.png" alt="Ideas"
                                     height="25" class="d-inline-block align-text-top"> Suggestions</a></li>
-                        <li><a class="fs-5" href="#tabs-2"><img src="assets/images/newspaper.png" alt="Newspaper"
+                        <li><a class="fs-6" href="#tabs-2"><img src="assets/images/newspaper.png" alt="Newspaper"
                                     height="22" class="pr-2 d-inline-block align-text-top"> News</a></li>
 
                     </ul>
@@ -185,9 +153,6 @@
                                         </div>
                                     </div>
                                 </a>
-
-
-
                             </div>
                         </div>
                     </div>
@@ -228,21 +193,61 @@
                         <div id="latest-news" class="row row-cols-1 row-cols-md-2 g-3">
                             <!-- <a href="#" class="news-link col" style="text-decoration: none;">
 
-                                <div class="card">
-                                    <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
-                                        class="card-img-top" alt="...">
-                                    <div class="card-body news-card-body">
-                                        <h5 class="card-title">The quick brown fox jumps over the lazy dog.</h5>
-                                        <p class="card-text news-card-text">This is a longer card with supporting
-                                            text below as a natural lead-in to additional content.</p>
-                                        <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
-                                            Entertainment</p>
+                                    <div class="card">
+                                        <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">The quick brown fox jumps over the lazy dog.</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Entertainment</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
                                     </div>
-                                    <div class="card-footer">
-                                        <p class="card-text"><small class="text-muted">Last updated 3 mins
-                                                ago</small></p>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://static.vecteezy.com/system/resources/thumbnails/004/216/831/original/3d-world-news-background-loop-free-video.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Science</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
                                     </div>
-                                </div>
+
+                                </a>
+
+                                <a href="#" class="news-link col" style="text-decoration: none;">
+
+                                    <div class="card">
+                                        <img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body news-card-body">
+                                            <h5 class="card-title">This is news title</h5>
+                                            <p class="card-text news-card-text">This is a longer card with supporting
+                                                text below as a natural lead-in to additional content.</p>
+                                            <p class="news-category badge rounded-pill bg-secondary py-1 my-1">
+                                                Finance</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                                                    ago</small></p>
+                                        </div>
+                                    </div>
 
                             </a> -->
 
@@ -274,7 +279,7 @@
 
                 <div id="countdownTimerContainer"
                     class="text-center shadow-lg position-absolute top-50 start-50 translate-middle">
-                    <p id="countdownTimer" class="pl-0 py-0 px-0 my-0 mx-0">00:00</p>
+                    <p id="countdownTimer" class="pl-0 py-0 px-0 my-0 mx-0">25:49</p>
                     <div id="additionalTimerInfo" class="text-center px-0">
                         <p class="d-inline">Next: </p>
                         <p id="whatsNext" class="d-inline">Short Break</p>
@@ -367,6 +372,7 @@
         <!-- jQuery -->
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
         <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <script src="assets/js/weather-display.js"></script>
         <script src="assets/js/spotify.js"></script>
