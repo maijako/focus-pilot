@@ -90,36 +90,40 @@ function hideShowElements() {
 
 $("#news-categories").children().on("click", function () {
   console.log($(this).attr("data-news-category"))
+
+  getNewsAPI($(this).attr("data-news-category")) 
 })
 
 
 // GET NEWS API
 function getNewsAPI(topic) {
-  // url = 'https://gnews.io/api/v4/top-headlines?token=' + GNewsAPIKey + '&topic=' + topic + '&lang=en&max=10';
+  url = 'https://gnews.io/api/v4/top-headlines?token=' + GNewsAPIKey + '&topic=' + topic + '&lang=en&max=10';
 
-  // fetch(url)
-  //   .then(function (response) {
-  //     return response.json();
-  //   })
-  //   .then(function (data) {
-  //     articles = data.articles;
+  fetch(url)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      articles = data.articles;
 
-  //     for (i = 0; i < articles.length; i++) {
-  //       // articles[i].title
-  //       console.log("Title: " + articles[i]['title']);
-  //       // articles[i].description
-  //       console.log("Description: " + articles[i]['description']);
-  //       // You can replace {property} below with any of the article properties returned by the API.
-  //       // articles[i].{property}
-  //       // console.log(articles[i]['{property}']);
+      for (i = 0; i < articles.length; i++) {
+        // articles[i].title
+        // console.log("Title: " + articles[i]['title']);
+        // articles[i].description
+        // console.log("Description: " + articles[i]['description']);
+        // You can replace {property} below with any of the article properties returned by the API.
+        // articles[i].{property}
+        // console.log(articles[i]['{property}']);
 
-  //       // Delete this line to display all the articles returned by the request. Currently only the first article is displayed.
-  //       break;
-  //     }
-  //   });
+        // Delete this line to display all the articles returned by the request. Currently only the first article is displayed.
+        // break;
+
+        createNewsCards(articles[i]['url'], articles[i]['title'], articles[i]['title'], articles[i]['description'], "newsCategory", "newsTime")
+      }
+    });
 }
 
-createNewsCards("https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg", "Alt Text", "News Title", "News Description", "category", "6:45pm")
+// createNewsCards("https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/09/breakingnews-live-blog-1568185450-1595123397-1601430958.jpg", "Alt Text", "News Title", "News Description", "category", "6:45pm")
 
 function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription, newsCategory, newsTime) {
   let cardAnchor = $("<a>", {
