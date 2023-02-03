@@ -4,6 +4,7 @@ var count = 0;
 //code block to run timer
 $("#startPomodoroTimer").on("click", function(evt){
   evt.preventDefault();
+  
   //variables added inside the on click function, because otherwise user values display as NaN in the timer
   var workMinutes = parseInt($("#pomodoroTimer").val());
   var shortBreak = parseInt($("#shortBreak").val());
@@ -22,37 +23,46 @@ $("#startPomodoroTimer").on("click", function(evt){
     timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
     nextText.text(text);
   }
-
+  
   //function to start pomodoros
   function startPomodoroInterval(){
+  //re-setting workDuration so it starts from the original user input value again
+  workDuration = moment.duration(workMinutes, 'minutes');
   pomodoroInterval = setInterval(function(){
     workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
     if (workDuration.asMilliseconds() < 0) {
       clearInterval(pomodoroInterval);
+      console.log('shortBreakStart function called');
       shortBreakStart();
+      
     } else {
       displayTime(workDuration, "Short Break ("+shortBreak+" min)");
     }
   }, interval);
   }
+  startPomodoroInterval();
 
   function shortBreakStart(){
+    shortBreakDuration = moment.duration(shortBreak, 'minutes');
     shortBreakInterval = setInterval(function(){
       shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
       if (shortBreakDuration.asMilliseconds() < 0) {
         clearInterval(shortBreakInterval);
         count++;
-        if (count < 3) {
+        if (count < 4) {
           startPomodoroInterval();
         } else {
           longBreakStart();
           displayTime(shortBreakDuration, "Work block ("+workMinutes+" min)");
         }
+      } else {
+        displayTime(shortBreakDuration, "Work block ("+workMinutes+" min)");
       }
     }, interval);
   }
 
   function longBreakStart(){
+    longBreakDuration = moment.duration(longBreak, 'minutes');
     longBreakInterval = setInterval(function(){
       longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
       if (longBreakDuration.asMilliseconds() < 0) {
