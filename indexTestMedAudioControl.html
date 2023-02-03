@@ -46,7 +46,7 @@
                 <button data-audio-meditation = "firstAudio">
                     Breathing Meditation
                 </button>
-                <audio id="firstAudio">
+                <audio id="firstAudio" onended="endedAudio()">
                     <source src = "assets/audio/01_Breathing_Meditation.mp3" type = "audio/ogg" >
                     <source src = "assets/audio/01_Breathing_Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -55,7 +55,7 @@
                 <button data-audio-meditation = "secondAudio">
                     Breath Sound Body Meditation
                 </button>
-                <audio id="secondAudio" onended="endedAudio('second')">
+                <audio id="secondAudio" onended="endedAudio()">
                     <source src = "assets/audio/02_Breath_Sound_Body_Meditation.mp3" type = "audio/ogg" >
                     <source src = "assets/audio/02_Breath_Sound_Body_Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -64,7 +64,7 @@
                 <button data-audio-meditation = "thirdAudio">
                     Working with difficulties Meditation
                 </button>
-                <audio id="thirdAudio" onended="endedAudio('third')">
+                <audio id="thirdAudio" onended="endedAudio()">
                     <source src = "assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type = "audio/ogg" >
                     <source src = "assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -73,7 +73,7 @@
                 <button data-audio-meditation = "fourthAudio">
                    Body Scan Meditation
                 </button>
-                <audio id="fourthAudio" onended="endedAudio('fourth')">
+                <audio id="fourthAudio" onended="endedAudio()">
                     <source src = "assets/audio/Body-Scan-Meditation.mp3" type = "audio/ogg" >
                     <source src = "assets/audio/Body-Scan-Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -82,7 +82,7 @@
                 <button data-audio-meditation = "fifthAudio">
                     Body Sound Meditation
                  </button>
-                 <audio id="fifthAudio" onended="endedAudio('fifth')">
+                 <audio id="fifthAudio" onended="endedAudio()">
                     <source src = "assets/audio/Body-Sound-Meditation.mp3" type = "audio/ogg" >
                     <source src = "assets/audio/Body-Sound-Meditation.mp3" type="audio/mpeg">
                     Your browser does not support the audio element.
@@ -148,34 +148,11 @@
             console.log(currentAudio.duration);
         }
 
-        // function endedAudio(numAudio) {
-        //     console.log("The audio has ended! ");
-
-        //     if(numAudio === 'first') {
-
-        //         $('#firstAudio').addClass('hide');
-
-        //     } else if(numAudio === 'second') {
-
-        //         $('#secondAudio').addClass('hide');
-
-        //     } else if(numAudio === 'third') {
-
-        //         $('#thirdAudio').addClass('hide');
-
-        //     } else if(numAudio === 'fourth') {
-
-        //         $('#fourthAudio').addClass('hide');
-
-        //     } else if(numAudio === 'fifth') {
-
-        //         $('#fifthAudio').addClass('hide');
-
-        //     }
-        //     $('#audioContainer').children('button').removeClass('hide');
-        //     $('#modalHead').removeClass('hide');
-        //     $('#footerButtonGroup').addClass('hide');
-        // }
+        function endedAudio() {
+            $('#audioContainer').children('button').removeClass('hide');
+            $('#modalHead').removeClass('hide');
+            $('#footerButtonGroup').addClass('hide');
+        }
   
         $('#backButton').on('click', function(event) {
 
