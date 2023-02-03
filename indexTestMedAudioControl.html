@@ -95,7 +95,7 @@
                     <button onclick = "playaudio()" type = "button" class="btn btn-primary"> Play the Audio </button>
                     <button onclick = "pauseaudio()" type = "button" class="btn btn-primary"> Pause the Audio </button>
                     <button onclick = "stopaudio()" type = "button" class="btn btn-primary"> Stop the Audio </button>
-                    <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button>
+                    <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
 
                     <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
                 </div>
@@ -123,18 +123,19 @@
         $('#audioContainer').on('click', 'button', function(event) {
         
             let targetElement = $(event.target);
+            let totalTime = 0;
 
-            //$('#'+targetElement.attr('data-audio-meditation')).removeClass('hide');
             $('#footerButtonGroup').removeClass('hide');
             
             $('#audioContainer').children('button').addClass('hide');
             $('#modalHead').addClass('hide');
 
             currentAudio = document.getElementById(targetElement.attr('data-audio-meditation'));
-            timerEl.text(currentAudio.duration);
+
+            totalTime = currentAudio.duration.toFixed(0);
+            timerEl.text(totalTime);
 
             timerInterval = setInterval(() => {
-                let totalTime = currentAudio.duration.toFixed(0);
                 let nowTime = currentAudio.currentTime.toFixed(0);
                 let timeLeft = totalTime - nowTime;
                 timerEl.text(timeLeft);
@@ -161,27 +162,28 @@
         }
 
         function endedAudio() {
-            $('#audioContainer').children('button').removeClass('hide');
-            $('#modalHead').removeClass('hide');
-            $('#footerButtonGroup').addClass('hide');
-            clearInterval(timerInterval);
+            meditationHomeScreen();
         }
   
         $('#backButton').on('click', function(event) {
 
             stopaudio();
-            $('#audioContainer').children('button').removeClass('hide');
-            $('#modalHead').removeClass('hide');
-            $('#footerButtonGroup').addClass('hide');
-            clearInterval(timerInterval);
+            meditationHomeScreen();
         });
 
         $('#closeButton').on('click', function(){
             if(currentAudio!=undefined && timerInterval!=undefined) {
                 stopaudio();
-                clearInterval(timerInterval);
+                meditationHomeScreen();
             }   
         })
+
+        function meditationHomeScreen() {
+            $('#audioContainer').children('button').removeClass('hide');
+            $('#modalHead').removeClass('hide');
+            $('#footerButtonGroup').addClass('hide');
+            clearInterval(timerInterval);
+        }
     </script>
 </body>
 </html>
