@@ -206,7 +206,7 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
   })
 
   let cardTitle = $("<h5>", {
-    class: "card-title"
+    class: "card-title news-title"
   })
 
   let cardText = $("<p>", {
