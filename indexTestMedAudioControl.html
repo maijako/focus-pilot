@@ -115,74 +115,77 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script>
 
-       $('#audioContainer').on('click', 'button', function(event) {
+        var currentAudio;
+
+        $('#audioContainer').on('click', 'button', function(event) {
         
-        let targetElement = $(event.target);
+            let targetElement = $(event.target);
 
-        $('#'+targetElement.attr('data-audio-meditation')).removeClass('hide');
-        $('#footerButtonGroup').removeClass('hide');
-        
-        $('#audioContainer').children('button').addClass('hide');
-        $('#modalHead').addClass('hide');
-       });
+            //$('#'+targetElement.attr('data-audio-meditation')).removeClass('hide');
+            $('#footerButtonGroup').removeClass('hide');
+            
+            $('#audioContainer').children('button').addClass('hide');
+            $('#modalHead').addClass('hide');
 
-       function endedAudio(numAudio) {
-        console.log("The audio has ended! ");
+            currentAudio = document.getElementById(targetElement.attr('data-audio-meditation'));
+        });
 
-        if(numAudio === 'first') {
-
-            $('#firstAudio').addClass('hide');
-
-        } else if(numAudio === 'second') {
-
-            $('#secondAudio').addClass('hide');
-
-        } else if(numAudio === 'third') {
-
-            $('#thirdAudio').addClass('hide');
-
-        } else if(numAudio === 'fourth') {
-
-            $('#fourthAudio').addClass('hide');
-
-        } else if(numAudio === 'fifth') {
-
-            $('#fifthAudio').addClass('hide');
-
-        }
-        $('#audioContainer').children('button').removeClass('hide');
-        $('#modalHead').removeClass('hide');
-        $('#footerButtonGroup').addClass('hide');
-       }
-  
-       $('#backButton').on('click', function(event) {
-        if(!$('#firstAudio').hasClass('hide')){
-            $('#firstAudio').pause();
-            $('#firstAudio').addClass('hide');
-            console.log($('#firstAudio'));
-           // $('#firstAudio').pause();
+        function playaudio() {
+            currentAudio.play();
         }
 
-        $('#audioContainer').children('button').removeClass('hide');
-        $('#modalHead').removeClass('hide');
-        $('#footerButtonGroup').addClass('hide');
-       });
+        function pauseaudio() {
+            currentAudio.pause();
+        }
 
-       var a = document.getElementById("firstAudio");
-       function playaudio() {
-        a.play();
-		}
-		function pauseaudio() {
-			a.pause();
-		}
-		function stopaudio() {
-			a.pause();
-			a.currentTime = 0;
-		}
+        function stopaudio() {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        }
+
         function checktime() {
-            console.log(a.currentTime);
-            console.log(a.duration);
+            console.log(currentAudio.currentTime);
+            console.log(currentAudio.duration);
         }
+
+        // function endedAudio(numAudio) {
+        //     console.log("The audio has ended! ");
+
+        //     if(numAudio === 'first') {
+
+        //         $('#firstAudio').addClass('hide');
+
+        //     } else if(numAudio === 'second') {
+
+        //         $('#secondAudio').addClass('hide');
+
+        //     } else if(numAudio === 'third') {
+
+        //         $('#thirdAudio').addClass('hide');
+
+        //     } else if(numAudio === 'fourth') {
+
+        //         $('#fourthAudio').addClass('hide');
+
+        //     } else if(numAudio === 'fifth') {
+
+        //         $('#fifthAudio').addClass('hide');
+
+        //     }
+        //     $('#audioContainer').children('button').removeClass('hide');
+        //     $('#modalHead').removeClass('hide');
+        //     $('#footerButtonGroup').addClass('hide');
+        // }
+  
+        $('#backButton').on('click', function(event) {
+
+            stopaudio();
+            $('#audioContainer').children('button').removeClass('hide');
+            $('#modalHead').removeClass('hide');
+            $('#footerButtonGroup').addClass('hide');
+
+        });
+
     </script>
 </body>
 </html>
