@@ -31,7 +31,6 @@ $("#startPomodoroTimer").on("click", function(evt){
     pomodoroInterval = setInterval(function(){
       workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
       displayTime(workDuration, "Work block ("+workMinutes+" min)"); 
-      // A counter and if statements to clear interval when it reaches 0 and to display long break after 4 pomodoros
       if (workDuration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
         countIntervals++
@@ -42,7 +41,6 @@ $("#startPomodoroTimer").on("click", function(evt){
           longBreakStart();
         }
       }
-
     }, interval);
   }
 //short break

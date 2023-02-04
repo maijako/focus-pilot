@@ -1,4 +1,4 @@
-
+//this isn't finished yet, there's an open branch for this still
 //Code for the appendable 'to do' list
 var todoInput = $("#todo-text");
 var todoForm = $("#todo-form");
