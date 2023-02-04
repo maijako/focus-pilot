@@ -57,30 +57,23 @@ $("#startPomodoroTimer").on("click", function(evt){
     if (workDuration.asMilliseconds() < 0) {
       clearInterval(pomodoroInterval);
       count++;
-    //   if (count < 3) {
-    //     shortBreakStart();
-    //     displayTime(shortBreakDuration, "Work block ("+workMinutes+" min)");
-    //   } else if (count === 3) {
-    //     longBreakStart();
-    //     displayTime(longBreakDuration, "Work block ("+workMinutes+" min)");
-    //   }      
-    // } else {
-    //   displayTime(workDuration, "Short Break ("+shortBreak+" min)");
+      if (count < 3) {
+        displayTime(shortBreakDuration, "Work block ("+workMinutes+" min)");
+      } else if (count === 3) {
+        displayTime(longBreakDuration, "Work block ("+workMinutes+" min)");
+      }      
+    } else {
+      displayTime(workDuration, "Short Break ("+shortBreak+" min)");
     }
   }, interval);
   }
   startPomodoroInterval();
-
-  if (count < 3) {
+//took if statements containing function calls out of the main pomodoroInterval function
+  if (count < 3){
     shortBreakStart();
-    displayTime(shortBreakDuration, "Work block ("+workMinutes+" min)");
-  } else if (count === 3) {
-    longBreakStart();
-    displayTime(longBreakDuration, "Work block ("+workMinutes+" min)");
-  }      
-} else {
-  displayTime(workDuration, "Short Break ("+shortBreak+" min)");
-
+    } else if (count === 3) {
+      longBreakStart();
+    }      
 
   function shortBreakStart(){
     shortBreakDuration = moment.duration(shortBreak, 'minutes');
