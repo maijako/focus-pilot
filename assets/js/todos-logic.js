@@ -1,17 +1,15 @@
 
-// // COMMENTED OUT CODE BELOW AS PLACEHOLDER FOR TO-DO LIST GENERATION
-// //_________________________________________________________________
-// //Code for the appendable 'to do' list
-// var todoInput = $("#todo-text");
-// var todoForm = $("#todo-form");
-// var todoList = $("#todo-list");
-// var todoCountSpan = $("#todo-count");
-// //an empty array to store todos
-// var todos = [];
-// //A function to store to dos as a string
-// var storeTodos = function() {
-//   localStorage.setItem("todos", JSON.stringify(todos));
-// }
+//Code for the appendable 'to do' list
+var todoInput = $("#todo-text");
+var todoForm = $("#todo-form");
+var todoList = $("#todo-list");
+var todoCountSpan = $("#todo-count");
+//an empty array to store todos
+var todos = [];
+//A function to store to dos as a string
+var storeTodos = function() {
+  localStorage.setItem("todos", JSON.stringify(todos));
+}
 
 // function renderTodos() {
 //   // Clear todoList element and update todoCountSpan
