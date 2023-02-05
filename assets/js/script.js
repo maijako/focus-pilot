@@ -50,7 +50,10 @@ $("#startPomodoroTimer").on("click", function () {
       if (result.isConfirmed) {
 
         //PLACE CANCEL TIMER FUNCTION HERE!
-
+        clearInterval(pomodoroInterval);
+        clearInterval(shortBreakInterval);
+        clearInterval(longBreakInterval);
+        countIntervals = 0;
 
         //Show weather information.
         $("#weatherContainer").show("slow", "swing");
