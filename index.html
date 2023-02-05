@@ -38,16 +38,19 @@
                             <div class="row">
                                 <div class="col-4">
                                     <label class="mb-1 form-label inputLabel d-inline">Pomodoro</label>
-                                    <input id="pomodoroTimer" type="number" placeholder="25" class="form-control col-12">
+                                    <input id="pomodoroTimer" type="number" placeholder="25"
+                                        class="form-control col-12">
                                 </div>
                                 <div class="col-4">
                                     <label class="mb-1 form-label inputLabel">Short Break</label>
-                                    <input id="shortBreak" type="number" min="5" max="30" placeholder="5" class="form-control col-12">
+                                    <input id="shortBreak" type="number" min="5" max="30" placeholder="5"
+                                        class="form-control col-12">
 
                                 </div>
                                 <div class="col-4">
                                     <label class="mb-1 form-label inputLabel">Long Break</label>
-                                    <input id="longBreak" type="number" min="5" max="60" placeholder="15" class="form-control col-12">
+                                    <input id="longBreak" type="number" min="5" max="60" placeholder="15"
+                                        class="form-control col-12">
                                 </div>
                             </div>
                         </div>
@@ -84,6 +87,14 @@
                         <h6 class="mx-auto mb-0" id="offcanvasScrollingLabel">To-do</h6>
                         <small class="my-0">Create and assign task to your time block. Uncompleted task will be
                             available for for the next time block</span>
+                            <!-- TODOS CONTAINER  -->
+                        <div class="todos">
+                            <form id="todo-form">
+                                <input type="text" placeholder="Add a task" name="todo-text" id="todo-text" />
+                            </form>
+                            <p>Tasks to complete: <span id="todo-count">0</span></p>
+                            <ul id="todo-list"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -127,9 +138,9 @@
                                 </a>
                                 <a class="suggestions-link" href="#">
                                     <div class="col">
-                                        <div class="card" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                                        <div class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <img src="https://th.bing.com/th/id/R.6206a8b5723e1295e343195e29ed6de9?rik=kLCm3p9FTDJUAg&pid=ImgRaw&r=0"
-                                               class="card-img-top" alt="...">
+                                                class="card-img-top" alt="...">
                                             <div class="card-body">
                                                 <h5 class="card-title">Meditation</h5>
                                                 <p class="card-text">This is a longer card with supporting text below as
@@ -291,74 +302,81 @@
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content">
-                <div id="modalHead" class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Nice Choice! Please Select the Type of Meditation.</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div id="audioContainer" class="modal-body d-flex flex-column align-items-center justify-content-evenly">
-
-                    <button data-audio-meditation = "firstAudio">
-                        Breathing Meditation
-                    </button>
-                    <audio id="firstAudio" onended="endedAudio()">
-                        <source src = "assets/audio/01_Breathing_Meditation.mp3" type = "audio/ogg" >
-                        <source src = "assets/audio/01_Breathing_Meditation.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                    <button data-audio-meditation = "secondAudio">
-                        Breath Sound Body Meditation
-                    </button>
-                    <audio id="secondAudio" onended="endedAudio()">
-                        <source src = "assets/audio/02_Breath_Sound_Body_Meditation.mp3" type = "audio/ogg" >
-                        <source src = "assets/audio/02_Breath_Sound_Body_Meditation.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                    <button data-audio-meditation = "thirdAudio">
-                        Working with difficulties Meditation
-                    </button>
-                    <audio id="thirdAudio" onended="endedAudio()">
-                        <source src = "assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type = "audio/ogg" >
-                        <source src = "assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                    <button data-audio-meditation = "fourthAudio">
-                    Body Scan Meditation
-                    </button>
-                    <audio id="fourthAudio" onended="endedAudio()">
-                        <source src = "assets/audio/Body-Scan-Meditation.mp3" type = "audio/ogg" >
-                        <source src = "assets/audio/Body-Scan-Meditation.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                    <button data-audio-meditation = "fifthAudio">
-                        Body Sound Meditation
-                    </button>
-                    <audio id="fifthAudio" onended="endedAudio()">
-                        <source src = "assets/audio/Body-Sound-Meditation.mp3" type = "audio/ogg" >
-                        <source src = "assets/audio/Body-Sound-Meditation.mp3" type="audio/mpeg">
-                        Your browser does not support the audio element.
-                    </audio>
-
-                </div>
-                <div class="modal-footer">
-
-                    <div id="footerButtonGroup" class="hide">
-                        <button onclick = "playaudio()" type = "button" class="btn btn-primary"> Play the Audio </button>
-                        <button onclick = "pauseaudio()" type = "button" class="btn btn-primary"> Pause the Audio </button>
-                        <button onclick = "stopaudio()" type = "button" class="btn btn-primary"> Stop the Audio </button>
-                        <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
-
-                        <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
+                <div class="modal-content">
+                    <div id="modalHead" class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nice Choice! Please Select the Type of
+                            Meditation.</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    
-                    <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close Window</button>
-                    
+                    <div id="audioContainer"
+                        class="modal-body d-flex flex-column align-items-center justify-content-evenly">
+
+                        <button data-audio-meditation="firstAudio">
+                            Breathing Meditation
+                        </button>
+                        <audio id="firstAudio" onended="endedAudio()">
+                            <source src="assets/audio/01_Breathing_Meditation.mp3" type="audio/ogg">
+                            <source src="assets/audio/01_Breathing_Meditation.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                        <button data-audio-meditation="secondAudio">
+                            Breath Sound Body Meditation
+                        </button>
+                        <audio id="secondAudio" onended="endedAudio()">
+                            <source src="assets/audio/02_Breath_Sound_Body_Meditation.mp3" type="audio/ogg">
+                            <source src="assets/audio/02_Breath_Sound_Body_Meditation.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                        <button data-audio-meditation="thirdAudio">
+                            Working with difficulties Meditation
+                        </button>
+                        <audio id="thirdAudio" onended="endedAudio()">
+                            <source src="assets/audio/04_Meditation_for_Working_with_Difficulties.mp3" type="audio/ogg">
+                            <source src="assets/audio/04_Meditation_for_Working_with_Difficulties.mp3"
+                                type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                        <button data-audio-meditation="fourthAudio">
+                            Body Scan Meditation
+                        </button>
+                        <audio id="fourthAudio" onended="endedAudio()">
+                            <source src="assets/audio/Body-Scan-Meditation.mp3" type="audio/ogg">
+                            <source src="assets/audio/Body-Scan-Meditation.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                        <button data-audio-meditation="fifthAudio">
+                            Body Sound Meditation
+                        </button>
+                        <audio id="fifthAudio" onended="endedAudio()">
+                            <source src="assets/audio/Body-Sound-Meditation.mp3" type="audio/ogg">
+                            <source src="assets/audio/Body-Sound-Meditation.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+
+                    </div>
+                    <div class="modal-footer">
+
+                        <div id="footerButtonGroup" class="hide">
+                            <button onclick="playaudio()" type="button" class="btn btn-primary"> Play the Audio
+                            </button>
+                            <button onclick="pauseaudio()" type="button" class="btn btn-primary"> Pause the Audio
+                            </button>
+                            <button onclick="stopaudio()" type="button" class="btn btn-primary"> Stop the Audio
+                            </button>
+                            <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
+
+                            <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
+                        </div>
+
+                        <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                            Window</button>
+
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
 
