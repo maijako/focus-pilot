@@ -4,8 +4,10 @@ var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
 var timeDisplay = $("#countdownTimer");
+var timeContainer = $('#countdownTimerContainer')
 var nextText = $("#whatsNext");
 var workMinutes, shortBreak, longBreak;
+var endTimeAudio = new Audio("assets/audio/end_of_time_sound.wav");
 
 var initializeTimer = function() {
   //grabbing user values from input fields, or using default if input is null
@@ -33,6 +35,10 @@ var initializeTimer = function() {
 
 //main Pomodoro
   function startPomodoroInterval(){
+    timeContainer.addClass('studyColour');
+    timeContainer.removeClass('shortBColour');
+    timeContainer.removeClass('longBColour');
+
     workDuration = moment.duration(workMinutes, 'minutes');
     console.log("Work Duration: "+workDuration);
     pomodoroInterval = setInterval(function(){
@@ -45,6 +51,11 @@ var initializeTimer = function() {
         displayTime(workDuration, "Short Break ("+shortBreak+" min)"); 
       }else if(countIntervals === 3){
         displayTime(workDuration, "Long Break ("+longBreak+" min)"); 
+      }
+      
+      // Playing an audio notification for the last 5 seconds of the time block.
+      if(workDuration.asMilliseconds() <= 5000 && workDuration.asMilliseconds() >= 4000) {
+        endTimeAudio.play();
       }
       
       if (workDuration.asMilliseconds() < 0) {
@@ -62,6 +73,10 @@ var initializeTimer = function() {
   }
 //short break
   function shortBreakStart(){
+    timeContainer.removeClass('studyColour');
+    timeContainer.addClass('shortBColour');
+    timeContainer.removeClass('longBColour');
+
     shortBreakDuration = moment.duration(shortBreak, 'minutes');
     console.log ("short break")
     shortBreakInterval = setInterval(function(){
@@ -69,6 +84,12 @@ var initializeTimer = function() {
         shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
       }
       displayTime(shortBreakDuration, "Work Block ("+workMinutes+" min)");
+
+      // Playing an audio notification for the last 5 seconds of the time block.
+      if(shortBreakDuration.asMilliseconds() <= 5000 && shortBreakDuration.asMilliseconds() >= 4000) {
+        endTimeAudio.play();
+      }
+
       if (shortBreakDuration.asMilliseconds() < 0) {
         clearInterval(shortBreakInterval);
         startPomodoroInterval();
@@ -77,6 +98,9 @@ var initializeTimer = function() {
   }
 //long break
   function longBreakStart(){
+    timeContainer.removeClass('studyColour');
+    timeContainer.removeClass('shortBColour');
+    timeContainer.addClass('longBColour');
     longBreakDuration = moment.duration(longBreak, 'minutes');
     console.log("long break")
     longBreakInterval = setInterval(function(){
@@ -84,6 +108,12 @@ var initializeTimer = function() {
         longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
       }
       displayTime(longBreakDuration, "Work Block ("+workMinutes+" min)");
+
+      // Playing an audio notification for the last 5 seconds of the time block.
+      if(longBreakDuration.asMilliseconds() <= 5000 && longBreakDuration.asMilliseconds() >= 4000) {
+        endTimeAudio.play();
+      }
+
       if (longBreakDuration.asMilliseconds() < 0) {
         clearInterval(longBreakInterval);
         //resetting pomodoro
