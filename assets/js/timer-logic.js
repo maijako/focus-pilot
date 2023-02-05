@@ -4,6 +4,7 @@ var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
 var timeDisplay = $("#countdownTimer");
+var timeContainer = $('#countdownTimerContainer')
 var nextText = $("#whatsNext");
 var workMinutes, shortBreak, longBreak;
 
@@ -33,6 +34,10 @@ var initializeTimer = function() {
 
 //main Pomodoro
   function startPomodoroInterval(){
+    timeContainer.addClass('studyColour');
+    timeContainer.removeClass('shortBColour');
+    timeContainer.removeClass('longBColour');
+
     workDuration = moment.duration(workMinutes, 'minutes');
     console.log("Work Duration: "+workDuration);
     pomodoroInterval = setInterval(function(){
@@ -62,6 +67,10 @@ var initializeTimer = function() {
   }
 //short break
   function shortBreakStart(){
+    timeContainer.removeClass('studyColour');
+    timeContainer.addClass('shortBColour');
+    timeContainer.removeClass('longBColour');
+
     shortBreakDuration = moment.duration(shortBreak, 'minutes');
     console.log ("short break")
     shortBreakInterval = setInterval(function(){
@@ -77,6 +86,9 @@ var initializeTimer = function() {
   }
 //long break
   function longBreakStart(){
+    timeContainer.removeClass('studyColour');
+    timeContainer.removeClass('shortBColour');
+    timeContainer.addClass('longBColour');
     longBreakDuration = moment.duration(longBreak, 'minutes');
     console.log("long break")
     longBreakInterval = setInterval(function(){

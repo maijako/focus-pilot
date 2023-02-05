@@ -9,6 +9,12 @@ $("document").on(function () {
 $("#countdownTimer").on("click", function () {
   $("#countdownTimer").toggleClass("countdownTimerPaused")
 
+  if(intervalPaused){
+    intervalPaused = false;
+  } else {
+    intervalPaused = true;
+  }
+
 })
 
 //Event handler for when left panel canvas is hidden

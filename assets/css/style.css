@@ -362,10 +362,23 @@ p.forecastTemp {
 
 #countdownTimerContainer {
    width: auto;
-   background-color: rgba(255, 255, 255, 0.7) !important;
+   /* background-color: rgba(255, 255, 255, 0.7) !important; */
+   /* opacity: 0.7 !important; */
    padding: 20px;
    border-radius: 20px;
    transition: transform .2s;
+}
+
+.studyColour {
+   background-color: lightskyblue;
+}
+
+.shortBColour {
+   background-color: #5cb65c;
+}
+
+.longBColour {
+   background-color: plum;
 }
 
 #additionalTimerInfo {
