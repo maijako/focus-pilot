@@ -2,6 +2,7 @@
 var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
+var intervalPaused = false;
 var timeDisplay = $("#countdownTimer");
 var nextText = $("#whatsNext");
 //onclick to start pomodoro timer
@@ -31,7 +32,11 @@ $("#startPomodoroTimer").on("click", function(evt){
     workDuration = moment.duration(workMinutes, 'minutes');
     console.log("Work Duration: "+workDuration);
     pomodoroInterval = setInterval(function(){
+      // console.log("**************Value of pomodoroInterval: "+pomodoroInterval);
       workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
+      // if(!intervalPaused){
+      //   workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
+      // }
 
       if(countIntervals < 3){
         displayTime(workDuration, "Short Break ("+shortBreak+" min)"); 
@@ -41,6 +46,7 @@ $("#startPomodoroTimer").on("click", function(evt){
       
       if (workDuration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
+        console.log("Value of pomodoroInterval: "+pomodoroInterval);
         countIntervals++
         console.log("Pomodoro nr "+ countIntervals);
         if (countIntervals < 4){
