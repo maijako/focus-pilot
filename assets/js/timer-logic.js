@@ -2,21 +2,24 @@
 var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
-var intervalPaused = false;
+var intervalPaused;
 var timeDisplay = $("#countdownTimer");
 var nextText = $("#whatsNext");
-//onclick to start pomodoro timer
-$("#startPomodoroTimer").on("click", function(evt){
-  evt.preventDefault();
-//grabbing user values from input fields, or using default if input is null
-  var workMinutes = $("#pomodoroTimer").val() || 25;
-  var shortBreak = $("#shortBreak").val() || 5;
-  var longBreak = $("#longBreak").val() || 15;
+var workMinutes, shortBreak, longBreak;
+
+var initializeTimer = function() {
+  //grabbing user values from input fields, or using default if input is null
+  workMinutes = $("#pomodoroTimer").val() || 25;
+  shortBreak = $("#shortBreak").val() || 5;
+  longBreak = $("#longBreak").val() || 15;
 //using moment.duration to set work and break blocks
   workDuration = moment.duration(workMinutes, 'minutes');
   shortBreakDuration = moment.duration(shortBreak, 'minutes');
   longBreakDuration = moment.duration(longBreak, 'minutes');
   interval = 1000;
+  intervalPaused = false;
+}
+
 //storing time display format in a function that will be called in work and break blocks
   function displayTime(duration, text) {
     var minutes = duration.minutes();
@@ -27,16 +30,16 @@ $("#startPomodoroTimer").on("click", function(evt){
     timeDisplay.text((minutes < 10 ? '0' + minutes : minutes) + ':' + (seconds < 10 ? '0' + seconds : seconds));
     nextText.text(text);
   }
+
 //main Pomodoro
   function startPomodoroInterval(){
     workDuration = moment.duration(workMinutes, 'minutes');
     console.log("Work Duration: "+workDuration);
     pomodoroInterval = setInterval(function(){
-      // console.log("**************Value of pomodoroInterval: "+pomodoroInterval);
-      workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
-      // if(!intervalPaused){
-      //   workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
-      // }
+
+      if(!intervalPaused){
+        workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
+      }
 
       if(countIntervals < 3){
         displayTime(workDuration, "Short Break ("+shortBreak+" min)"); 
@@ -62,7 +65,9 @@ $("#startPomodoroTimer").on("click", function(evt){
     shortBreakDuration = moment.duration(shortBreak, 'minutes');
     console.log ("short break")
     shortBreakInterval = setInterval(function(){
-      shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
+      if(!intervalPaused){
+        shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
+      }
       displayTime(shortBreakDuration, "Work Block ("+workMinutes+" min)");
       if (shortBreakDuration.asMilliseconds() < 0) {
         clearInterval(shortBreakInterval);
@@ -75,7 +80,9 @@ $("#startPomodoroTimer").on("click", function(evt){
     longBreakDuration = moment.duration(longBreak, 'minutes');
     console.log("long break")
     longBreakInterval = setInterval(function(){
-      longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
+      if(!intervalPaused){
+        longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
+      }
       displayTime(longBreakDuration, "Work Block ("+workMinutes+" min)");
       if (longBreakDuration.asMilliseconds() < 0) {
         clearInterval(longBreakInterval);
@@ -86,5 +93,3 @@ $("#startPomodoroTimer").on("click", function(evt){
     }, interval);
   }
 
-  startPomodoroInterval();
-});

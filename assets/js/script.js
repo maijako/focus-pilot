@@ -37,7 +37,7 @@ $("#offcanvasRight").on("shown.bs.offcanvas", function(){
 
 $("#startPomodoroTimer").on("click", function () {
   if ($(this).text() === "Stop") {
-
+    intervalPaused = true;
     Swal.fire({
       icon: 'warning',
       title: 'Cancel the timer?',
@@ -47,10 +47,7 @@ $("#startPomodoroTimer").on("click", function () {
       confirmButtonText: 'Yes',
       denyButtonText: `No`,
     }).then((result) => {
-      // console.log("Value of pomodoroInterval: "+pomodoroInterval);
-      // console.log("Value of shortBreakInterval: "+shortBreakInterval);
-      // console.log("Value of longBreakInterval: "+longBreakInterval);
-      intervalPaused = true;
+      
       if (result.isConfirmed) {
 
         //PLACE CANCEL TIMER FUNCTION HERE!
@@ -58,22 +55,15 @@ $("#startPomodoroTimer").on("click", function () {
         clearInterval(pomodoroInterval);
         clearInterval(shortBreakInterval);
         clearInterval(longBreakInterval);
-        // pomodoroInterval = null;
-        // shortBreakInterval = null;
-        // longBreakInterval = null;
         countIntervals = 0;
-      //   console.log("******************Val after clearing");
-      //   console.log("Value of pomodoroInterval: "+pomodoroInterval);
-      // console.log("Value of shortBreakInterval: "+shortBreakInterval);
-      // console.log("Value of longBreakInterval: "+longBreakInterval);
 
         //Show weather information.
         $("#weatherContainer").show("slow", "swing");
 
         //Hide Timer container
-        // $("#countdownTimerContainer").fadeTo("slow", 0, function () {
+        $("#countdownTimerContainer").fadeTo("slow", 0, function () {
 
-        // });
+        });
         $(this).text("Start")
         $(this).addClass("btn-dark");
 
@@ -90,11 +80,11 @@ $("#startPomodoroTimer").on("click", function () {
     $("#weatherContainer").hide(1000, "swing", function () {
       //Show Timer container
       $("#countdownTimerContainer").fadeTo("slow", 1, function () {
-
+        initializeTimer();
+        //intervalPaused = false;
+        startPomodoroInterval();
       });
     });
-
-
 
     $(this).text("Stop")
     $(this).removeClass("btn-dark");
