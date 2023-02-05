@@ -7,6 +7,7 @@ var timeDisplay = $("#countdownTimer");
 var timeContainer = $('#countdownTimerContainer')
 var nextText = $("#whatsNext");
 var workMinutes, shortBreak, longBreak;
+var endTimeAudio = new Audio("assets/audio/end_of_time_sound.wav");
 
 var initializeTimer = function() {
   //grabbing user values from input fields, or using default if input is null
@@ -52,6 +53,11 @@ var initializeTimer = function() {
         displayTime(workDuration, "Long Break ("+longBreak+" min)"); 
       }
       
+      // Playing an audio notification for the last 5 seconds of the time block.
+      if(workDuration.asMilliseconds() <= 5000 && workDuration.asMilliseconds() >= 4000) {
+        endTimeAudio.play();
+      }
+      
       if (workDuration.asMilliseconds() < 0) {
         clearInterval(pomodoroInterval);
         console.log("Value of pomodoroInterval: "+pomodoroInterval);
@@ -78,6 +84,12 @@ var initializeTimer = function() {
         shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
       }
       displayTime(shortBreakDuration, "Work Block ("+workMinutes+" min)");
+
+      // Playing an audio notification for the last 5 seconds of the time block.
+      if(shortBreakDuration.asMilliseconds() <= 5000 && shortBreakDuration.asMilliseconds() >= 4000) {
+        endTimeAudio.play();
+      }
+
       if (shortBreakDuration.asMilliseconds() < 0) {
         clearInterval(shortBreakInterval);
         startPomodoroInterval();
@@ -96,6 +108,12 @@ var initializeTimer = function() {
         longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
       }
       displayTime(longBreakDuration, "Work Block ("+workMinutes+" min)");
+
+      // Playing an audio notification for the last 5 seconds of the time block.
+      if(longBreakDuration.asMilliseconds() <= 5000 && longBreakDuration.asMilliseconds() >= 4000) {
+        endTimeAudio.play();
+      }
+
       if (longBreakDuration.asMilliseconds() < 0) {
         clearInterval(longBreakInterval);
         //resetting pomodoro
