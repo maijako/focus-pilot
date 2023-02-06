@@ -27,14 +27,20 @@ $('#audioContainer').on('click', 'button', function(event) {
 });
 
 function playaudio() {
+    $('#playButton').addClass('hide');
+    $('#pauseButton').removeClass('hide');
     currentAudio.play();
 }
 
 function pauseaudio() {
+    $('#playButton').removeClass('hide');
+    $('#pauseButton').addClass('hide');
     currentAudio.pause();
 }
 
 function stopaudio() {
+    $('#playButton').removeClass('hide');
+    $('#pauseButton').addClass('hide');
     currentAudio.pause();
     currentAudio.currentTime = 0;
 }

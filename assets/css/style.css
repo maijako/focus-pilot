@@ -422,7 +422,6 @@ p.forecastTemp {
 }
 
 .modal-content{
-   /* background-color: lightskyblue; */
    background: url("https://cdn.wallpapersafari.com/19/60/XlyTWp.png");
    background-repeat: no-repeat;
    background-position: center;
@@ -453,6 +452,29 @@ p.forecastTemp {
    border-radius: 10px;
 }
 
+#medComponentFooter {
+   border: none;
+}
+
+#closeButton{
+   opacity: 0.5;
+}
+
+#closeButton:hover {
+   opacity: 1;
+}
+
+#playButton:hover,
+#pauseButton:hover,
+#stopButton:hover {
+   box-shadow: inset 40px 40px 10px rgb(210 20 20 / 30%);
+   border-radius: 35px;
+}
+
+#backButton:hover {
+   box-shadow: inset 40px 40px 10px rgb(3 169 244 / 50%);
+   border-radius: 35px;
+}
 /* End of styling for meditation modal */
 /* ********************************************* */
 
