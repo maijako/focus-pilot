@@ -15,15 +15,16 @@ $("document").ready(function () {
     icon: 'info',
     title: 'Click on the background to hide or show settings.'
   })
-  
+
 });
 
 
 
 $("#countdownTimer").on("click", function () {
+
   $("#countdownTimer").toggleClass("countdownTimerPaused")
 
-  if(intervalPaused){
+  if (intervalPaused) {
     intervalPaused = false;
   } else {
     intervalPaused = true;
@@ -38,7 +39,7 @@ $("#main-background").on("click", function () {
 
 
 //Event handler for when left panel canvas is hidden
-$("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
+$("#offcanvasScrolling").on("hidden.bs.offcanvas", function () {
   showElements()
 
   $("#leftPanelButton").show();
@@ -46,20 +47,20 @@ $("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
 })
 
 //Event handler for when left panel canvas is shown
-$("#offcanvasScrolling").on("shown.bs.offcanvas", function(){
+$("#offcanvasScrolling").on("shown.bs.offcanvas", function () {
   fadeElements()
-  
+
 })
 
 //Event handler for when right panel canvas is hidden
-$("#offcanvasRight").on("hidden.bs.offcanvas", function(){
+$("#offcanvasRight").on("hidden.bs.offcanvas", function () {
   $("#rightPanelButton").show();
 })
 
 //Event handler for when right panel canvas is shown
-$("#offcanvasRight").on("shown.bs.offcanvas", function(){
+$("#offcanvasRight").on("shown.bs.offcanvas", function () {
   $("#latest-news").empty();
-  getNewsAPI("breaking-news") 
+  getNewsAPI("breaking-news")
   $("#news-header").text("Here's the latest Breaking News")
 })
 
@@ -76,11 +77,11 @@ $("#startPomodoroTimer").on("click", function () {
       confirmButtonText: 'Yes',
       denyButtonText: `No`,
     }).then((result) => {
-      
+
       if (result.isConfirmed) {
 
         //PLACE CANCEL TIMER FUNCTION HERE!
-        
+
         clearInterval(pomodoroInterval);
         clearInterval(shortBreakInterval);
         clearInterval(longBreakInterval);
@@ -90,9 +91,7 @@ $("#startPomodoroTimer").on("click", function () {
         $("#weatherContainer").show("slow", "swing");
 
         //Hide Timer container
-        $("#countdownTimerContainer").fadeTo("slow", 0, function () {
-
-        });
+        $("#countdownTimerContainer").addClass("d-none")
         $(this).text("Start")
         $(this).addClass("btn-dark");
 
@@ -107,12 +106,12 @@ $("#startPomodoroTimer").on("click", function () {
 
     //Hide weather information.
     $("#weatherContainer").hide(1000, "swing", function () {
-      //Show Timer container
-      $("#countdownTimerContainer").fadeTo("slow", 1, function () {
-        initializeTimer();
-        //intervalPaused = false;
-        startPomodoroInterval();
-      });
+
+      $("#countdownTimerContainer").removeClass("d-none");
+      initializeTimer();
+      //intervalPaused = false;
+      startPomodoroInterval();
+
     });
 
     $(this).text("Stop")
@@ -147,7 +146,7 @@ $(window).resize(function () {
   if ($("#offcanvasScrolling").hasClass("show")) {
     fadeElements()
   }
-  else{
+  else {
     showElements()
   }
 })
@@ -174,27 +173,27 @@ $("#fullScreenButton").click(function () {
 
 //Show Elements.
 function showElements() {
-    $("#weatherContainer").fadeTo("slow",1.0)
+  $("#weatherContainer").fadeTo("slow", 1.0)
 
-    $(".navbar-brand").fadeTo("slow",1.0)
+  $(".navbar-brand").fadeTo("slow", 1.0)
 
-    $("iframe").fadeTo("slow",1.0)
+  $("iframe").fadeTo("slow", 1.0)
 }
 
 //Fade Elements
 function fadeElements() {
-    $("#weatherContainer").fadeTo("slow",0.4)
+  $("#weatherContainer").fadeTo("slow", 0.4)
 
-    $(".navbar-brand").fadeTo("slow",0.4)
+  $(".navbar-brand").fadeTo("slow", 0.4)
 
-    $("iframe").fadeTo("slow",0.4)
+  $("iframe").fadeTo("slow", 0.4)
 }
 
 $("#news-categories").children().on("click", function () {
-  
+
   $("#latest-news").empty();
-  getNewsAPI($(this).attr("data-news-category")) 
-  $("#news-header").text("Here's the latest in "+ $(this).text() + ".")
+  getNewsAPI($(this).attr("data-news-category"))
+  $("#news-header").text("Here's the latest in " + $(this).text() + ".")
 })
 
 
@@ -219,7 +218,7 @@ function getNewsAPI(topic) {
 function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription, newsURL, newsTime) {
   let cardAnchor = $("<a>", {
     class: "news-link col",
-    target:"_blank",
+    target: "_blank",
     href: newsURL
   })
 
