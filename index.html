@@ -139,7 +139,7 @@
                                 </a>
                                 <a class="suggestions-link" href="#">
                                     <div class="col">
-                                        <div class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <div id="medCard" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <img src="https://th.bing.com/th/id/R.6206a8b5723e1295e343195e29ed6de9?rik=kLCm3p9FTDJUAg&pid=ImgRaw&r=0"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -305,9 +305,7 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div id="modalHead" class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Please Select the Type of
-                            Meditation From Below:</h5>
-                        <!-- <button id="closeButton" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Please Select the Type of Meditation From Below:</h5>
                         <img id="closeButton" src="https://img.icons8.com/ultraviolet/40/null/close-window--v1.png" data-bs-dismiss="modal" aria-label="Close"/>
                     </div>
                     <div id="audioContainer"
@@ -363,24 +361,13 @@
                     <div id="medComponentFooter" class="modal-footer">
 
                         <div id="footerButtonGroup" class="hide">
-                            <!-- <button onclick="playaudio()" type="button" class="btn btn-primary"> Play the Audio
-                            </button> -->
 
                             <img id="playButton" onclick="playaudio()" src="https://img.icons8.com/arcade/64/null/play-button-circled.png"/>
                             <img id="pauseButton" class="hide" onclick="pauseaudio()" src="https://img.icons8.com/arcade/64/null/pause-squared.png"/>
                             <img id="stopButton" onclick="stopaudio()" src="https://img.icons8.com/arcade/64/null/stop-sign.png"/>
-                            <!-- <button onclick="pauseaudio()" type="button" class="btn btn-primary"> Pause the Audio
-                            </button> -->
-                            <!-- <button onclick="stopaudio()" type="button" class="btn btn-primary"> Stop the Audio
-                            </button> -->
-                            <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
                             <img id="backButton" src="https://img.icons8.com/fluency/48/null/circled-left-2.png"/>
 
-                            <!-- <button id="backButton" type="button" class="btn btn-primary">Go Back</button> -->
                         </div>
-
-                        <!-- <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                            Window</button> -->
 
                     </div>
                 </div>

@@ -1,6 +1,21 @@
 let currentAudio;
 let timerEl = $('<p>');
 let timerInterval;
+
+
+$('#medCard').on('click', function(event) {
+    let audioButtonList = $('#audioContainer').children('button');
+    $.each(audioButtonList, function (i, audioButton) { 
+        let audio = document.getElementById($(audioButton).attr('data-audio-meditation'));
+        let timeInMinutes = audio.duration/60;
+
+        let btnText = $(audioButton).text();
+        btnText = btnText.concat(' ('+timeInMinutes.toFixed(0)+' min)');
+        console.log("Duration of audio:"+btnText);
+        $(audioButton).text(btnText);
+    });
+});
+
 $('#footerButtonGroup').append(timerEl);
 
 $('#audioContainer').on('click', 'button', function(event) {
@@ -17,6 +32,7 @@ $('#audioContainer').on('click', 'button', function(event) {
 
     totalTime = currentAudio.duration.toFixed(0);
     timerEl.text(totalTime);
+    console.log("Dur: "+totalTime);
 
     timerInterval = setInterval(() => {
         let nowTime = currentAudio.currentTime.toFixed(0);
