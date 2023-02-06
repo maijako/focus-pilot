@@ -21,12 +21,12 @@ $("#countdownTimer").on("click", function () {
 //prevent autostart breaks if Break form field is toggled on
 $("#autostartBreakInput").click(function(){
   preventAutoBreak = !preventAutoBreak;
-})
+});
 
 //prevent autostart work blocks after breaks, if Work form field is toggled on
 $("#autoStartPomodoroInput").click(function(){
   preventAutoWork = !preventAutoWork;
-})
+});
 
 
 //Event handler for when left panel canvas is hidden
@@ -79,7 +79,7 @@ $("#startPomodoroTimer").on("click", function () {
         $("#weatherContainer").show("slow", "swing");
 
         //Hide Timer container
-        $("#countdownTimerContainer").fadeTo("slow", 0, function () {
+        $("#countdownTimer").fadeTo("slow", 0, function () {
 
         });
         $(this).text("Start")
@@ -97,7 +97,7 @@ $("#startPomodoroTimer").on("click", function () {
     //Hide weather information.
     $("#weatherContainer").hide(1000, "swing", function () {
       //Show Timer container
-      $("#countdownTimerContainer").fadeTo("slow", 1, function () {
+      $("#countdownTimer").fadeTo("slow", 1, function () {
         initializeTimer();
         //intervalPaused = false;
         startPomodoroInterval();
