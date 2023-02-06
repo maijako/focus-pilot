@@ -365,9 +365,9 @@
                         </audio>
 
                     </div>
-                    <div id="medComponentFooter" class="modal-footer">
+                    <div id="medComponentFooter" class="modal-footer flex-column hide">
 
-                        <div id="footerButtonGroup" class="hide">
+                        <div id="footerButtonGroup">
 
                             <img id="playButton" onclick="playaudio()" src="https://img.icons8.com/arcade/64/null/play-button-circled.png"/>
                             <img id="pauseButton" class="hide" onclick="pauseaudio()" src="https://img.icons8.com/arcade/64/null/pause-squared.png"/>
@@ -375,6 +375,8 @@
                             <img id="backButton" src="https://img.icons8.com/fluency/48/null/circled-left-2.png"/>
 
                         </div>
+                       
+                        <progress id="audioProgress" value="1" max="100">  </progress>
 
                     </div>
                 </div>

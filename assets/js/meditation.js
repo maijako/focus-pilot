@@ -1,5 +1,6 @@
 let currentAudio;
-let timerEl = $('<p>');
+//let timerEl = $('<p>');
+
 let timerInterval;
 
 
@@ -16,14 +17,16 @@ $('#medCard').on('click', function(event) {
     });
 });
 
-$('#footerButtonGroup').append(timerEl);
+//$('#footerButtonGroup').append(timerEl);
 
 $('#audioContainer').on('click', 'button', function(event) {
 
     let targetElement = $(event.target);
     let totalTime = 0;
 
-    $('#footerButtonGroup').removeClass('hide');
+    // $('#footerButtonGroup').removeClass('hide');
+    // $('#audioProgress').removeClass('hide');
+    $('#medComponentFooter').removeClass('hide');
     
     $('#audioContainer').children('button').addClass('hide');
     $('#modalHead').addClass('hide');
@@ -31,13 +34,15 @@ $('#audioContainer').on('click', 'button', function(event) {
     currentAudio = document.getElementById(targetElement.attr('data-audio-meditation'));
 
     totalTime = currentAudio.duration.toFixed(0);
-    timerEl.text(totalTime);
+    //timerEl.text(totalTime);
     console.log("Dur: "+totalTime);
+    $('#audioProgress').attr('max', totalTime);
 
     timerInterval = setInterval(() => {
         let nowTime = currentAudio.currentTime.toFixed(0);
-        let timeLeft = totalTime - nowTime;
-        timerEl.text(timeLeft);
+        //let timeLeft = totalTime - nowTime;
+        //timerEl.text(timeLeft);
+        $('#audioProgress').attr('value', nowTime);
     }, 1000);
 
 });
@@ -86,6 +91,7 @@ $('#closeButton').on('click', function(){
 function meditationHomeScreen() {
     $('#audioContainer').children('button').removeClass('hide');
     $('#modalHead').removeClass('hide');
-    $('#footerButtonGroup').addClass('hide');
+    // $('#footerButtonGroup').addClass('hide');
+    $('#medComponentFooter').addClass('hide');
     clearInterval(timerInterval);
 }
