@@ -1,10 +1,23 @@
 var today = moment();
-
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 
+const Toast = Swal.mixin({
+  toast: true,
+  position: 'bottom',
+  showConfirmButton: false,
+  timer: 5000,
+  timerProgressBar: true,
+})
+
+
 $("document").ready(function () {
+  Toast.fire({
+    icon: 'info',
+    title: 'Click on the background to hide or show settings.'
+  })
   
 });
+
 
 
 $("#countdownTimer").on("click", function () {
@@ -27,7 +40,9 @@ $("#main-background").on("click", function () {
 //Event handler for when left panel canvas is hidden
 $("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
   showElements()
-  
+
+  $("#leftPanelButton").show();
+  $("#fullScreenButton").show();
 })
 
 //Event handler for when left panel canvas is shown
@@ -38,11 +53,7 @@ $("#offcanvasScrolling").on("shown.bs.offcanvas", function(){
 
 //Event handler for when right panel canvas is hidden
 $("#offcanvasRight").on("hidden.bs.offcanvas", function(){
-  $("#leftPanelButton").show();
-  $("#fullScreenButton").show();
-  
-
-  
+  $("#rightPanelButton").show();
 })
 
 //Event handler for when right panel canvas is shown
