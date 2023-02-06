@@ -2,9 +2,10 @@ var today = moment();
 
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 
-$("document").on(function () {
-
+$("document").ready(function () {
+  
 });
+
 
 $("#countdownTimer").on("click", function () {
   $("#countdownTimer").toggleClass("countdownTimerPaused")
@@ -17,20 +18,31 @@ $("#countdownTimer").on("click", function () {
 
 })
 
+$("#main-background").on("click", function () {
+  $("#leftPanelButton").trigger("click");
+})
+
+
+
 //Event handler for when left panel canvas is hidden
 $("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
   showElements()
+  
 })
 
 //Event handler for when left panel canvas is shown
 $("#offcanvasScrolling").on("shown.bs.offcanvas", function(){
   fadeElements()
+  
 })
 
 //Event handler for when right panel canvas is hidden
 $("#offcanvasRight").on("hidden.bs.offcanvas", function(){
   $("#leftPanelButton").show();
   $("#fullScreenButton").show();
+  
+
+  
 })
 
 //Event handler for when right panel canvas is shown
@@ -98,9 +110,6 @@ $("#startPomodoroTimer").on("click", function () {
   }
 });
 
-$("document").ready(function () {
-  $("#leftPanelButton").trigger("click");
-});
 
 $("#leftPanelButton").on("click", function (evt) {
   $("#leftPanelButton").hide();
