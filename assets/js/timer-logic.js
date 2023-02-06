@@ -75,7 +75,7 @@ var initializeTimer = function() {
   }
 //short break
   function shortBreakStart(){
-    if(!preventAutostart){ //function to run only if prevent autostart is not toggled on
+    if(!preventAutoBreak){ //function to run only if prevent autostart is not toggled on
     timeContainer.removeClass('studyColour');
     timeContainer.addClass('shortBColour');
     timeContainer.removeClass('longBColour');
@@ -95,14 +95,16 @@ var initializeTimer = function() {
 
       if (shortBreakDuration.asMilliseconds() < 0) {
         clearInterval(shortBreakInterval);
+        if(!preventAutoWork){ //function to run only if prevent autostart is not toggled on
         startPomodoroInterval();
+        }
         } 
     }, interval);
   }
   }
 //long break
   function longBreakStart(){
-    if(!preventAutostart){ //function to run only if prevent autostart is not toggled on
+    if(!preventAutoBreak){ //function to run only if prevent autostart is not toggled on
     timeContainer.removeClass('studyColour');
     timeContainer.removeClass('shortBColour');
     timeContainer.addClass('longBColour');
@@ -123,7 +125,9 @@ var initializeTimer = function() {
         clearInterval(longBreakInterval);
         //resetting pomodoro
         countIntervals = 0;
+        if(!preventAutoWork){ //function to run only if prevent autostart is not toggled on
         startPomodoroInterval();
+        }
       } 
     }, interval);
   }

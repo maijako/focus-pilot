@@ -1,5 +1,6 @@
 var today = moment();
-var preventAutostart = false; //prevent break autostart
+var preventAutoBreak = false; //prevent break time block autostarting
+var preventAutoWork = false; //prevent work time block from autostarting
 
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 
@@ -19,7 +20,12 @@ $("#countdownTimer").on("click", function () {
 })
 //prevent autostart breaks if Break form field is toggled on
 $("#autostartBreakInput").click(function(){
-  preventAutostart = !preventAutostart;
+  preventAutoBreak = !preventAutoBreak;
+})
+
+//prevent autostart work blocks after breaks, if Work form field is toggled on
+$("#autoStartPomodoroInput").click(function(){
+  preventAutoWork = !preventAutoWork;
 })
 
 
