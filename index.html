@@ -362,15 +362,20 @@
                     <div class="modal-footer">
 
                         <div id="footerButtonGroup" class="hide">
-                            <button onclick="playaudio()" type="button" class="btn btn-primary"> Play the Audio
-                            </button>
-                            <button onclick="pauseaudio()" type="button" class="btn btn-primary"> Pause the Audio
-                            </button>
-                            <button onclick="stopaudio()" type="button" class="btn btn-primary"> Stop the Audio
-                            </button>
-                            <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
+                            <!-- <button onclick="playaudio()" type="button" class="btn btn-primary"> Play the Audio
+                            </button> -->
 
-                            <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
+                            <img id="playButton" onclick="playaudio()" src="https://img.icons8.com/arcade/64/null/play-button-circled.png"/>
+                            <img id="pauseButton" onclick="pauseaudio()" src="https://img.icons8.com/arcade/64/null/pause-squared.png"/>
+                            <img id="stopButton" onclick="stopaudio()" src="https://img.icons8.com/arcade/64/null/stop-sign.png"/>
+                            <!-- <button onclick="pauseaudio()" type="button" class="btn btn-primary"> Pause the Audio
+                            </button> -->
+                            <!-- <button onclick="stopaudio()" type="button" class="btn btn-primary"> Stop the Audio
+                            </button> -->
+                            <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
+                            <img id="backButton" src="https://img.icons8.com/fluency/48/null/circled-left-2.png"/>
+
+                            <!-- <button id="backButton" type="button" class="btn btn-primary">Go Back</button> -->
                         </div>
 
                         <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
