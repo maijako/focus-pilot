@@ -22,6 +22,7 @@ $(document).ready(function () {
       li.attr("data-index", i);
       li.text(todo);
       completeBtn.text("Complete");
+      completeBtn.attr("id", "completeBtn");
       li.append(completeBtn);
       todoList.append(li);
     }
