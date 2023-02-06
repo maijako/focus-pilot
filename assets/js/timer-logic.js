@@ -83,7 +83,7 @@ var initializeTimer = function() {
       if(!intervalPaused){
         shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
       }
-      displayTime(shortBreakDuration, "Work Block ("+workMinutes+" min)");
+      displayTime(shortBreakDuration, "Work ("+workMinutes+" min)");
 
       // Playing an audio notification for the last 5 seconds of the time block.
       if(shortBreakDuration.asMilliseconds() <= 5000 && shortBreakDuration.asMilliseconds() >= 4000) {
