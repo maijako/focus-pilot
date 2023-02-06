@@ -151,7 +151,17 @@ iframe {
 }
 
 
+#copyright-footer {
+   padding: 5px;
+   font-size: 14px;
+   background-color: rgba(255, 255, 255, 0.614);
+   margin-bottom: 10px;
+   border-radius: 5px;
+}
 
+#copyright-footer p {
+   margin-bottom: 0px;
+}
 
 .inputLabel {
    font-size: 14px;

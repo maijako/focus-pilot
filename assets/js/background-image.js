@@ -6,6 +6,9 @@ var mainBackgroundEl = $('#main-background');
 var imageList = [];
 let halfHourInterval = 60000*30;
 
+let imageByUsername = $("#imageByUsername")
+
+
 $.ajax({
 
     url: queryURL,
@@ -41,16 +44,18 @@ setInterval(() => {
 
     let imgObj = imageList[i];
     //Fade out animation added to smoothen the changing process.
+    $("#copyright-footer").fadeOut("slow")
     mainBackgroundEl.fadeOut("slow", function () {
         mainBackgroundEl.css({ "background-image": 'url(' + imgObj.image + ')' });
 
         //Fade in to bring back the background Image
-        mainBackgroundEl.fadeIn("slow");
+        mainBackgroundEl.fadeIn("slow", function () {
+
+            imageByUsername.text(imgObj.userName)
+            $("#copyright-footer").fadeIn("slow");
+        });
+
     });
-    // console.log("Index value: " + i + " ----------------------");
-    // console.log("ID: " + imgObj.imageID);
-    // console.log("User Name: " + imgObj.userName);
-    // console.log("Created: " + imgObj.createdAt);
 
     i++;
     // console.log("Image List Length: " + imageList.length);
