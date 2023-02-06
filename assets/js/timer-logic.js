@@ -3,8 +3,8 @@ var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
-var autostartBreaks;
-var autostartWork;
+// var autostartBreaks; //var to store autostart preference for breaks
+// var autostartWork; //var to store autostart preference for work
 var timeDisplay = $("#countdownTimer");
 var timeContainer = $('#countdownTimerContainer')
 var nextText = $("#whatsNext");
@@ -22,8 +22,8 @@ var initializeTimer = function() {
   longBreakDuration = moment.duration(longBreak, 'minutes');
   interval = 1000;
   intervalPaused = false;
-  autostartBreaks = false;
-  autostartWork = false;
+  // autostartBreaks = false; //setting not autostart break as default
+  // autostartWork = false; //setting not autostart work as default
 }
 
 //storing time display format in a function that will be called in work and break blocks
@@ -77,6 +77,7 @@ var initializeTimer = function() {
   }
 //short break
   function shortBreakStart(){
+    if(!preventAutostart){
     timeContainer.removeClass('studyColour');
     timeContainer.addClass('shortBColour');
     timeContainer.removeClass('longBColour');
@@ -99,6 +100,7 @@ var initializeTimer = function() {
         startPomodoroInterval();
         } 
     }, interval);
+  }
   }
 //long break
   function longBreakStart(){
