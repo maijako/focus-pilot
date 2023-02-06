@@ -22,8 +22,6 @@ var initializeTimer = function() {
   longBreakDuration = moment.duration(longBreak, 'minutes');
   interval = 1000;
   intervalPaused = false;
-  // autostartBreaks = false; //setting not autostart break as default
-  // autostartWork = false; //setting not autostart work as default
 }
 
 //storing time display format in a function that will be called in work and break blocks
@@ -77,7 +75,7 @@ var initializeTimer = function() {
   }
 //short break
   function shortBreakStart(){
-    if(!preventAutostart){
+    if(!preventAutostart){ //function to run only if prevent autostart is not toggled on
     timeContainer.removeClass('studyColour');
     timeContainer.addClass('shortBColour');
     timeContainer.removeClass('longBColour');
@@ -104,6 +102,7 @@ var initializeTimer = function() {
   }
 //long break
   function longBreakStart(){
+    if(!preventAutostart){ //function to run only if prevent autostart is not toggled on
     timeContainer.removeClass('studyColour');
     timeContainer.removeClass('shortBColour');
     timeContainer.addClass('longBColour');
@@ -127,5 +126,6 @@ var initializeTimer = function() {
         startPomodoroInterval();
       } 
     }, interval);
+  }
   }
 

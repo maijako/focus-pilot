@@ -1,5 +1,5 @@
 var today = moment();
-var preventAutostart = false; //code to prevent break autostart
+var preventAutostart = false; //prevent break autostart
 
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 
@@ -17,29 +17,11 @@ $("#countdownTimer").on("click", function () {
   }
 
 })
-//prevent autostart
+//prevent autostart breaks if Break form field is toggled on
 $("#autostartBreakInput").click(function(){
   preventAutostart = !preventAutostart;
 })
-//Event to autostart if timer settings are toggled 
-// $("#autostartBreakInput").on("change", function () {
-//   autostartBreaks = !autostartBreaks;
-// });
 
-// $("#autoStartPomodoroInput").on("change", function () {
-//   autostartWork = !autostartWork;
-// });
-
-// $("#startPomodoroTimer").on("click", function () {
-//   if (!autostartBreaks) {
-//     clearInterval(shortBreakInterval);
-//   }
-//   if (!autostartWork) {
-//     clearInterval(pomodoroInterval);
-//     clearInterval(longBreakInterval);
-//   }
-// });
-//Event ends here 
 
 //Event handler for when left panel canvas is hidden
 $("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
