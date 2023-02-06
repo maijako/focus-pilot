@@ -16,7 +16,6 @@ $.ajax({
 
 }).then(function (response) {
 
-    //console.log(response);
     let resultList = response.results;
 
     $.each(resultList, function (i, val) {
