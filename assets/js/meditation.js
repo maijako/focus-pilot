@@ -1,20 +1,27 @@
 let currentAudio;
 //let timerEl = $('<p>');
-
+let btnTextInitialized = false;
 let timerInterval;
 
 
 $('#medCard').on('click', function(event) {
-    let audioButtonList = $('#audioContainer').children('button');
-    $.each(audioButtonList, function (i, audioButton) { 
-        let audio = document.getElementById($(audioButton).attr('data-audio-meditation'));
-        let timeInMinutes = audio.duration/60;
 
-        let btnText = $(audioButton).text();
-        btnText = btnText.concat(' ('+timeInMinutes.toFixed(0)+' min)');
-        console.log("Duration of audio:"+btnText);
-        $(audioButton).text(btnText);
-    });
+    // Checks if the time for each audio file is added to the button text.
+    if(!btnTextInitialized) {
+        let audioButtonList = $('#audioContainer').children('button');
+        $.each(audioButtonList, function (i, audioButton) { 
+            let audio = document.getElementById($(audioButton).attr('data-audio-meditation'));
+            let timeInMinutes = audio.duration/60;
+
+            let btnText = $(audioButton).text();
+            btnText = btnText.concat(' ('+timeInMinutes.toFixed(0)+' min)');
+            console.log("Duration of audio:"+btnText);
+            $(audioButton).text(btnText);
+        });
+    }
+    
+    // Sets value to true after initializing once.
+    btnTextInitialized = true;
 });
 
 //$('#footerButtonGroup').append(timerEl);
@@ -24,8 +31,6 @@ $('#audioContainer').on('click', 'button', function(event) {
     let targetElement = $(event.target);
     let totalTime = 0;
 
-    // $('#footerButtonGroup').removeClass('hide');
-    // $('#audioProgress').removeClass('hide');
     $('#medComponentFooter').removeClass('hide');
     
     $('#audioContainer').children('button').addClass('hide');
@@ -91,7 +96,6 @@ $('#closeButton').on('click', function(){
 function meditationHomeScreen() {
     $('#audioContainer').children('button').removeClass('hide');
     $('#modalHead').removeClass('hide');
-    // $('#footerButtonGroup').addClass('hide');
     $('#medComponentFooter').addClass('hide');
     clearInterval(timerInterval);
 }
