@@ -3,6 +3,8 @@ var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
+var autostartBreaks;
+var autostartWork;
 var timeDisplay = $("#countdownTimer");
 var timeContainer = $('#countdownTimerContainer')
 var nextText = $("#whatsNext");
@@ -20,6 +22,8 @@ var initializeTimer = function() {
   longBreakDuration = moment.duration(longBreak, 'minutes');
   interval = 1000;
   intervalPaused = false;
+  autostartBreaks = false;
+  autostartWork = false;
 }
 
 //storing time display format in a function that will be called in work and break blocks
