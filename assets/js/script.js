@@ -138,7 +138,7 @@ $("#timerForm").submit(function (event) {
   event.preventDefault();
 })
 
-$("#tabs").tabs();
+// $("#tabs").tabs();
 
 
 //Resize window event listener
