@@ -16,6 +16,27 @@ let pomodoroTimerWorkTime = $("#pomodoroTimer")
 let pomodoroTimerShortBreak = $("#shortBreak")
 let pomodoroTimerLongBreak = $("#longBreak")
 
+pomodoroTimerWorkTime.on("focusin", function(){
+  showTimerInfo()
+})
+
+pomodoroTimerShortBreak.on("focusin", function(){
+  showTimerInfo()
+})
+
+
+pomodoroTimerLongBreak.on("focusin", function(){
+  showTimerInfo()
+})
+
+
+function showTimerInfo(){
+  $("#timerInfo").removeClass("d-none");
+}
+
+function hideTimerInfo(){
+  $("#timerInfo").addClass("d-none");
+}
 
 pomodoroTimerWorkTime.on("focusout", function (){
   
@@ -26,6 +47,7 @@ pomodoroTimerWorkTime.on("focusout", function (){
   else if(pomodoroTimerWorkTime.val() > 60){
     pomodoroTimerWorkTime.val(60)
   }
+  hideTimerInfo()
 })
 
 pomodoroTimerShortBreak.on("focusout", function (){
@@ -36,6 +58,7 @@ pomodoroTimerShortBreak.on("focusout", function (){
   else if(pomodoroTimerShortBreak.val() > 30){
     pomodoroTimerShortBreak.val(30)
   }
+  hideTimerInfo()
 })
 
 
@@ -48,6 +71,7 @@ pomodoroTimerLongBreak.on("focusout", function (){
   else if(pomodoroTimerLongBreak.val() > 60){
     pomodoroTimerLongBreak.val(60)
   }
+  hideTimerInfo()
 })
 
 
