@@ -1,4 +1,6 @@
 var today = moment();
+var preventAutoBreak = false; //break will autostart by default
+var preventAutoWork = false; //work will autostart by default
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 let isRightPanelVisible = false;
 
@@ -30,8 +32,17 @@ $("#countdownTimer").on("click", function () {
   } else {
     intervalPaused = true;
   }
+});
 
-})
+//prevent autostart breaks if Break form field is toggled on
+$("#autostartBreakInput").click(function(){
+  preventAutoBreak = !preventAutoBreak;
+});
+
+//prevent autostart work blocks after breaks, if Work form field is toggled on
+$("#autoStartPomodoroInput").click(function(){
+  preventAutoWork = !preventAutoWork;
+});
 
 $("#main-background").on("click", function () {
   if (isRightPanelVisible) {
@@ -115,6 +126,12 @@ $("#startPomodoroTimer").on("click", function () {
 
     //Hide weather information.
     $("#weatherContainer").hide(1000, "swing", function () {
+      //Show Timer container
+      // $("#countdownTimer").fadeTo("slow", 1, function () {
+      //   initializeTimer();
+      //   //intervalPaused = false;
+      //   startPomodoroInterval();
+      // });
 
       $("#countdownTimerContainer").removeClass("d-none");
       initializeTimer();
