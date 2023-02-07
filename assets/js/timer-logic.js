@@ -3,8 +3,6 @@ var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
-// var autostartBreaks; //var to store autostart preference for breaks
-// var autostartWork; //var to store autostart preference for work
 var timeDisplay = $("#countdownTimer");
 var timeContainer = $('#countdownTimerContainer')
 var nextText = $("#whatsNext");
@@ -12,7 +10,7 @@ var workMinutes, shortBreak, longBreak;
 var endTimeAudio = new Audio("assets/audio/end_of_time_sound.wav");
 
 var initializeTimer = function() {
-  //grabbing user values from input fields, or using default if input is null
+//grabbing user values from input fields, or using default if input is null
   workMinutes = $("#pomodoroTimer").val() || 25;
   shortBreak = $("#shortBreak").val() || 5;
   longBreak = $("#longBreak").val() || 15;
@@ -73,14 +71,44 @@ var initializeTimer = function() {
       }
     }, interval);
   }
-//short break
+//short break original code
+  // function shortBreakStart(){
+  //       timeContainer.removeClass('studyColour');
+  //       timeContainer.addClass('shortBColour');
+  //       timeContainer.removeClass('longBColour');
+
+  //       shortBreakDuration = moment.duration(shortBreak, 'minutes');
+  //       console.log ("short break")
+  //       shortBreakInterval = setInterval(function(){
+  //         if(!intervalPaused){
+  //           shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
+  //         }
+  //         displayTime(shortBreakDuration, "Work ("+workMinutes+" min)");
+
+  //         // Playing an audio notification for the last 5 seconds of the time block.
+  //         if(shortBreakDuration.asMilliseconds() <= 5000 && shortBreakDuration.asMilliseconds() >= 4000) {
+  //           endTimeAudio.play();
+  //         }
+
+  //         if (shortBreakDuration.asMilliseconds() < 0) {
+  //           clearInterval(shortBreakInterval);
+  //           if(!preventAutoWork){ //function to run only if prevent autostart is not toggled on
+  //           startPomodoroInterval();
+  //           }
+  //           } 
+  //       }, interval);
+  //   }
+  // }
+
+  //short break attempted code with toggle button
   function shortBreakStart() {
     if (!preventAutoBreak) { 
       shortBreakToggled();
-    } else {
-      $("#additionalTimerInfo").on("click", function() {
-        preventAutoBreak = false;
+    } else if (workDuration.asMilliseconds() < 0) {
+      $("#additionalTimerInfo").click(function(){
+        // preventAutoBreak = false;
         shortBreakToggled();
+        preventAutoBreak = true;
       });
     }
   
@@ -99,14 +127,14 @@ var initializeTimer = function() {
           );
         }
         displayTime(shortBreakDuration, "Work (" + workMinutes + " min)");
-  
+    // Playing an audio notification for the last 5 seconds of the time block.
         if (shortBreakDuration.asMilliseconds() <= 5000 && shortBreakDuration.asMilliseconds() >= 4000) {
           endTimeAudio.play();
         }
   
         if (shortBreakDuration.asMilliseconds() < 0) {
           clearInterval(shortBreakInterval);
-          if (!preventAutoWork) { 
+          if (!preventAutoWork) { //if condition is met (the toggle button is not on), then the function will run automatically
             startPomodoroInterval();
           }
         }

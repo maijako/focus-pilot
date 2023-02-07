@@ -1,6 +1,6 @@
 var today = moment();
-var preventAutoBreak = false; //prevent break time block autostarting
-var preventAutoWork = false; //prevent work time block from autostarting
+var preventAutoBreak = false; //break will autostart by default
+var preventAutoWork = false; //work will autostart by default
 
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 
@@ -16,8 +16,8 @@ $("#countdownTimer").on("click", function () {
   } else {
     intervalPaused = true;
   }
+});
 
-})
 //prevent autostart breaks if Break form field is toggled on
 $("#autostartBreakInput").click(function(){
   preventAutoBreak = !preventAutoBreak;
@@ -27,7 +27,6 @@ $("#autostartBreakInput").click(function(){
 $("#autoStartPomodoroInput").click(function(){
   preventAutoWork = !preventAutoWork;
 });
-
 
 //Event handler for when left panel canvas is hidden
 $("#offcanvasScrolling").on("hidden.bs.offcanvas", function(){
