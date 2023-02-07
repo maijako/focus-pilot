@@ -102,27 +102,62 @@
         </div>
 
         <section class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel">
-            <!-- <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">News</h5>
+            aria-labelledby="offcanvasRightLabel" >
+            <div class="offcanvas-header text-center pb-0">
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
-            </div> -->
+                <h5 id="offcanvasRightLabel" class="mx-auto">News</h5>
+
+
+
+            </div>
+            <div id="news-categories" class="text-center mx-auto mb-2">
+                <p type="button" data-news-category="breaking-news"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Breaking News</p>
+                <p type="button" data-news-category="world"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    World</p>
+                <p type="button" data-news-category="nation"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Nation</p>
+                <p type="button" data-news-category="business"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Business</p>
+                <p type="button" data-news-category="technology"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Technology</p>
+                <p type="button" data-news-category="entertainment"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Entertainment</p>
+                <p type="button" data-news-category="sports"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Sports</p>
+                <p type="button" data-news-category="science "
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Science</p>
+                <p type="button" data-news-category="health"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Health</p>
+            </div>
+            <h6 id="news-header" class="right-panel-heading text-center"></h6>
             <div class="offcanvas-body p-0">
-                <div class="pt-0" id="tabs">
-                    <ul>
+
+
+
+                <!-- <ul>
                         <li><a class="fs-6" href="#tabs-1"> <img src="assets/images/light-bulb.png" alt="Ideas"
                                     height="25" class="d-inline-block align-text-top"> Suggestions</a></li>
                         <li><a class="fs-6" href="#tabs-2"><img src="assets/images/newspaper.png" alt="Newspaper"
                                     height="22" class="pr-2 d-inline-block align-text-top"> News</a></li>
 
-                    </ul>
-                    <div id="tabs-1">
+                    </ul> -->
+                <!-- <div id="tabs-1">
                         <h6 class="right-panel-heading text-center">Some things you can do during your break.</h6>
                         <div id="suggestions">
 
                             <div id="suggestion-cards" class="row row-cols-1 row-cols-md-2 g-3">
-                                <!-- INJECT SUGGESTIONS CARDS HERE USING JAVASCRIPT/JQUERY-->
+                                
                                 <a class="suggestions-link" href="#">
                                     <div class="col">
                                         <div class="card">
@@ -167,46 +202,15 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div id="tabs-2">
-                        <div id="news-categories" class="text-center mx-auto mb-2">
-                            <p type="button" data-news-category="breaking-news"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Breaking News</p>
-                            <p type="button" data-news-category="world"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                World</p>
-                            <p type="button" data-news-category="nation"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Nation</p>
-                            <p type="button" data-news-category="business"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Business</p>
-                            <p type="button" data-news-category="technology"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Technology</p>
-                            <p type="button" data-news-category="entertainment"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Entertainment</p>
-                            <p type="button" data-news-category="sports"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Sports</p>
-                            <p type="button" data-news-category="science "
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Science</p>
-                            <p type="button" data-news-category="health"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Health</p>
-                        </div>
-                        <h6 id="news-header" class="right-panel-heading text-center"></h6>
+                    </div> -->
 
-                        <div id="latest-news" class="row row-cols-1 row-cols-md-2 g-3">
-                            <!-- INJECT NEWS CARDS HERE USING JAVASCRIPT/JQUERY  -->
-                        </div>
-
-                    </div>
-
+                <div id="latest-news" class="row row-cols-1 row-cols-md-2 g-3 p-2 mx-2">
+                    <!-- INJECT NEWS CARDS HERE USING JAVASCRIPT/JQUERY  -->
                 </div>
+
+
+
+
             </div>
         </section>
 
@@ -228,7 +232,7 @@
 
                 <div id="countdownTimerContainer"
                     class="d-none text-center shadow-lg position-absolute top-50 start-50 translate-middle">
-                    <p id="countdownTimer"  class="pl-0 py-0 px-0 my-0 mx-0">25:00</p>
+                    <p id="countdownTimer" class="pl-0 py-0 px-0 my-0 mx-0">25:00</p>
                     <div id="additionalTimerInfo" class="text-center px-0">
                         <p class="d-inline">Next: </p>
                         <p id="whatsNext" class="d-inline">Work timer</p>
@@ -312,8 +316,10 @@
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div id="modalHead" class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Please Select the Type of Meditation From Below:</h5>
-                        <img id="closeButton" src="https://img.icons8.com/ultraviolet/40/null/close-window--v1.png" data-bs-dismiss="modal" aria-label="Close"/>
+                        <h5 class="modal-title" id="exampleModalLabel">Please Select the Type of Meditation From Below:
+                        </h5>
+                        <img id="closeButton" src="https://img.icons8.com/ultraviolet/40/null/close-window--v1.png"
+                            data-bs-dismiss="modal" aria-label="Close" />
                     </div>
                     <div id="audioContainer"
                         class="modal-body d-flex flex-column align-items-center justify-content-evenly">
@@ -369,14 +375,17 @@
 
                         <div id="footerButtonGroup">
 
-                            <img id="playButton" onclick="playaudio()" src="https://img.icons8.com/arcade/64/null/play-button-circled.png"/>
-                            <img id="pauseButton" class="hide" onclick="pauseaudio()" src="https://img.icons8.com/arcade/64/null/pause-squared.png"/>
-                            <img id="stopButton" onclick="stopaudio()" src="https://img.icons8.com/arcade/64/null/stop-sign.png"/>
-                            <img id="backButton" src="https://img.icons8.com/fluency/48/null/circled-left-2.png"/>
+                            <img id="playButton" onclick="playaudio()"
+                                src="https://img.icons8.com/arcade/64/null/play-button-circled.png" />
+                            <img id="pauseButton" class="hide" onclick="pauseaudio()"
+                                src="https://img.icons8.com/arcade/64/null/pause-squared.png" />
+                            <img id="stopButton" onclick="stopaudio()"
+                                src="https://img.icons8.com/arcade/64/null/stop-sign.png" />
+                            <img id="backButton" src="https://img.icons8.com/fluency/48/null/circled-left-2.png" />
 
                         </div>
-                       
-                        <progress id="audioProgress" value="1" max="100">  </progress>
+
+                        <progress id="audioProgress" value="1" max="100"> </progress>
 
                     </div>
                 </div>
