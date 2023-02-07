@@ -29,6 +29,12 @@
    color: black;
    transform: scale(1.015);
    transition: transform .2s;
+   cursor: pointer;
+}
+
+.news-title {
+   font-size: 14px;
+   font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -106,9 +112,15 @@
    -webkit-line-clamp: 3;
 }
 
-.card-body {
-   /* padding-left: 0px !important; */
+.news-card {
+   color: black
 }
+
+
+
+/* .card-body {
+   padding-left: 0px !important;
+} */
 
 iframe {
    width: 300px;
@@ -124,12 +136,20 @@ iframe {
    background-color: rgba(255, 255, 255, 0.65) !important;
 }
 
+.offcanvas .offcanvas-end {
+   background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
 .ui-tabs {
    background-color: rgba(255, 255, 255, 0.1) !important;
 }
 
 .offcanvas-end {
    width: 500px !important;
+}
+
+#latest-news {
+   overflow-x: hidden !important;
 }
 
 
@@ -149,9 +169,22 @@ iframe {
    cursor: pointer;
    transition: transform .2s;
 }
+#news-categories > p {
+   border: 1px solid rgba(0, 0, 0, 0.321);
+}
 
 
+#copyright-footer {
+   padding: 5px;
+   font-size: 14px;
+   background-color: rgba(255, 255, 255, 0.614);
+   margin-bottom: 10px;
+   border-radius: 5px;
+}
 
+#copyright-footer p {
+   margin-bottom: 0px;
+}
 
 .inputLabel {
    font-size: 14px;
@@ -386,6 +419,7 @@ p.forecastTemp {
    transition: transform .2s;
 }
 
+/* Background colours to change according to specific time block */
 .studyColour {
    background-color: lightskyblue;
 }
@@ -417,11 +451,10 @@ p.forecastTemp {
 /* ******************************************** */
 /* Styling for meditation modal */
 .hide {
-   display: none;
+   display: none !important;
 }
 
 .modal-content{
-   /* background-color: lightskyblue; */
    background: url("https://cdn.wallpapersafari.com/19/60/XlyTWp.png");
    background-repeat: no-repeat;
    background-position: center;
@@ -429,13 +462,52 @@ p.forecastTemp {
 
 }
  
-/* #exampleModal {
-   z-index: -1;
-} */
-#exampleModalLabel {
-   color: darkblue;
+#audioContainer button {
+   background-color: #008478;
+   border: #008478;
+   border-radius: 10px;
+   color: white;
+   font-weight: bolder;
+   font-size: large;
+   padding: 10px;
+   letter-spacing: 0.1em;
+   word-spacing: 0.1em;
 }
 
+#audioContainer button:hover {
+   box-shadow: 10px 5px 5px rgb(0 92 0 / 50%);
+}
+
+#exampleModalLabel {
+   background-color: rgb(0 92 0 / 50%);
+   color: white;
+   padding: 10px;
+   border-radius: 10px;
+}
+
+#medComponentFooter {
+   border: none;
+}
+
+#closeButton{
+   opacity: 0.5;
+}
+
+#closeButton:hover {
+   opacity: 1;
+}
+
+#playButton:hover,
+#pauseButton:hover,
+#stopButton:hover {
+   box-shadow: inset 40px 40px 10px rgb(210 20 20 / 30%);
+   border-radius: 35px;
+}
+
+#backButton:hover {
+   box-shadow: inset 40px 40px 10px rgb(3 169 244 / 50%);
+   border-radius: 35px;
+}
 /* End of styling for meditation modal */
 /* ********************************************* */
 

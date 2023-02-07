@@ -86,43 +86,78 @@
                     <div class="col-12 mt-4">
                         <h6 class="mx-auto mb-0" id="offcanvasScrollingLabel">To do:</h6>
                         <small class="my-0">Add tasks you'd like to complete.
-                        </span>
-                        <!-- TODOS CONTAINER STARTS HERE -->
-                        <div class="todos">
-                            <form id="todo-form">
-                                <input type="text" placeholder="Add a task" name="todo-text" id="todo-text" />
-                            </form>
-                            <p>Tasks to complete: <span id="todo-count">0</span></p>
-                            <ul id="todo-list"></ul>
-                        </div>
-                        <!-- TODOS CONTAINER ENDS HERE -->
+                            </span>
+                            <!-- TODOS CONTAINER STARTS HERE -->
+                            <div class="todos">
+                                <form id="todo-form">
+                                    <input type="text" placeholder="Add a task" name="todo-text" id="todo-text" />
+                                </form>
+                                <p>Tasks to complete: <span id="todo-count">0</span></p>
+                                <ul id="todo-list"></ul>
+                            </div>
+                            <!-- TODOS CONTAINER ENDS HERE -->
                     </div>
                 </div>
             </div>
         </div>
 
         <section class="offcanvas offcanvas-end shadow" tabindex="-1" id="offcanvasRight"
-            aria-labelledby="offcanvasRightLabel">
-            <!-- <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">News</h5>
+            aria-labelledby="offcanvasRightLabel" >
+            <div class="offcanvas-header text-center pb-0">
                 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button>
-            </div> -->
+                <h5 id="offcanvasRightLabel" class="mx-auto">News</h5>
+
+
+
+            </div>
+            <div id="news-categories" class="text-center mx-auto mb-2">
+                <p type="button" data-news-category="breaking-news"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Breaking News</p>
+                <p type="button" data-news-category="world"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    World</p>
+                <p type="button" data-news-category="nation"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Nation</p>
+                <p type="button" data-news-category="business"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Business</p>
+                <p type="button" data-news-category="technology"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Technology</p>
+                <p type="button" data-news-category="entertainment"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Entertainment</p>
+                <p type="button" data-news-category="sports"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Sports</p>
+                <p type="button" data-news-category="science "
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Science</p>
+                <p type="button" data-news-category="health"
+                    class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
+                    Health</p>
+            </div>
+            <h6 id="news-header" class="right-panel-heading text-center"></h6>
             <div class="offcanvas-body p-0">
-                <div class="pt-0" id="tabs">
-                    <ul>
+
+
+
+                <!-- <ul>
                         <li><a class="fs-6" href="#tabs-1"> <img src="assets/images/light-bulb.png" alt="Ideas"
                                     height="25" class="d-inline-block align-text-top"> Suggestions</a></li>
                         <li><a class="fs-6" href="#tabs-2"><img src="assets/images/newspaper.png" alt="Newspaper"
                                     height="22" class="pr-2 d-inline-block align-text-top"> News</a></li>
 
-                    </ul>
-                    <div id="tabs-1">
+                    </ul> -->
+                <!-- <div id="tabs-1">
                         <h6 class="right-panel-heading text-center">Some things you can do during your break.</h6>
                         <div id="suggestions">
 
                             <div id="suggestion-cards" class="row row-cols-1 row-cols-md-2 g-3">
-                                <!-- INJECT SUGGESTIONS CARDS HERE USING JAVASCRIPT/JQUERY-->
+                                
                                 <a class="suggestions-link" href="#">
                                     <div class="col">
                                         <div class="card">
@@ -139,7 +174,7 @@
                                 </a>
                                 <a class="suggestions-link" href="#">
                                     <div class="col">
-                                        <div class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        <div id="medCard" class="card" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                             <img src="https://th.bing.com/th/id/R.6206a8b5723e1295e343195e29ed6de9?rik=kLCm3p9FTDJUAg&pid=ImgRaw&r=0"
                                                 class="card-img-top" alt="...">
                                             <div class="card-body">
@@ -167,46 +202,15 @@
                                 </a>
                             </div>
                         </div>
-                    </div>
-                    <div id="tabs-2">
-                        <div id="news-categories" class="text-center mx-auto mb-2">
-                            <p type="button" data-news-category="breaking-news"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Breaking News</p>
-                            <p type="button" data-news-category="world"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                World</p>
-                            <p type="button" data-news-category="nation"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Nation</p>
-                            <p type="button" data-news-category="business"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Business</p>
-                            <p type="button" data-news-category="technology"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Technology</p>
-                            <p type="button" data-news-category="entertainment"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Entertainment</p>
-                            <p type="button" data-news-category="sports"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Sports</p>
-                            <p type="button" data-news-category="science "
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Science</p>
-                            <p type="button" data-news-category="health"
-                                class="news-category badge rounded-pill bg-light text-dark py-1 my-1">
-                                Health</p>
-                        </div>
-                        <h6 id="news-header" class="right-panel-heading text-center"></h6>
+                    </div> -->
 
-                        <div id="latest-news" class="row row-cols-1 row-cols-md-2 g-3">
-                            <!-- INJECT NEWS CARDS HERE USING JAVASCRIPT/JQUERY  -->
-                        </div>
-
-                    </div>
-
+                <div id="latest-news" class="row row-cols-1 row-cols-md-2 g-3 p-2 mx-2">
+                    <!-- INJECT NEWS CARDS HERE USING JAVASCRIPT/JQUERY  -->
                 </div>
+
+
+
+
             </div>
         </section>
 
@@ -227,7 +231,7 @@
             <div id="weather-countdownTimer">
 
                 <div id="countdownTimerContainer"
-                    class="text-center shadow-lg position-absolute top-50 start-50 translate-middle">
+                    class="d-none text-center shadow-lg position-absolute top-50 start-50 translate-middle">
                     <p id="countdownTimer" class="pl-0 py-0 px-0 my-0 mx-0">25:00</p>
                     <div id="additionalTimerInfo" class="text-center px-0">
                         <p class="d-inline">Next: </p>
@@ -297,17 +301,25 @@
 
 
         </div>
+        <div data-bs-toggle="tooltip" data-bs-placement="top" title="Image By"
+            class="position-absolute bottom-0 start-50 translate-middle-x" id="copyright-footer">
+
+            <p id="imageByUsername">Ingrid Koe</p>
+
+
+        </div>
 
         <!-- Modal For Meditation Suggestion -->
 
 
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="exampleModal" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content">
                     <div id="modalHead" class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nice Choice! Please Select the Type of
-                            Meditation.</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <h5 class="modal-title" id="exampleModalLabel">Please Select the Type of Meditation From Below:
+                        </h5>
+                        <img id="closeButton" src="https://img.icons8.com/ultraviolet/40/null/close-window--v1.png"
+                            data-bs-dismiss="modal" aria-label="Close" />
                     </div>
                     <div id="audioContainer"
                         class="modal-body d-flex flex-column align-items-center justify-content-evenly">
@@ -359,22 +371,21 @@
                         </audio>
 
                     </div>
-                    <div class="modal-footer">
+                    <div id="medComponentFooter" class="modal-footer flex-column hide">
 
-                        <div id="footerButtonGroup" class="hide">
-                            <button onclick="playaudio()" type="button" class="btn btn-primary"> Play the Audio
-                            </button>
-                            <button onclick="pauseaudio()" type="button" class="btn btn-primary"> Pause the Audio
-                            </button>
-                            <button onclick="stopaudio()" type="button" class="btn btn-primary"> Stop the Audio
-                            </button>
-                            <!-- <button onclick="checktime()" type="button" class="btn btn-primary">Check time</button> -->
+                        <div id="footerButtonGroup">
 
-                            <button id="backButton" type="button" class="btn btn-primary">Go Back</button>
+                            <img id="playButton" onclick="playaudio()"
+                                src="https://img.icons8.com/arcade/64/null/play-button-circled.png" />
+                            <img id="pauseButton" class="hide" onclick="pauseaudio()"
+                                src="https://img.icons8.com/arcade/64/null/pause-squared.png" />
+                            <img id="stopButton" onclick="stopaudio()"
+                                src="https://img.icons8.com/arcade/64/null/stop-sign.png" />
+                            <img id="backButton" src="https://img.icons8.com/fluency/48/null/circled-left-2.png" />
+
                         </div>
 
-                        <button id="closeButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
-                            Window</button>
+                        <progress id="audioProgress" value="1" max="100"> </progress>
 
                     </div>
                 </div>
