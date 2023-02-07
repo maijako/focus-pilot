@@ -29,6 +29,12 @@
    color: black;
    transform: scale(1.015);
    transition: transform .2s;
+   cursor: pointer;
+}
+
+.news-title {
+   font-size: 14px;
+   font-family: 'Montserrat', sans-serif;
 }
 
 
@@ -106,6 +112,12 @@
    -webkit-line-clamp: 3;
 }
 
+.news-card {
+   color: black
+}
+
+
+
 /* .card-body {
    padding-left: 0px !important;
 } */
@@ -134,6 +146,10 @@ iframe {
 
 .offcanvas-end {
    width: 500px !important;
+}
+
+#latest-news {
+   overflow-x: hidden;
 }
 
 
