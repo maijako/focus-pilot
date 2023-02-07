@@ -41,8 +41,9 @@ function hideTimerInfo(){
 pomodoroTimerWorkTime.on("focusout", function (){
   
   //check if value meets minimum, if not set to minimum and maximum allowed.
-  if (pomodoroTimerWorkTime.val() < 25) {
-    pomodoroTimerWorkTime.val(25) ;
+  //Set to 1 for demonstration purposes
+  if (pomodoroTimerWorkTime.val() < 1) {
+    pomodoroTimerWorkTime.val(1) ;
   }
   else if(pomodoroTimerWorkTime.val() > 60){
     pomodoroTimerWorkTime.val(60)
@@ -52,8 +53,9 @@ pomodoroTimerWorkTime.on("focusout", function (){
 
 pomodoroTimerShortBreak.on("focusout", function (){
   //check if value meets minimum, if not set to minimum and maximum allowed.
-  if (pomodoroTimerShortBreak.val() < 5) {
-    pomodoroTimerShortBreak.val(5) ;
+  //Set to 1 for demonstration purposes
+  if (pomodoroTimerShortBreak.val() < 1) {
+    pomodoroTimerShortBreak.val(1) ;
   }
   else if(pomodoroTimerShortBreak.val() > 30){
     pomodoroTimerShortBreak.val(30)
@@ -65,8 +67,9 @@ pomodoroTimerShortBreak.on("focusout", function (){
 pomodoroTimerLongBreak.on("focusout", function (){
   
   //check if value meets minimum, if not set to minimum and maximum allowed.
-  if (pomodoroTimerLongBreak.val() < 25) {
-    pomodoroTimerLongBreak.val(25) ;
+  //Set to 1 for demonstration purposes
+  if (pomodoroTimerLongBreak.val() < 1) {
+    pomodoroTimerLongBreak.val(1) ;
   }
   else if(pomodoroTimerLongBreak.val() > 60){
     pomodoroTimerLongBreak.val(60)
