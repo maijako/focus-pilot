@@ -1,5 +1,6 @@
 var today = moment();
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
+let isRightPanelVisible = false;
 
 const Toast = Swal.mixin({
   toast: true,
@@ -33,7 +34,13 @@ $("#countdownTimer").on("click", function () {
 })
 
 $("#main-background").on("click", function () {
-  $("#leftPanelButton").trigger("click");
+  if (isRightPanelVisible) {
+    
+  }
+  else {
+    $("#leftPanelButton").trigger("click");
+  }
+  
 })
 
 
@@ -54,11 +61,13 @@ $("#offcanvasScrolling").on("shown.bs.offcanvas", function () {
 
 //Event handler for when right panel canvas is hidden
 $("#offcanvasRight").on("hidden.bs.offcanvas", function () {
+  isRightPanelVisible = false;
   $("#rightPanelButton").show();
 })
 
 //Event handler for when right panel canvas is shown
 $("#offcanvasRight").on("shown.bs.offcanvas", function () {
+  isRightPanelVisible = true;
   $("#latest-news").empty();
   getNewsAPI("breaking-news")
   $("#news-header").text("Here's the latest Breaking News")

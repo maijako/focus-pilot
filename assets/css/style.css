@@ -149,7 +149,7 @@ iframe {
 }
 
 #latest-news {
-   overflow-x: hidden;
+   overflow-x: hidden !important;
 }
 
 
