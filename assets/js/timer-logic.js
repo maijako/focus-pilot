@@ -41,29 +41,7 @@ function displayTime(duration, text) {
 
 //main Pomodoro
 function startPomodoroInterval() {
-  Swal.fire({
-    title: "It's time for break!",
-    text: "What would you like to do next?",
-    // icon: 'question',
-    showCancelButton: true,
-    confirmButtonColor: '#116C14',
-    cancelButtonColor: '#CBC0C0',
-    confirmButtonText: 'Yes, delete it!',
-    showDenyButton: true,
-    showCancelButton: true,
-    confirmButtonText: 'Meditation',
-    denyButtonText: `View Latest News`,
-    imageUrl: './assets/images/meditation-news.png',
-    imageWidth: 400,
-    imageHeight: 200,
-  }).then((result) => {
-    if (result.isConfirmed) {
-      //Show Meditation Modal
-    } else if (result.isDenied) {
-      //Show News Panel
-      $("#rightPanelButton").trigger("click");
-    }
-  })
+
 
   timeContainer.addClass('studyColour');
   timeContainer.removeClass('shortBColour');
@@ -124,6 +102,34 @@ additionalTimeEl.click(function () {
   }
 });
 
+
+function showMeditationNewsOption() {
+  Swal.fire({
+    title: "It's time for break!",
+    text: "What would you like to do next?",
+    // icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#116C14',
+    cancelButtonColor: '#CBC0C0',
+    confirmButtonText: 'Yes, delete it!',
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: 'Meditation',
+    denyButtonText: `View Latest News`,
+    imageUrl: './assets/images/meditation-news.png',
+    imageWidth: 400,
+    imageHeight: 200,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      //Show Meditation Modal
+      $("#showMeditationButton").trigger("click");
+    } else if (result.isDenied) {
+      //Show News Panel
+      $("#rightPanelButton").trigger("click");
+    }
+  })
+}
+
 //short break original code
 function shortBreakStart() {
   timeContainer.removeClass('studyColour');
@@ -131,6 +137,7 @@ function shortBreakStart() {
   timeContainer.removeClass('longBColour');
 
   //Show the user a modal to choose between meditation and the news.
+  showMeditationNewsOption()
 
   shortBreakDuration = moment.duration(shortBreak, 'minutes');
   console.log("short break")
