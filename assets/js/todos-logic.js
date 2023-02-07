@@ -29,7 +29,6 @@ $(document).ready(function () {
   }
 
   todoList.on("click", function (event) {
-    console.log("click")
     var buttonEl = $(event.target);
     if (buttonEl.is("button")) {
       var parentEl = buttonEl.parent();
