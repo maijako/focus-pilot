@@ -12,6 +12,45 @@ const Toast = Swal.mixin({
   timerProgressBar: true,
 })
 
+let pomodoroTimerWorkTime = $("#pomodoroTimer")
+let pomodoroTimerShortBreak = $("#shortBreak")
+let pomodoroTimerLongBreak = $("#longBreak")
+
+
+pomodoroTimerWorkTime.on("focusout", function (){
+  
+  //check if value meets minimum, if not set to minimum and maximum allowed.
+  if (pomodoroTimerWorkTime.val() < 25) {
+    pomodoroTimerWorkTime.val(25) ;
+  }
+  else if(pomodoroTimerWorkTime.val() > 60){
+    pomodoroTimerWorkTime.val(60)
+  }
+})
+
+pomodoroTimerShortBreak.on("focusout", function (){
+  //check if value meets minimum, if not set to minimum and maximum allowed.
+  if (pomodoroTimerShortBreak.val() < 5) {
+    pomodoroTimerShortBreak.val(5) ;
+  }
+  else if(pomodoroTimerShortBreak.val() > 30){
+    pomodoroTimerShortBreak.val(30)
+  }
+})
+
+
+pomodoroTimerLongBreak.on("focusout", function (){
+  
+  //check if value meets minimum, if not set to minimum and maximum allowed.
+  if (pomodoroTimerLongBreak.val() < 25) {
+    pomodoroTimerLongBreak.val(25) ;
+  }
+  else if(pomodoroTimerLongBreak.val() > 60){
+    pomodoroTimerLongBreak.val(60)
+  }
+})
+
+
 
 $("document").ready(function () {
   Toast.fire({
