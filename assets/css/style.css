@@ -189,6 +189,15 @@ iframe {
 .inputLabel {
    font-size: 14px;
 }
+
+/* To Do Section Styling */
+#todo-text {
+   padding: 10px;
+   border: none;
+   background-color: #ffdfb0;
+   border-radius: 20px;
+}
+
 /*list in todo section styling */
 ul {
    list-style-type: none;
@@ -196,19 +205,33 @@ ul {
  }
 
  li {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   border-radius: 10px;
    height: 50px;
    margin-top: 5px;
    margin-bottom: 5px;
-   padding: 5px;
-   background-color: #343c8c;
+   padding: 5px 10px;
+   background: repeating-linear-gradient(35deg, #343c8c, #515edb 40px);
+   font-weight: bold;
+   letter-spacing: 0.1em;
    color: white;
    font-size: 1.5em;
    line-height: 2;
  }
+
  #completeBtn {
-   margin-left: 60px;
+   background-color: #dbdb00;
+   opacity: 0.3;
+   border: none;
+   border-radius: 20px;
+   font-size: medium;
  }
 
+ #completeBtn:hover {
+   opacity: 1;
+ }
 /* #timer-todo-section {
    height: 100%;
    border: 2px solid red;
