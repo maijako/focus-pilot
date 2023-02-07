@@ -180,17 +180,24 @@ ul {
    margin-top: 5px;
    margin-bottom: 5px;
    padding: 5px 10px;
-   background-color: #343c8c;
+   background: repeating-linear-gradient(35deg, #343c8c, #515edb 40px);
+   font-weight: bold;
+   letter-spacing: 0.1em;
    color: white;
    font-size: 1.5em;
    line-height: 2;
  }
+
  #completeBtn {
    background-color: #dbdb00;
+   opacity: 0.3;
    border: none;
    border-radius: 20px;
  }
 
+ #completeBtn:hover {
+   opacity: 1;
+ }
 /* #timer-todo-section {
    height: 100%;
    border: 2px solid red;
