@@ -13,15 +13,33 @@ $(document).ready(function () {
   function renderTodos() {
     // Clear todoList element and update todoCountSpan
     todoList.html("");
-    todoCountSpan.text(todos.length);
+
+    if (todos.length > 1) {
+      todoCountSpan.text("("+todos.length+" Items)");
+    }
+    else if (todos.length === 1) {
+      todoCountSpan.text("("+todos.length+" Item)");
+    }
+    else if (todos.length < 1) {
+      todoCountSpan.text("");
+    }
+
+
+    // todoCountSpan.text(todos.length);
     // Render a new li for each todo
     for (var i = 0; i < todos.length; i++) {
       var todo = todos[i];
       var li = $("<li>");
+
+      var icon = $("<i>", {
+        class: "fa-solid fa-delete-left"
+      })
+
       var completeBtn = $("<button>");
       li.attr("data-index", i);
       li.text(todo);
-      completeBtn.text("Complete");
+      // completeBtn.text("Complete");
+      icon.appendTo(completeBtn)
       completeBtn.attr("id", "completeBtn");
       li.append(completeBtn);
       todoList.append(li);
@@ -30,7 +48,7 @@ $(document).ready(function () {
 
   todoList.on("click", function (event) {
     var buttonEl = $(event.target);
-    if (buttonEl.is("button")) {
+    if (buttonEl.is("i")) {
       var parentEl = buttonEl.parent();
       var indexOfEl = parentEl.data("index");
       todos.splice(indexOfEl, 1);
