@@ -123,6 +123,7 @@ function showMeditationNewsOption() {
   }).then((result) => {
     if (result.isConfirmed) {
       //Show Meditation Modal
+      intervalPaused = true;
       $("#showMeditationButton").trigger("click");
     } else if (result.isDenied) {
       //Show News Panel
@@ -130,6 +131,10 @@ function showMeditationNewsOption() {
     }
   })
 }
+
+$('#showMeditationButton').on('click', function() {
+  intervalPaused = true;
+});
 
 //short break original code
 function shortBreakStart() {
