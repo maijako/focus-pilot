@@ -339,7 +339,7 @@ function createNewsCards(newsImageURL, newsImageALT, newsTitle, newsDescription,
   })
 
   let cardFooterText = $("<p>", {
-    class: "card-text text-muted"
+    class: "card-text text-muted news-date"
   })
 
   cardImg.attr("src", newsImageURL)
