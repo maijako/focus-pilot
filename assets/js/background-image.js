@@ -39,6 +39,8 @@ $.ajax({
 
 });
 
+
+
 var i = 0;
 
 setInterval(() => {
@@ -76,20 +78,36 @@ function changeBackgroundImage(imageIndex) {
 
 function getPreviousImage() {
     if (imageList.length > 1) {
-        changeBackgroundImage(currentImageIndex - 1)
+        if (currentImageIndex === 0) {
+            changeBackgroundImage(imageList.length-1)
+            currentImageIndex = imageList.length-1
+        }
+        else {
+            changeBackgroundImage(currentImageIndex - 1)
+        }
     }
+    
 }
 
 function getNextImage() {
     if (imageList.length > 1) {
-        changeBackgroundImage(currentImageIndex + 1)
+        if (typeof imageList[currentImageIndex + 1] === 'undefined') {
+            // does not exist
+            changeBackgroundImage(0)
+            currentImageIndex = 0
+        }
+        else {
+            //exist
+            changeBackgroundImage(currentImageIndex + 1)
+        }
+
     }
 }
 
-$("#background-control-next").on("click", function(){
+$("#background-control-next").on("click", function () {
     getNextImage()
 })
 
-$("#background-control-previous").on("click", function(){
+$("#background-control-previous").on("click", function () {
     getPreviousImage()
 })
