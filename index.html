@@ -92,7 +92,8 @@
 
                     </form>
                     <div class="col-12 mt-4">
-                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">To-Do <span id="todo-count"></span></h5>
+                        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">To-Do <span id="todo-count"></span>
+                        </h5>
 
                         <hr class="mt-1 mb-0">
                         <small class="text-muted">Add tasks you'd like to complete here</small>
@@ -102,7 +103,8 @@
                         <!-- TODOS CONTAINER STARTS HERE -->
                         <div class="todos">
                             <form id="todo-form" class="mt-2 input-group">
-                                <input type="text" placeholder="Add a task" class="form-control" name="todo-text" id="todo-text" />
+                                <input type="text" placeholder="Add a task" class="form-control" name="todo-text"
+                                    id="todo-text" />
                                 <button type="submit" class="btn btn-dark">Add</button>
                             </form>
 
@@ -320,13 +322,21 @@
 
 
         </div>
-        <div data-bs-toggle="tooltip" data-bs-placement="top" title="Image By"
-            class="position-absolute bottom-0 start-50 translate-middle-x" id="copyright-footer">
+        <div class="row position-absolute bottom-0 start-50 translate-middle-x" id="footer">
+           
+                <i style="font-size: 8px" id="background-control-previous" data-bs-toggle="tooltip" data-bs-placement="top" title="Previous Image" class="col-3 fa-solid fa-arrow-left background-control-btn"></i>
+                <div class="col-6 text-center" data-bs-toggle="tooltip" data-bs-placement="top" title="Image By" id="copyright-footer">
 
-            <p id="imageByUsername">Ingrid Koe</p>
-
-
+                    <p id="imageByUsername">Ingrid Koe</p>
+    
+    
+                </div>
+                <i data-bs-toggle="tooltip" id="background-control-next" data-bs-placement="top" title="Next Image" class="col-3 fa-solid fa-arrow-right background-control-btn"></i>
+           
+           
+          
         </div>
+
 
         <!-- Modal For Meditation Suggestion -->
 

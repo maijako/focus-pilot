@@ -6,6 +6,7 @@ var mainBackgroundEl = $('#main-background');
 var imageList = [];
 var currentImageIndex = 0
 let halfHourInterval = 60000 * 30;
+// let halfHourInterval = 5000;
 
 let imageByUsername = $("#imageByUsername")
 
@@ -42,7 +43,7 @@ var i = 0;
 
 setInterval(() => {
 
-    changeImage(i)
+    changeBackgroundImage(i)
 
     i++;
     // console.log("Image List Length: " + imageList.length);
@@ -79,8 +80,16 @@ function getPreviousImage() {
     }
 }
 
-function getPreviousImage() {
+function getNextImage() {
     if (imageList.length > 1) {
         changeBackgroundImage(currentImageIndex + 1)
     }
 }
+
+$("#background-control-next").on("click", function(){
+    getNextImage()
+})
+
+$("#background-control-previous").on("click", function(){
+    getPreviousImage()
+})

@@ -80,10 +80,10 @@ pomodoroTimerLongBreak.on("focusout", function (){
 
 
 $("document").ready(function () {
-  Toast.fire({
-    icon: 'info',
-    title: 'Click on the background to hide or show settings.'
-  })
+  // Toast.fire({
+  //   icon: 'info',
+  //   title: 'Click on the background to hide or show settings.'
+  // })
 
 });
 
