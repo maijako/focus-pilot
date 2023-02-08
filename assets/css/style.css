@@ -153,6 +153,17 @@ iframe {
    overflow-x: hidden !important;
 }
 
+#showMeditationButton {
+   border-radius: 0px 20px 20px 0px !important;
+    background-color: #0080006e;
+    color: white;
+    border: 0px solid black;
+}
+
+.additionalTimerInfo-break {
+   border-radius: 20px 0px 0px 20px !important;
+}
+
 
 #main-background {
    background-image: url(https://images.unsplash.com/photo-1617709612173-d820eb8b862f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1563&q=80);
@@ -491,10 +502,14 @@ p.forecastTemp {
    font-family: 'Montserrat', sans-serif;
 }
 
-#countdownTimerContainer :hover{
+/* #countdownTimerContainer :hover{
    transform: scale(1.025);
    cursor: pointer;
    transition: transform .2s;
+} */
+
+.pointerClass {
+   cursor: pointer;
 }
 
 /* ******************************************** */
