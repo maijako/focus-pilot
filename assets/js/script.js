@@ -84,7 +84,6 @@ $("document").ready(function () {
     icon: 'info',
     title: 'Click on the background to hide or show settings.'
   })
-
 });
 
 
