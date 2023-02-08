@@ -224,10 +224,10 @@ ul {
 
  #completeBtn {
    background-color: rgba(169, 169, 169, 0);
-   opacity: 0.6;
+   opacity: 0.3;
    border: none;
    border-radius: 5px;
-   font-size: 5px !important;
+   /* font-size: 5px !important; */
  }
 
  #completeBtn:hover {

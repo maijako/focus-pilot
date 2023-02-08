@@ -35,10 +35,18 @@ $(document).ready(function () {
         class: "fa-solid fa-delete-left"
       })
 
+      icon.attr("data-index", i);
       var completeBtn = $("<button>");
       li.attr("data-index", i);
       li.text(todo);
-      // completeBtn.text("Complete");
+      
+      icon.on("click", function (event) {
+          var indexOfEl = $(this).data("index");
+          todos.splice(indexOfEl, 1);
+          storeTodos();
+          renderTodos();
+      });
+
       icon.appendTo(completeBtn)
       completeBtn.attr("id", "completeBtn");
       li.append(completeBtn);
@@ -46,16 +54,7 @@ $(document).ready(function () {
     }
   }
 
-  todoList.on("click", function (event) {
-    var buttonEl = $(event.target);
-    if (buttonEl.is("i")) {
-      var parentEl = buttonEl.parent();
-      var indexOfEl = parentEl.data("index");
-      todos.splice(indexOfEl, 1);
-      storeTodos();
-      renderTodos();
-    }
-  });
+ 
   //an event to add a todo item on pressing Enter
   todoForm.on("submit", function (event) {
     event.preventDefault();
