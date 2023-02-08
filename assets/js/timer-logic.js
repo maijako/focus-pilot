@@ -132,6 +132,7 @@ function showMeditationNewsOption() {
   })
 }
 
+// Pausing the timer when meditation button is clicked.
 $('#showMeditationButton').on('click', function() {
   intervalPaused = true;
 });
@@ -170,49 +171,6 @@ function shortBreakStart() {
     }
   }, interval);
 }
-
-
-//short break attempted code with toggle button
-// function shortBreakStart() {
-//   if (!preventAutoBreak) { 
-//     shortBreakToggled();
-//   } else if (workDuration.asMilliseconds() < 0) {
-//     $("#additionalTimerInfo").click(function(){
-//       // preventAutoBreak = false;
-//       shortBreakToggled();
-//       preventAutoBreak = true;
-//     });
-//   }
-
-//   function shortBreakToggled() {
-//     timeContainer.removeClass("studyColour");
-//     timeContainer.addClass("shortBColour");
-//     timeContainer.removeClass("longBColour");
-
-//     shortBreakDuration = moment.duration(shortBreak, "minutes");
-//     console.log("short break");
-//     shortBreakInterval = setInterval(function() {
-//       if (!intervalPaused) {
-//         shortBreakDuration = moment.duration(
-//           shortBreakDuration.asMilliseconds() - interval,
-//           "milliseconds"
-//         );
-//       }
-//       displayTime(shortBreakDuration, "Work (" + workMinutes + " min)");
-//   // Playing an audio notification for the last 5 seconds of the time block.
-//       if (shortBreakDuration.asMilliseconds() <= 5000 && shortBreakDuration.asMilliseconds() >= 4000) {
-//         endTimeAudio.play();
-//       }
-
-//       if (shortBreakDuration.asMilliseconds() < 0) {
-//         clearInterval(shortBreakInterval);
-//         if (!preventAutoWork) { //if condition is met (the toggle button is not on), then the function will run automatically
-//           startPomodoroInterval();
-//         }
-//       }
-//     }, interval);
-//   }
-// }
 
 //long break
 function longBreakStart() {
