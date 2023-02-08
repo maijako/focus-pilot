@@ -90,7 +90,8 @@ $('#closeButton').on('click', function(){
     if(currentAudio!=undefined && timerInterval!=undefined) {
         stopaudio();
         meditationHomeScreen();
-    }   
+    }
+    intervalPaused = false;   
 })
 
 function meditationHomeScreen() {
