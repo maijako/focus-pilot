@@ -3,6 +3,7 @@ var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
+var isTimerActive = false;
 
 var timeDisplay = $("#countdownTimer");
 var timeContainer = $('#countdownTimerContainer')

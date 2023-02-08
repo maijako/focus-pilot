@@ -192,41 +192,35 @@ iframe {
 
 /* To Do Section Styling */
 #todo-text {
-   padding: 10px;
+   /* padding: 10px;
    border: none;
    background-color: #ffdfb0;
-   border-radius: 20px;
+   border-radius: 20px; */
 }
 
 /*list in todo section styling */
 ul {
    list-style-type: none;
-   display: inline;
+   padding-inline-start: 0px !important;
+   padding-top: 10px;
+   /* display: inline; */
  }
 
  li {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   border-radius: 10px;
-   height: 50px;
-   margin-top: 5px;
-   margin-bottom: 5px;
-   padding: 5px 10px;
-   background: repeating-linear-gradient(35deg, #343c8c, #515edb 40px);
-   font-weight: bold;
-   letter-spacing: 0.1em;
-   color: white;
-   font-size: 1.5em;
+   border-bottom: 2px solid rgba(93, 87, 87, 0.135);
+   padding: 2px 5px;
+   color: rgba(37, 36, 36, 0.845);
    line-height: 2;
  }
 
  #completeBtn {
-   background-color: #dbdb00;
+   background-color: rgba(169, 169, 169, 0);
    opacity: 0.3;
    border: none;
-   border-radius: 20px;
-   font-size: medium;
+   border-radius: 5px;
  }
 
  #completeBtn:hover {
