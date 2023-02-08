@@ -4,7 +4,8 @@ let queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_pa
 
 var mainBackgroundEl = $('#main-background');
 var imageList = [];
-let halfHourInterval = 60000*30;
+var currentImageIndex = 0
+let halfHourInterval = 60000 * 30;
 
 let imageByUsername = $("#imageByUsername")
 
@@ -41,7 +42,20 @@ var i = 0;
 
 setInterval(() => {
 
-    let imgObj = imageList[i];
+    changeImage(i)
+
+    i++;
+    // console.log("Image List Length: " + imageList.length);
+    if (imageList.length === i) {
+        i = 0;
+    }
+
+}, halfHourInterval);
+
+
+function changeBackgroundImage(imageIndex) {
+    let imgObj = imageList[imageIndex];
+    currentImageIndex = imageIndex;
     //Fade out animation added to smoothen the changing process.
     $("#copyright-footer").fadeOut("slow")
     mainBackgroundEl.fadeOut("slow", function () {
@@ -56,11 +70,17 @@ setInterval(() => {
 
     });
 
-    i++;
-    // console.log("Image List Length: " + imageList.length);
-    if (imageList.length === i) {
-        i = 0;
+
+}
+
+function getPreviousImage() {
+    if (imageList.length > 1) {
+        changeBackgroundImage(currentImageIndex - 1)
     }
+}
 
-
-}, halfHourInterval);
+function getPreviousImage() {
+    if (imageList.length > 1) {
+        changeBackgroundImage(currentImageIndex + 1)
+    }
+}
