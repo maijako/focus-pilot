@@ -194,7 +194,7 @@ i.col-3.fa-solid.fa-arrow-left {
 }
 
 .background-control-btn {
-   opacity: 0;
+   opacity: 0.1;
 }
 
 .background-control-btn:hover {
