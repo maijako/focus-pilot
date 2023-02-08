@@ -4,7 +4,9 @@ let queryURL = "https://api.unsplash.com/search/collections/?query=nature&per_pa
 
 var mainBackgroundEl = $('#main-background');
 var imageList = [];
-let halfHourInterval = 60000*30;
+var currentImageIndex = 0
+let halfHourInterval = 60000 * 30;
+// let halfHourInterval = 5000;
 
 let imageByUsername = $("#imageByUsername")
 
@@ -37,11 +39,26 @@ $.ajax({
 
 });
 
+
+
 var i = 0;
 
 setInterval(() => {
 
-    let imgObj = imageList[i];
+    changeBackgroundImage(i)
+
+    i++;
+    // console.log("Image List Length: " + imageList.length);
+    if (imageList.length === i) {
+        i = 0;
+    }
+
+}, halfHourInterval);
+
+
+function changeBackgroundImage(imageIndex) {
+    let imgObj = imageList[imageIndex];
+    currentImageIndex = imageIndex;
     //Fade out animation added to smoothen the changing process.
     $("#copyright-footer").fadeOut("slow")
     mainBackgroundEl.fadeOut("slow", function () {
@@ -56,11 +73,41 @@ setInterval(() => {
 
     });
 
-    i++;
-    // console.log("Image List Length: " + imageList.length);
-    if (imageList.length === i) {
-        i = 0;
+
+}
+
+function getPreviousImage() {
+    if (imageList.length > 1) {
+        if (currentImageIndex === 0) {
+            changeBackgroundImage(imageList.length-1)
+            currentImageIndex = imageList.length-1
+        }
+        else {
+            changeBackgroundImage(currentImageIndex - 1)
+        }
     }
+    
+}
 
+function getNextImage() {
+    if (imageList.length > 1) {
+        if (typeof imageList[currentImageIndex + 1] === 'undefined') {
+            // does not exist
+            changeBackgroundImage(0)
+            currentImageIndex = 0
+        }
+        else {
+            //exist
+            changeBackgroundImage(currentImageIndex + 1)
+        }
 
-}, halfHourInterval);
+    }
+}
+
+$("#background-control-next").on("click", function () {
+    getNextImage()
+})
+
+$("#background-control-previous").on("click", function () {
+    getPreviousImage()
+})
