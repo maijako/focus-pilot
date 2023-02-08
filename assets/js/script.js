@@ -3,6 +3,7 @@ var preventAutoBreak = false; //break will autostart by default
 var preventAutoWork = false; //work will autostart by default
 const GNewsAPIKey = "b57b45fb4408a8874beaaa42ce3ad131"
 let isRightPanelVisible = false;
+var isTimerActive = false;
 
 const Toast = Swal.mixin({
   toast: true,
@@ -16,27 +17,27 @@ let pomodoroTimerWorkTime = $("#pomodoroTimer")
 let pomodoroTimerShortBreak = $("#shortBreak")
 let pomodoroTimerLongBreak = $("#longBreak")
 
-pomodoroTimerWorkTime.on("focusin", function(){
-  showTimerInfo()
-})
+// pomodoroTimerWorkTime.on("focusin", function(){
+//   showTimerInfo()
+// })
 
-pomodoroTimerShortBreak.on("focusin", function(){
-  showTimerInfo()
-})
-
-
-pomodoroTimerLongBreak.on("focusin", function(){
-  showTimerInfo()
-})
+// pomodoroTimerShortBreak.on("focusin", function(){
+//   showTimerInfo()
+// })
 
 
-function showTimerInfo(){
-  $("#timerInfo").removeClass("d-none");
-}
+// pomodoroTimerLongBreak.on("focusin", function(){
+//   // showTimerInfo()
+// })
 
-function hideTimerInfo(){
-  $("#timerInfo").addClass("d-none");
-}
+
+// function showTimerInfo(){
+//   $("#timerInfo").removeClass("d-none");
+// }
+
+// function hideTimerInfo(){
+//   $("#timerInfo").addClass("d-none");
+// }
 
 pomodoroTimerWorkTime.on("focusout", function (){
   
@@ -48,7 +49,7 @@ pomodoroTimerWorkTime.on("focusout", function (){
   else if(pomodoroTimerWorkTime.val() > 60){
     pomodoroTimerWorkTime.val(60)
   }
-  hideTimerInfo()
+  // hideTimerInfo()
 })
 
 pomodoroTimerShortBreak.on("focusout", function (){
@@ -60,7 +61,7 @@ pomodoroTimerShortBreak.on("focusout", function (){
   else if(pomodoroTimerShortBreak.val() > 30){
     pomodoroTimerShortBreak.val(30)
   }
-  hideTimerInfo()
+  // hideTimerInfo()
 })
 
 
@@ -74,7 +75,7 @@ pomodoroTimerLongBreak.on("focusout", function (){
   else if(pomodoroTimerLongBreak.val() > 60){
     pomodoroTimerLongBreak.val(60)
   }
-  hideTimerInfo()
+  // hideTimerInfo()
 })
 
 
@@ -166,7 +167,7 @@ $("#startPomodoroTimer").on("click", function () {
       if (result.isConfirmed) {
 
         //PLACE CANCEL TIMER FUNCTION HERE!
-
+        isTimerActive = false;
         clearInterval(pomodoroInterval);
         clearInterval(shortBreakInterval);
         clearInterval(longBreakInterval);
@@ -187,6 +188,7 @@ $("#startPomodoroTimer").on("click", function () {
   }
   else if ($(this).text() === "Start") {
 
+    isTimerActive = true;
     $("#leftPanelCloseButton").trigger("click");
 
     //Hide weather information.
@@ -264,7 +266,10 @@ $("#fullScreenButton").click(function () {
 
 //Show Elements.
 function showElements() {
-  $("#weatherContainer").fadeTo("slow", 1.0)
+  if (!isTimerActive) {
+    $("#weatherContainer").fadeTo("slow", 1.0)
+  }
+  
 
   $(".navbar-brand").fadeTo("slow", 1.0)
 
@@ -273,7 +278,13 @@ function showElements() {
 
 //Fade Elements
 function fadeElements() {
-  $("#weatherContainer").fadeTo("slow", 0.4)
+  if (!isTimerActive) {
+    $("#weatherContainer").fadeTo("slow", 0.4)
+  }
+  else{
+    //Do nothing
+  }
+  
 
   $(".navbar-brand").fadeTo("slow", 0.4)
 

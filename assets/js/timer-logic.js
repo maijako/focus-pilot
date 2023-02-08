@@ -3,7 +3,7 @@ var countIntervals = 0;
 var workDuration, shortBreakDuration, longBreakDuration, interval;
 var pomodoroInterval, longBreakInterval, shortBreakInterval;
 var intervalPaused;
-var isTimerActive = false;
+
 
 var timeDisplay = $("#countdownTimer");
 var timeContainer = $('#countdownTimerContainer')
@@ -42,8 +42,6 @@ function displayTime(duration, text) {
 
 //main Pomodoro
 function startPomodoroInterval() {
-
-
   timeContainer.addClass('studyColour');
   timeContainer.removeClass('shortBColour');
   timeContainer.removeClass('longBColour');
@@ -74,16 +72,22 @@ function startPomodoroInterval() {
       console.log("Pomodoro nr " + countIntervals);
       if (countIntervals < 4) {
         if (!preventAutoBreak) {
+          additionalTimeEl.removeClass("pointerClass")
           shortBreakStart();
         } else {
           additionalTimeEl.attr('data-next-timeblock', 'sb');
+         
+          additionalTimeEl.addClass("pointerClass")
         }
       } else if (countIntervals === 4) {
         if (!preventAutoBreak) {
+          additionalTimeEl.removeClass("pointerClass")
           longBreakStart();
         } else {
           console.log("long break*************");
           additionalTimeEl.attr('data-next-timeblock', 'lb');
+          
+          additionalTimeEl.addClass("pointerClass")
         }
 
       }
@@ -143,6 +147,8 @@ function shortBreakStart() {
   timeContainer.addClass('shortBColour');
   timeContainer.removeClass('longBColour');
 
+  setTwoButtons()
+
   //Show the user a modal to choose between meditation and the news.
   showMeditationNewsOption()
 
@@ -160,6 +166,7 @@ function shortBreakStart() {
     }
 
     if (shortBreakDuration.asMilliseconds() < 0) {
+      setOneButtons()
       clearInterval(shortBreakInterval);
 
       if (!preventAutoWork) { //function to run only if prevent autostart is not toggled on
@@ -170,6 +177,26 @@ function shortBreakStart() {
 
     }
   }, interval);
+}
+
+function setTwoButtons(){
+  $("#additionalTimerInfo").removeClass("col-12")
+  $("#additionalTimerInfo").addClass("col-6")
+  $("#additionalTimerInfo").addClass("additionalTimerInfo-break")
+
+
+  $("#showMeditationButton").addClass("col-6")
+  $("#showMeditationButton").removeClass("d-none")
+}
+
+function setOneButtons(){
+  $("#additionalTimerInfo").removeClass("col-6")
+  $("#additionalTimerInfo").addClass("col-12")
+  $("#additionalTimerInfo").removeClass("additionalTimerInfo-break")
+
+
+  $("#showMeditationButton").removeClass("col-6")
+  $("#showMeditationButton").addClass("d-none")
 }
 
 //long break
