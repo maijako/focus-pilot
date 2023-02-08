@@ -211,16 +211,8 @@ ul {
    justify-content: space-between;
    align-items: center;
    border-bottom: 2px solid rgba(93, 87, 87, 0.135);
-   /* border-radius: 10px; */
-   /* height: 50px; */
-   /* margin-top: 5px; */
-   /* margin-bottom: 5px; */
    padding: 2px 5px;
-   /* background: rgba(255, 255, 255, 0.607); */
-   /* font-weight: bold; */
-   /* letter-spacing: 0.1em; */
    color: rgba(37, 36, 36, 0.845);
-   /* font-size: 1.5em; */
    line-height: 2;
  }
 
@@ -229,7 +221,6 @@ ul {
    opacity: 0.3;
    border: none;
    border-radius: 5px;
-   /* font-size: 5px !important; */
  }
 
  #completeBtn:hover {
