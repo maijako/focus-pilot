@@ -201,14 +201,16 @@ iframe {
 /*list in todo section styling */
 ul {
    list-style-type: none;
-   display: inline;
+   padding-inline-start: 0px !important;
+   padding-top: 10px;
+   /* display: inline; */
  }
 
  li {
    display: flex;
    justify-content: space-between;
    align-items: center;
-   border-bottom: 1px solid rgba(93, 87, 87, 0.511);
+   border-bottom: 2px solid rgba(93, 87, 87, 0.135);
    /* border-radius: 10px; */
    /* height: 50px; */
    /* margin-top: 5px; */
