@@ -49,6 +49,12 @@ The development team are:
 * [Jayashree Karthikeyan](https://github.com/JayaPK21)
 * [Maija Kozlova](https://github.com/maijako)
 
+The meditation audio files were taken from the [UCLA Health website](https://www.uclahealth.org/programs/marc/free-guided-meditations/guided-meditations).
+
+
+All the icons used in the meditation feature of the application was taken from the [Icons8](https://icons8.com) website.
+
+The background weather display images were taken from [Freepik](https://www.freepik.com/) website.
 
 ## Licence
 
