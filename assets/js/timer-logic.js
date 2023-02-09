@@ -49,7 +49,7 @@ function startPomodoroInterval() {
   workDuration = moment.duration(workMinutes, 'minutes');
   console.log("Work Duration: " + workDuration);
   pomodoroInterval = setInterval(function () {
-
+    additionalTimeEl.removeClass("pointerClass");
     if (!intervalPaused) {
       workDuration = moment.duration(workDuration.asMilliseconds() - interval, 'milliseconds');
     }
@@ -72,7 +72,7 @@ function startPomodoroInterval() {
       console.log("Pomodoro nr " + countIntervals);
       if (countIntervals < 4) {
         if (!preventAutoBreak) {
-          additionalTimeEl.removeClass("pointerClass")
+          additionalTimeEl.removeClass("pointerClass");
           shortBreakStart();
         } else {
           additionalTimeEl.attr('data-next-timeblock', 'sb');
@@ -81,13 +81,13 @@ function startPomodoroInterval() {
         }
       } else if (countIntervals === 4) {
         if (!preventAutoBreak) {
-          additionalTimeEl.removeClass("pointerClass")
+          additionalTimeEl.removeClass("pointerClass");
           longBreakStart();
         } else {
           console.log("long break*************");
           additionalTimeEl.attr('data-next-timeblock', 'lb');
           
-          additionalTimeEl.addClass("pointerClass")
+          additionalTimeEl.addClass("pointerClass");
         }
 
       }
@@ -99,11 +99,14 @@ additionalTimeEl.click(function () {
   let nextTimeBlock = additionalTimeEl.attr('data-next-timeblock');
   if (nextTimeBlock === 'sb') {
     shortBreakStart();
+    additionalTimeEl.attr('data-next-timeblock', '');
   } else if (nextTimeBlock === 'lb') {
     console.log("Inside Long break block*********");
     longBreakStart();
+    additionalTimeEl.attr('data-next-timeblock', '');
   } else if (nextTimeBlock === 'work') {
     startPomodoroInterval();
+    additionalTimeEl.attr('data-next-timeblock', '');
   }
 });
 
@@ -155,6 +158,7 @@ function shortBreakStart() {
   shortBreakDuration = moment.duration(shortBreak, 'minutes');
   console.log("short break")
   shortBreakInterval = setInterval(function () {
+    additionalTimeEl.removeClass("pointerClass");
     if (!intervalPaused) {
       shortBreakDuration = moment.duration(shortBreakDuration.asMilliseconds() - interval, 'milliseconds');
     }
@@ -170,8 +174,10 @@ function shortBreakStart() {
       clearInterval(shortBreakInterval);
 
       if (!preventAutoWork) { //function to run only if prevent autostart is not toggled on
+        additionalTimeEl.removeClass("pointerClass");
         startPomodoroInterval();
       } else {
+        additionalTimeEl.addClass("pointerClass");
         additionalTimeEl.attr('data-next-timeblock', 'work');
       }
 
@@ -208,6 +214,7 @@ function longBreakStart() {
   console.log("long break");
 
   longBreakInterval = setInterval(function () {
+    additionalTimeEl.removeClass("pointerClass");
     if (!intervalPaused) {
       longBreakDuration = moment.duration(longBreakDuration.asMilliseconds() - interval, 'milliseconds');
     }
@@ -223,8 +230,10 @@ function longBreakStart() {
       //resetting pomodoro
       countIntervals = 0;
       if (!preventAutoWork) { //function to run only if prevent autostart is not toggled on
+        additionalTimeEl.removeClass("pointerClass");
         startPomodoroInterval();
       } else {
+        additionalTimeEl.addClass("pointerClass");
         additionalTimeEl.attr('data-next-timeblock', 'work');
       }
     }
