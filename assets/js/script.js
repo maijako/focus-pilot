@@ -181,6 +181,8 @@ $("#startPomodoroTimer").on("click", function () {
         $(this).text("Start")
         $(this).addClass("btn-dark");
 
+        setOneButtons();
+
       } else if (result.isDenied) {
         intervalPaused = false;
       }
