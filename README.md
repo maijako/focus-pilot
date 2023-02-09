@@ -35,8 +35,8 @@ The app can be used by anyone working on a task that requires a dedicated period
 ### Desktop UI:
 <img src="./assets/images/previews/Desktop-Demo.gif" alt="Desktop Demo Gif" width="900"/>
 
-<!-- ### Mobile UI:
-![Mobile gif](placeholder) -->
+### Mobile UI:
+<img src="./assets/images/previews/Mobile-Demo.gif" alt="Mobile Demo Gif" width="320"/>
 
 
 ## Credits
